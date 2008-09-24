@@ -3,7 +3,7 @@
 <head>
 <title>EXAMPLE</title>
 <body>
-${Sections.eBODY}
+Data read = ${Sections.eBODY}
 </body>
 </html>
 
