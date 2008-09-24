@@ -46,11 +46,7 @@ public final class Utils {
     StringBuffer err = new StringBuffer(msg);
     if (data != null) {
       if (data.ri != null) {
-        err.append(" (");
-        err.append(data.ri.getAppName());
-        err.append('/');
-        err.append(data.ri.getAppSection());
-        err.append(')');
+        err.append(" (").append(data.ri.getAppName()).append('/').append(data.ri.getAppSection()).append(')');
       }
     }
     if (fatal) {

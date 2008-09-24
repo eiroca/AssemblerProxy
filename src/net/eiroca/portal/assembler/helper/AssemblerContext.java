@@ -51,8 +51,6 @@ public final class AssemblerContext extends Context {
     try {
       InputStreamReader is = new InputStreamReader(propSrc.getInputStream());
       newConf = Assembler.unmarshal(is);
-      PrintWriter pw = new PrintWriter(System.out);
-      newConf.marshal(pw);
       assemblerConf = newConf;
     }
     catch (Exception ex) {

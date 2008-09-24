@@ -321,7 +321,7 @@ public class AssemblerManager {
         out.println(" " + nam + " = " + map.get(nam) + "<br/>");
       }
       out.println("</p>");
-      out.println("<p><b>Assembler Properties</b><br/>");
+      out.println("<p><b>Assembler properties</b><br/>");
       Assembler conf = context.getAssemblerConf();
       if (conf == null) {
         out.println("<b>MISSING</b><br/>");
@@ -334,12 +334,12 @@ public class AssemblerManager {
         for (int i = 0; i < apps.length; i++) {
           out.println("/" + apps[i].getID() + " = " + apps[i].getDisplayName() + "<br/>");
           for (int a = 0; a < apps[i].getSections().getSectionCount(); a++) {
-            out.println("Sezione: " + apps[i].getSections().getSection(a).getID() + " = " + apps[i].getSections().getSection(a) + "<br/>");
+            out.println("Section: " + apps[i].getSections().getSection(a).getID() + " = " + apps[i].getSections().getSection(a).isValid() + "<br/>");
           }
         }
       }
       out.println("</p>");
-      out.println("<p><b>Assembler Counters</b><br/>");
+      out.println("<p><b>Assembler counters</b><br/>");
       map = context.getCounters();
       iter = map.keySet().iterator();
       while (iter.hasNext()) {
