@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xsd:element name="Assembler">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Configuration">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="AdminConfig">
+                <xsd:complexType>
+                  <xsd:attribute name="AdminContext" type="xsd:string" use="required" />
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="AccessConfig">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="AccessDef" maxOccurs="unbounded">
+                      <xsd:complexType>
+                        <xsd:attribute name="ID" type="xsd:string" use="required" />
+                        <xsd:attribute name="forceSSO" type="xsd:boolean" use="required" />
+                        <xsd:attribute name="decode" type="xsd:boolean" use="required" />
+                        <xsd:attribute name="forceValid" type="xsd:boolean" use="required" />
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="CacheConfig" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="CacheDef" type="DelegateDefType" maxOccurs="unbounded" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="AuthenticationConfig" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="AuthenticationDef" type="DelegateDefType" maxOccurs="unbounded" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="ProcessorConfig" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="ProcessorDef" type="DelegateDefType" maxOccurs="unbounded" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="ExtractorConfig" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="ExtractorDef" type="DelegateDefType" maxOccurs="unbounded" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="SerializerConfig" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="SerializerDef" type="DelegateDefType" maxOccurs="unbounded" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="ScriptEngineConfig" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="ScriptEngineDef" type="DelegateDefType" maxOccurs="unbounded" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Applications">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element ref="Application" maxOccurs="unbounded" />
+            </xsd:sequence>
+            <xsd:attribute name="SesNameHTTPClients" type="xsd:string" use="required" />
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute name="Version" type="xsd:string" use="required" />
+      <xsd:attribute name="Description" type="xsd:string" use="optional" />
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Connection">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Cookie" minOccurs="0" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:attribute name="access" use="required">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:NMTOKEN">
+                  <xsd:enumeration value="GLOBAL" />
+                  <xsd:enumeration value="READONLY" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="srcName" type="xsd:string" use="required" />
+            <xsd:attribute name="endName" type="xsd:string" use="optional" />
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute name="ID" type="xsd:string" use="required" />
+      <xsd:attribute name="TimeOut" type="xsd:int" use="required" />
+      <xsd:attribute name="Username" type="xsd:string" use="optional" />
+      <xsd:attribute name="Password" type="xsd:string" use="optional" />
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Application">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Connections">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element ref="Connection" maxOccurs="unbounded" />
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="AuthenticationMode" minOccurs="0">
+          <xsd:complexType>
+            <xsd:attribute name="ConnectionID" type="xsd:string" use="required" />
+            <xsd:attribute name="AuthenticationID" type="xsd:string" use="required" />
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Sections">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="Section" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:choice>
+                      <xsd:element name="Script" minOccurs="0">
+                        <xsd:complexType>
+                          <xsd:sequence>
+                            <xsd:element name="ScriptConfig" type="ScriptConfigType" minOccurs="0" />
+                            <xsd:element name="ScriptCache" type="DelegateCallType" minOccurs="0" />
+                            <xsd:element name="PreProcessConfig" minOccurs="0">
+                              <xsd:complexType>
+                                <xsd:sequence>
+                                  <xsd:element name="ScriptPreProcessor" type="DelegateCallType" maxOccurs="unbounded" />
+                                </xsd:sequence>
+                              </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="Resource" type="ResourceType" maxOccurs="unbounded" />
+                            <xsd:element name="PostProcessConfig" minOccurs="0">
+                              <xsd:complexType>
+                                <xsd:sequence>
+                                  <xsd:element name="ScriptPostProcessor" type="DelegateCallType" maxOccurs="unbounded" />
+                                </xsd:sequence>
+                              </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="ScriptSerializer" type="DelegateCallType" minOccurs="0" />
+                          </xsd:sequence>
+                        </xsd:complexType>
+                      </xsd:element>
+                      <xsd:element name="Copy" type="ResourceType" minOccurs="0" />
+                    </xsd:choice>
+                    <xsd:choice>
+                      <xsd:element name="ErrorRedirect" minOccurs="0">
+                        <xsd:complexType>
+                          <xsd:attribute name="ErrorURL" type="xsd:anyURI" />
+                        </xsd:complexType>
+                      </xsd:element>
+                      <xsd:element name="ErrorScript" type="ScriptConfigType" minOccurs="0" />
+                    </xsd:choice>
+                  </xsd:sequence>
+                  <xsd:attribute name="ID" type="xsd:string" use="required" />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute name="ID" type="xsd:string" use="required" />
+      <xsd:attribute name="DisplayName" type="xsd:string" use="required" />
+      <xsd:attribute name="AuthHeaderPrefix" type="xsd:string" use="required" />
+      <xsd:attribute name="MonitorMode" use="required">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="WARNING" />
+            <xsd:enumeration value="ERROR" />
+            <xsd:enumeration value="CRITICAL" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="ScriptConfigType">
+    <xsd:attribute name="ScriptEngineID" type="xsd:string" use="required" />
+    <xsd:attribute name="ScriptPath" type="xsd:string" use="required" />
+  </xsd:complexType>
+  <xsd:complexType name="DelegateCallType">
+    <xsd:sequence>
+      <xsd:element name="CallParam" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:attribute name="name" type="xsd:string" use="required" />
+          <xsd:attribute name="value" type="xsd:string" use="optional" />
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="ID" type="xsd:string" use="required" />
+  </xsd:complexType>
+  <xsd:complexType name="DelegateDefType">
+    <xsd:sequence>
+      <xsd:element name="DefParam" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:attribute name="Name" type="xsd:string" use="required" />
+          <xsd:attribute name="Value" type="xsd:string" use="required" />
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="ID" type="xsd:string" use="required" />
+    <xsd:attribute name="ClassName" type="xsd:string" use="required" />
+  </xsd:complexType>
+  <xsd:complexType name="ResourceType">
+    <xsd:sequence>
+      <xsd:element name="ResourceCache" type="DelegateCallType" />
+      <xsd:element name="ResourceExtractor" type="DelegateCallType" />
+    </xsd:sequence>
+    <xsd:attribute name="URLMode" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:NMTOKEN">
+          <xsd:enumeration value="DIRECT" />
+          <xsd:enumeration value="PROCESS" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="URL" type="xsd:string" use="required" />
+    <xsd:attribute name="FollowRedirect" type="xsd:boolean" use="required" />
+    <xsd:attribute name="IgnoreError" type="xsd:boolean" use="required" />
+    <xsd:attribute name="ConnectionID" type="xsd:string" use="required" />
+  </xsd:complexType>
+</xsd:schema>

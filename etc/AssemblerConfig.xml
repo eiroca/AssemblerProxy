@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<Assembler xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="AssemblerConfig.xsd" Version="1.0" Description="test">
+  <Configuration>
+    <AdminConfig AdminContext="/AssemblerStatus/"/>
+    <AccessConfig>
+      <AccessDef ID="" forceSSO="false" decode="false" forceValid="false"/>
+      <AccessDef ID="Z" forceSSO="true" decode="true" forceValid="true"/>
+    </AccessConfig>
+    <CacheConfig>
+      <CacheDef ID="" ClassName="" />
+    </CacheConfig>
+    <AuthenticationConfig>
+      <AuthenticationDef ID="" ClassName="" />
+    </AuthenticationConfig>
+    <ProcessorConfig>
+      <ProcessorDef ID="" ClassName="" />
+    </ProcessorConfig>
+    <ExtractorConfig>
+      <ExtractorDef ID="BODY" ClassName="net.eiroca.portal.assembler.impl.BodyExtractor">
+        <DefParam Name="prefix" Value="e"/>
+      </ExtractorDef>
+      <ExtractorDef ID="COPY" ClassName="net.eiroca.portal.assembler.impl.CopyExtractor">
+        <DefParam Name="prefix" Value="e"/>
+      </ExtractorDef>
+      <ExtractorDef ID="TAG" ClassName="net.eiroca.portal.assembler.impl.TAGExtractor">
+        <DefParam Name="prefix" Value="e"/>
+      </ExtractorDef>
+    </ExtractorConfig>
+    <SerializerConfig>
+      <SerializerDef ID="" ClassName="" />
+    </SerializerConfig>
+    <ScriptEngineConfig>
+      <ScriptEngineDef ID="ENG1" ClassName="net.eiroca.portal.assembler.impl.FreeMarkerManager" />
+    </ScriptEngineConfig>
+  </Configuration>
+  <Applications SesNameHTTPClients="ses-Clients">
+    <Application ID="App1" DisplayName="Application One" AuthHeaderPrefix="X-AUTH-" MonitorMode="ERROR">
+      <Connections>
+        <Connection ID="A" TimeOut="1000"/>
+      </Connections>
+      <Sections>
+        <Section ID="S2">
+          <Copy URLMode="DIRECT" URL="http://localhost:8080/Assembler/app1.jsp" FollowRedirect="true" IgnoreError="true" ConnectionID="A">
+            <ResourceCache ID="R1"/>
+            <ResourceExtractor ID="BODY"/>
+          </Copy>
+        </Section>
+        <Section ID="S1">
+          <Script>
+            <ScriptConfig ScriptEngineID="ENG1" ScriptPath="base.ftl"/>
+            <ScriptCache ID="" />
+            <Resource URLMode="DIRECT" URL="http://localhost:8080/Assembler/app1.jsp" FollowRedirect="true" IgnoreError="true" ConnectionID="A">
+              <ResourceCache ID=""/>
+              <ResourceExtractor ID="BODY"/>
+            </Resource>
+          </Script>
+        </Section>
+      </Sections>
+    </Application>
+  </Applications>
+</Assembler>
