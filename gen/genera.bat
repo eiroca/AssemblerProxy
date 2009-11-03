@@ -1,0 +1,1 @@
+java -classpath castor-1.2-codegen.jar;castor-1.2.jar;castor-1.2-xml.jar;castor-1.2-xml-schema.jar;jta1.0.1.jar;g:\library\java\commons-logging-1.1\commons-logging-1.1.jar;G:\library\java\velocity-1.5\velocity-1.5.jar  org.exolab.castor.builder.SourceGeneratorMain -i AssemblerConfig.xsd -package net.eiroca.portal.assembler.gen

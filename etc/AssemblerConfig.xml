@@ -40,7 +40,7 @@
       </Connections>
       <Sections>
         <Section ID="S2">
-          <Copy URLMode="DIRECT" URL="http://localhost:8080/Assembler/source.jsp" FollowRedirect="true" IgnoreError="true" ConnectionID="A">
+          <Copy URLMode="DIRECT" URL="http://localhost:8080/AssemblerProxy/source.jsp" FollowRedirect="true" IgnoreError="true" ConnectionID="A">
             <ResourceCache ID="R1"/>
             <ResourceExtractor ID="BODY"/>
           </Copy>
@@ -49,7 +49,7 @@
           <Script>
             <ScriptConfig ScriptEngineID="ENG1" ScriptPath="base.ftl"/>
             <ScriptCache ID="" />
-            <Resource URLMode="DIRECT" URL="http://localhost:8080/Assembler/source.jsp" FollowRedirect="true" IgnoreError="true" ConnectionID="A">
+            <Resource URLMode="DIRECT" URL="http://localhost:8080/AssemblerProxy/source.jsp" FollowRedirect="true" IgnoreError="true" ConnectionID="A">
               <ResourceCache ID=""/>
               <ResourceExtractor ID="BODY"/>
             </Resource>
