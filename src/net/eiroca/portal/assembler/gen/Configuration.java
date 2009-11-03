@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class Configuration.
@@ -23,6 +24,11 @@ public class Configuration implements java.io.Serializable {
   //--------------------------/
   //- Class/Member Variables -/
   //--------------------------/
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   /**
    * Field _adminConfig.
@@ -83,7 +89,7 @@ public class Configuration implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.AccessConfig getAccessConfig(
       ) {
-    return this._accessConfig;
+    return _accessConfig;
   }
 
   /**
@@ -93,7 +99,7 @@ public class Configuration implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.AdminConfig getAdminConfig(
       ) {
-    return this._adminConfig;
+    return _adminConfig;
   }
 
   /**
@@ -103,7 +109,7 @@ public class Configuration implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.AuthenticationConfig getAuthenticationConfig(
       ) {
-    return this._authenticationConfig;
+    return _authenticationConfig;
   }
 
   /**
@@ -113,7 +119,7 @@ public class Configuration implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.CacheConfig getCacheConfig(
       ) {
-    return this._cacheConfig;
+    return _cacheConfig;
   }
 
   /**
@@ -123,7 +129,7 @@ public class Configuration implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ExtractorConfig getExtractorConfig(
       ) {
-    return this._extractorConfig;
+    return _extractorConfig;
   }
 
   /**
@@ -133,7 +139,7 @@ public class Configuration implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ProcessorConfig getProcessorConfig(
       ) {
-    return this._processorConfig;
+    return _processorConfig;
   }
 
   /**
@@ -143,7 +149,7 @@ public class Configuration implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ScriptEngineConfig getScriptEngineConfig(
       ) {
-    return this._scriptEngineConfig;
+    return _scriptEngineConfig;
   }
 
   /**
@@ -153,7 +159,7 @@ public class Configuration implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.SerializerConfig getSerializerConfig(
       ) {
-    return this._serializerConfig;
+    return _serializerConfig;
   }
 
   /**
@@ -166,7 +172,7 @@ public class Configuration implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -209,7 +215,7 @@ public class Configuration implements java.io.Serializable {
    */
   public void setAccessConfig(
       final net.eiroca.portal.assembler.gen.AccessConfig accessConfig) {
-    this._accessConfig = accessConfig;
+    _accessConfig = accessConfig;
   }
 
   /**
@@ -219,7 +225,7 @@ public class Configuration implements java.io.Serializable {
    */
   public void setAdminConfig(
       final net.eiroca.portal.assembler.gen.AdminConfig adminConfig) {
-    this._adminConfig = adminConfig;
+    _adminConfig = adminConfig;
   }
 
   /**
@@ -230,7 +236,7 @@ public class Configuration implements java.io.Serializable {
    */
   public void setAuthenticationConfig(
       final net.eiroca.portal.assembler.gen.AuthenticationConfig authenticationConfig) {
-    this._authenticationConfig = authenticationConfig;
+    _authenticationConfig = authenticationConfig;
   }
 
   /**
@@ -240,7 +246,7 @@ public class Configuration implements java.io.Serializable {
    */
   public void setCacheConfig(
       final net.eiroca.portal.assembler.gen.CacheConfig cacheConfig) {
-    this._cacheConfig = cacheConfig;
+    _cacheConfig = cacheConfig;
   }
 
   /**
@@ -250,7 +256,7 @@ public class Configuration implements java.io.Serializable {
    */
   public void setExtractorConfig(
       final net.eiroca.portal.assembler.gen.ExtractorConfig extractorConfig) {
-    this._extractorConfig = extractorConfig;
+    _extractorConfig = extractorConfig;
   }
 
   /**
@@ -260,7 +266,7 @@ public class Configuration implements java.io.Serializable {
    */
   public void setProcessorConfig(
       final net.eiroca.portal.assembler.gen.ProcessorConfig processorConfig) {
-    this._processorConfig = processorConfig;
+    _processorConfig = processorConfig;
   }
 
   /**
@@ -271,7 +277,7 @@ public class Configuration implements java.io.Serializable {
    */
   public void setScriptEngineConfig(
       final net.eiroca.portal.assembler.gen.ScriptEngineConfig scriptEngineConfig) {
-    this._scriptEngineConfig = scriptEngineConfig;
+    _scriptEngineConfig = scriptEngineConfig;
   }
 
   /**
@@ -281,7 +287,7 @@ public class Configuration implements java.io.Serializable {
    */
   public void setSerializerConfig(
       final net.eiroca.portal.assembler.gen.SerializerConfig serializerConfig) {
-    this._serializerConfig = serializerConfig;
+    _serializerConfig = serializerConfig;
   }
 
   /**
@@ -308,7 +314,7 @@ public class Configuration implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

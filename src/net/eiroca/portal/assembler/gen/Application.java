@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class Application.
@@ -23,6 +24,11 @@ public class Application implements java.io.Serializable {
   //--------------------------/
   //- Class/Member Variables -/
   //--------------------------/
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   /**
    * Field _ID.
@@ -78,7 +84,7 @@ public class Application implements java.io.Serializable {
    */
   public java.lang.String getAuthHeaderPrefix(
       ) {
-    return this._authHeaderPrefix;
+    return _authHeaderPrefix;
   }
 
   /**
@@ -88,7 +94,7 @@ public class Application implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.AuthenticationMode getAuthenticationMode(
       ) {
-    return this._authenticationMode;
+    return _authenticationMode;
   }
 
   /**
@@ -98,7 +104,7 @@ public class Application implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Connections getConnections(
       ) {
-    return this._connections;
+    return _connections;
   }
 
   /**
@@ -108,7 +114,7 @@ public class Application implements java.io.Serializable {
    */
   public java.lang.String getDisplayName(
       ) {
-    return this._displayName;
+    return _displayName;
   }
 
   /**
@@ -118,7 +124,7 @@ public class Application implements java.io.Serializable {
    */
   public java.lang.String getID(
       ) {
-    return this._ID;
+    return _ID;
   }
 
   /**
@@ -128,7 +134,7 @@ public class Application implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.types.ApplicationMonitorModeType getMonitorMode(
       ) {
-    return this._monitorMode;
+    return _monitorMode;
   }
 
   /**
@@ -138,7 +144,7 @@ public class Application implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Sections getSections(
       ) {
-    return this._sections;
+    return _sections;
   }
 
   /**
@@ -151,7 +157,7 @@ public class Application implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -194,7 +200,7 @@ public class Application implements java.io.Serializable {
    */
   public void setAuthHeaderPrefix(
       final java.lang.String authHeaderPrefix) {
-    this._authHeaderPrefix = authHeaderPrefix;
+    _authHeaderPrefix = authHeaderPrefix;
   }
 
   /**
@@ -205,7 +211,7 @@ public class Application implements java.io.Serializable {
    */
   public void setAuthenticationMode(
       final net.eiroca.portal.assembler.gen.AuthenticationMode authenticationMode) {
-    this._authenticationMode = authenticationMode;
+    _authenticationMode = authenticationMode;
   }
 
   /**
@@ -215,7 +221,7 @@ public class Application implements java.io.Serializable {
    */
   public void setConnections(
       final net.eiroca.portal.assembler.gen.Connections connections) {
-    this._connections = connections;
+    _connections = connections;
   }
 
   /**
@@ -225,7 +231,7 @@ public class Application implements java.io.Serializable {
    */
   public void setDisplayName(
       final java.lang.String displayName) {
-    this._displayName = displayName;
+    _displayName = displayName;
   }
 
   /**
@@ -235,7 +241,7 @@ public class Application implements java.io.Serializable {
    */
   public void setID(
       final java.lang.String ID) {
-    this._ID = ID;
+    _ID = ID;
   }
 
   /**
@@ -245,7 +251,7 @@ public class Application implements java.io.Serializable {
    */
   public void setMonitorMode(
       final net.eiroca.portal.assembler.gen.types.ApplicationMonitorModeType monitorMode) {
-    this._monitorMode = monitorMode;
+    _monitorMode = monitorMode;
   }
 
   /**
@@ -255,7 +261,7 @@ public class Application implements java.io.Serializable {
    */
   public void setSections(
       final net.eiroca.portal.assembler.gen.Sections sections) {
-    this._sections = sections;
+    _sections = sections;
   }
 
   /**
@@ -282,7 +288,7 @@ public class Application implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

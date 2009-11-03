@@ -16,9 +16,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.util;
 
-import java.util.*;
-
-import net.eiroca.portal.assembler.helper.*;
+import java.util.HashMap;
+import net.eiroca.portal.assembler.helper.AssemblerContext;
 
 public class APIClass {
 
@@ -27,8 +26,8 @@ public class APIClass {
   public APIClass() {
   }
 
-  protected String getStr(HashMap p, String param, String def) {
-    String tmp = (String)p.get(param);
+  protected String getStr(final HashMap p, final String param, final String def) {
+    final String tmp = (String)p.get(param);
     if (tmp == null) {
       return def;
     }
@@ -37,8 +36,8 @@ public class APIClass {
     }
   }
 
-  protected String getStr(HashMap p, String param) {
-    String tmp = (String)p.get(param);
+  protected String getStr(final HashMap p, final String param) {
+    final String tmp = (String)p.get(param);
     if (tmp == null) {
       context.error(getClass().getName(), "Invalid Definition (Missing " + param + " param)", null);
       return null;

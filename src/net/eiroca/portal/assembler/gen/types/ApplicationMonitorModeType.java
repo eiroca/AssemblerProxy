@@ -11,7 +11,7 @@ package net.eiroca.portal.assembler.gen.types;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import java.util.*;
+import java.util.Hashtable;
 
 /**
  * Class ApplicationMonitorModeType.
@@ -25,6 +25,11 @@ public class ApplicationMonitorModeType implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
    * The WARNING type
    */
   public static final int WARNING_TYPE = 0;
@@ -32,7 +37,7 @@ public class ApplicationMonitorModeType implements java.io.Serializable {
   /**
    * The instance of the WARNING type
    */
-  public static final ApplicationMonitorModeType WARNING = new ApplicationMonitorModeType(WARNING_TYPE, "WARNING");
+  public static final ApplicationMonitorModeType WARNING = new ApplicationMonitorModeType(ApplicationMonitorModeType.WARNING_TYPE, "WARNING");
 
   /**
    * The ERROR type
@@ -42,7 +47,7 @@ public class ApplicationMonitorModeType implements java.io.Serializable {
   /**
    * The instance of the ERROR type
    */
-  public static final ApplicationMonitorModeType ERROR = new ApplicationMonitorModeType(ERROR_TYPE, "ERROR");
+  public static final ApplicationMonitorModeType ERROR = new ApplicationMonitorModeType(ApplicationMonitorModeType.ERROR_TYPE, "ERROR");
 
   /**
    * The CRITICAL type
@@ -52,12 +57,12 @@ public class ApplicationMonitorModeType implements java.io.Serializable {
   /**
    * The instance of the CRITICAL type
    */
-  public static final ApplicationMonitorModeType CRITICAL = new ApplicationMonitorModeType(CRITICAL_TYPE, "CRITICAL");
+  public static final ApplicationMonitorModeType CRITICAL = new ApplicationMonitorModeType(ApplicationMonitorModeType.CRITICAL_TYPE, "CRITICAL");
 
   /**
    * Field _memberTable.
    */
-  private static java.util.Hashtable _memberTable = init();
+  private static java.util.Hashtable _memberTable = ApplicationMonitorModeType.init();
 
   /**
    * Field type.
@@ -76,7 +81,7 @@ public class ApplicationMonitorModeType implements java.io.Serializable {
   private ApplicationMonitorModeType(final int type, final java.lang.String value) {
     super();
     this.type = type;
-    this.stringValue = value;
+    stringValue = value;
   }
 
   //-----------/
@@ -92,7 +97,7 @@ public class ApplicationMonitorModeType implements java.io.Serializable {
    */
   public static java.util.Enumeration enumerate(
       ) {
-    return _memberTable.elements();
+    return ApplicationMonitorModeType._memberTable.elements();
   }
 
   /**
@@ -103,7 +108,7 @@ public class ApplicationMonitorModeType implements java.io.Serializable {
    */
   public int getType(
       ) {
-    return this.type;
+    return type;
   }
 
   /**
@@ -113,10 +118,10 @@ public class ApplicationMonitorModeType implements java.io.Serializable {
    */
   private static java.util.Hashtable init(
       ) {
-    Hashtable members = new Hashtable();
-    members.put("WARNING", WARNING);
-    members.put("ERROR", ERROR);
-    members.put("CRITICAL", CRITICAL);
+    final Hashtable members = new Hashtable();
+    members.put("WARNING", ApplicationMonitorModeType.WARNING);
+    members.put("ERROR", ApplicationMonitorModeType.ERROR);
+    members.put("CRITICAL", ApplicationMonitorModeType.CRITICAL);
     return members;
   }
 
@@ -129,7 +134,7 @@ public class ApplicationMonitorModeType implements java.io.Serializable {
    */
   private java.lang.Object readResolve(
       ) {
-    return valueOf(this.stringValue);
+    return ApplicationMonitorModeType.valueOf(stringValue);
   }
 
   /**
@@ -139,9 +144,10 @@ public class ApplicationMonitorModeType implements java.io.Serializable {
    * @return the String representation of this
    * ApplicationMonitorModeType
    */
+  @Override
   public java.lang.String toString(
       ) {
-    return this.stringValue;
+    return stringValue;
   }
 
   /**
@@ -156,10 +162,10 @@ public class ApplicationMonitorModeType implements java.io.Serializable {
       final java.lang.String string) {
     java.lang.Object obj = null;
     if (string != null) {
-      obj = _memberTable.get(string);
+      obj = ApplicationMonitorModeType._memberTable.get(string);
     }
     if (obj == null) {
-      String err = "" + string + " is not a valid ApplicationMonitorModeType";
+      final String err = "" + string + " is not a valid ApplicationMonitorModeType";
       throw new IllegalArgumentException(err);
     }
     return (ApplicationMonitorModeType)obj;

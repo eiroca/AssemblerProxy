@@ -16,16 +16,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.util;
 
-import java.util.*;
-import javax.servlet.*;
-
-import net.eiroca.portal.assembler.api.*;
+import java.util.HashMap;
+import javax.servlet.ServletContext;
+import net.eiroca.portal.assembler.api.IExtractor;
 
 abstract public class AbstractExtractor extends APIClass implements IExtractor {
 
   protected String prefix;
 
-  public AbstractExtractor(ServletContext sc, HashMap p) {
+  public AbstractExtractor(final ServletContext sc, final HashMap p) {
     prefix = getStr(p, "prefix", "");
   }
 

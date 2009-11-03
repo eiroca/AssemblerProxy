@@ -6,9 +6,15 @@
 
 package net.eiroca.library.util;
 
-import java.io.*;
-import java.net.*;
-import java.util.*;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serializable;
+import java.net.URL;
+import java.util.StringTokenizer;
+import java.util.Vector;
 
 /**
  * Adopted from <a href="http://www.onjava.com/pub/a/onjava/excerpt/jebp_3/index1.html?page=3">Servlet Best Practices, Part 1</a>
@@ -24,11 +30,15 @@ import java.util.*;
  */
 public class ResourceLocator implements Serializable {
 
-  private String name;
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  private final String name;
   private File file;
   private URL url;
 
-  public ResourceLocator(String name) throws IOException {
+  public ResourceLocator(final String name) throws IOException {
     this.name = name;
     SecurityException exception = null;
     try {
@@ -38,7 +48,7 @@ public class ResourceLocator implements Serializable {
         return;
       }
     }
-    catch (SecurityException e) {
+    catch (final SecurityException e) {
       exception = e; // Save for later.
     }
     try {
@@ -48,7 +58,7 @@ public class ResourceLocator implements Serializable {
         return;
       }
     }
-    catch (SecurityException e) {
+    catch (final SecurityException e) {
       exception = e; // Save for later.
     }
     // If you get here, something went wrong. Report the exception.
@@ -65,7 +75,7 @@ public class ResourceLocator implements Serializable {
    * @param fileName
    * @return InputStream
    */
-  public InputStream findResource(String fileName) {
+  public InputStream findResource(final String fileName) {
     return getClass().getClassLoader().getResourceAsStream(fileName);
   }
 
@@ -105,7 +115,7 @@ public class ResourceLocator implements Serializable {
       try {
         return url.openConnection().getLastModified(); // Hail Mary
       }
-      catch (IOException e) {
+      catch (final IOException e) {
         return Long.MAX_VALUE;
       }
     }
@@ -129,23 +139,23 @@ public class ResourceLocator implements Serializable {
   }
 
   // Returns true if found
-  private boolean tryClasspath(String filename) {
-    String classpath = System.getProperty("java.class.path");
-    String[] paths = split(classpath, File.pathSeparator);
-    file = searchDirectories(paths, filename);
+  private boolean tryClasspath(final String filename) {
+    final String classpath = System.getProperty("java.class.path");
+    final String[] paths = ResourceLocator.split(classpath, File.pathSeparator);
+    file = ResourceLocator.searchDirectories(paths, filename);
     return (file != null);
   }
 
-  private static File searchDirectories(String[] paths, String filename) {
+  private static File searchDirectories(final String[] paths, final String filename) {
     SecurityException exception = null;
-    for (int i = 0; i < paths.length; i++) {
+    for (final String path : paths) {
       try {
-        File file = new File(paths[i], filename);
+        final File file = new File(path, filename);
         if (file.exists() && !file.isDirectory()) {
           return file;
         }
       }
-      catch (SecurityException e) {
+      catch (final SecurityException e) {
         // Security exceptions can usually be ignored, but if all attempts
         // to find the file fail, report the (last) security exception.
         exception = e;
@@ -163,15 +173,15 @@ public class ResourceLocator implements Serializable {
   // Splits a String into pieces according to a delimiter.
   // Uses JDK 1.1 classes for backward compatibility.
   // JDK 1.4 actually has a split(  ) method now.
-  private static String[] split(String str, String delim) {
+  private static String[] split(final String str, final String delim) {
     // Use a Vector to hold the split strings.
-    Vector v = new Vector();
+    final Vector v = new Vector();
     // Use a StringTokenizer to do the splitting.
-    StringTokenizer tokenizer = new StringTokenizer(str, delim);
+    final StringTokenizer tokenizer = new StringTokenizer(str, delim);
     while (tokenizer.hasMoreTokens()) {
       v.addElement(tokenizer.nextToken());
     }
-    String[] ret = new String[v.size()];
+    final String[] ret = new String[v.size()];
     v.copyInto(ret);
     return ret;
   }
@@ -179,12 +189,12 @@ public class ResourceLocator implements Serializable {
   // Returns true if found
   private boolean tryLoader(String name) {
     name = "/" + name;
-    URL res = ResourceLocator.class.getResource(name);
+    final URL res = ResourceLocator.class.getResource(name);
     if (res == null) {
       return false;
     }
     // Try converting from a URL to a File.
-    File resFile = urlToFile(res);
+    final File resFile = ResourceLocator.urlToFile(res);
     if (resFile != null) {
       file = resFile;
     }
@@ -194,14 +204,15 @@ public class ResourceLocator implements Serializable {
     return true;
   }
 
-  private static File urlToFile(URL res) {
-    String externalForm = res.toExternalForm();
+  private static File urlToFile(final URL res) {
+    final String externalForm = res.toExternalForm();
     if (externalForm.startsWith("file:")) {
       return new File(externalForm.substring(5));
     }
     return null;
   }
 
+  @Override
   public String toString() {
     return "[Resource: File: " + file + " URL: " + url + "]";
   }

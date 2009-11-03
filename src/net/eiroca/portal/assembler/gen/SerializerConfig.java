@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class SerializerConfig.
@@ -25,9 +26,13 @@ public class SerializerConfig implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  /**
    * Field _serializerDefList.
    */
-  private java.util.Vector _serializerDefList;
+  private final java.util.Vector _serializerDefList;
 
   //----------------/
   //- Constructors -/
@@ -35,7 +40,7 @@ public class SerializerConfig implements java.io.Serializable {
 
   public SerializerConfig() {
     super();
-    this._serializerDefList = new java.util.Vector();
+    _serializerDefList = new java.util.Vector();
   }
 
   //-----------/
@@ -51,7 +56,7 @@ public class SerializerConfig implements java.io.Serializable {
    */
   public void addSerializerDef(
       final net.eiroca.portal.assembler.gen.SerializerDef vSerializerDef) throws java.lang.IndexOutOfBoundsException {
-    this._serializerDefList.addElement(vSerializerDef);
+    _serializerDefList.addElement(vSerializerDef);
   }
 
   /**
@@ -65,7 +70,7 @@ public class SerializerConfig implements java.io.Serializable {
   public void addSerializerDef(
       final int index,
       final net.eiroca.portal.assembler.gen.SerializerDef vSerializerDef) throws java.lang.IndexOutOfBoundsException {
-    this._serializerDefList.add(index, vSerializerDef);
+    _serializerDefList.add(index, vSerializerDef);
   }
 
   /**
@@ -76,7 +81,7 @@ public class SerializerConfig implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateSerializerDef(
       ) {
-    return this._serializerDefList.elements();
+    return _serializerDefList.elements();
   }
 
   /**
@@ -92,8 +97,8 @@ public class SerializerConfig implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.SerializerDef getSerializerDef(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._serializerDefList.size()) {
-      throw new IndexOutOfBoundsException("getSerializerDef: Index value '" + index + "' not in range [0.." + (this._serializerDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _serializerDefList.size())) {
+      throw new IndexOutOfBoundsException("getSerializerDef: Index value '" + index + "' not in range [0.." + (_serializerDefList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.SerializerDef)_serializerDefList.get(index);
@@ -111,8 +116,8 @@ public class SerializerConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.SerializerDef[] getSerializerDef(
       ) {
-    net.eiroca.portal.assembler.gen.SerializerDef[] array = new net.eiroca.portal.assembler.gen.SerializerDef[0];
-    return (net.eiroca.portal.assembler.gen.SerializerDef[])this._serializerDefList.toArray(array);
+    final net.eiroca.portal.assembler.gen.SerializerDef[] array = new net.eiroca.portal.assembler.gen.SerializerDef[0];
+    return (net.eiroca.portal.assembler.gen.SerializerDef[])_serializerDefList.toArray(array);
   }
 
   /**
@@ -122,7 +127,7 @@ public class SerializerConfig implements java.io.Serializable {
    */
   public int getSerializerDefCount(
       ) {
-    return this._serializerDefList.size();
+    return _serializerDefList.size();
   }
 
   /**
@@ -135,7 +140,7 @@ public class SerializerConfig implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -175,7 +180,7 @@ public class SerializerConfig implements java.io.Serializable {
    */
   public void removeAllSerializerDef(
       ) {
-    this._serializerDefList.clear();
+    _serializerDefList.clear();
   }
 
   /**
@@ -186,7 +191,7 @@ public class SerializerConfig implements java.io.Serializable {
    */
   public boolean removeSerializerDef(
       final net.eiroca.portal.assembler.gen.SerializerDef vSerializerDef) {
-    boolean removed = _serializerDefList.remove(vSerializerDef);
+    final boolean removed = _serializerDefList.remove(vSerializerDef);
     return removed;
   }
 
@@ -198,7 +203,7 @@ public class SerializerConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.SerializerDef removeSerializerDefAt(
       final int index) {
-    java.lang.Object obj = this._serializerDefList.remove(index);
+    final java.lang.Object obj = _serializerDefList.remove(index);
     return (net.eiroca.portal.assembler.gen.SerializerDef)obj;
   }
 
@@ -214,11 +219,11 @@ public class SerializerConfig implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.SerializerDef vSerializerDef) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._serializerDefList.size()) {
-      throw new IndexOutOfBoundsException("setSerializerDef: Index value '" + index + "' not in range [0.." + (this._serializerDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _serializerDefList.size())) {
+      throw new IndexOutOfBoundsException("setSerializerDef: Index value '" + index + "' not in range [0.." + (_serializerDefList.size() - 1) + "]");
     }
 
-    this._serializerDefList.set(index, vSerializerDef);
+    _serializerDefList.set(index, vSerializerDef);
   }
 
   /**
@@ -231,8 +236,8 @@ public class SerializerConfig implements java.io.Serializable {
     //-- copy array
     _serializerDefList.clear();
 
-    for (int i = 0; i < vSerializerDefArray.length; i++) {
-      this._serializerDefList.add(vSerializerDefArray[i]);
+    for (final SerializerDef element : vSerializerDefArray) {
+      _serializerDefList.add(element);
     }
   }
 
@@ -260,7 +265,7 @@ public class SerializerConfig implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

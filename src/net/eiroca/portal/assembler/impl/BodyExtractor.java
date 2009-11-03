@@ -16,17 +16,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.impl;
 
-import java.io.*;
-import java.util.*;
-import javax.servlet.*;
-
-import org.apache.commons.httpclient.*;
-import net.eiroca.portal.assembler.gen.*;
-import net.eiroca.portal.assembler.util.*;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import javax.servlet.ServletContext;
+import net.eiroca.portal.assembler.gen.Resource;
+import net.eiroca.portal.assembler.util.AbstractExtractor;
+import org.apache.commons.httpclient.HttpMethod;
 
 public class BodyExtractor extends AbstractExtractor {
 
-  public BodyExtractor(ServletContext sc, HashMap p) {
+  public BodyExtractor(final ServletContext sc, final HashMap p) {
     super(sc, p);
   }
 
@@ -36,13 +36,13 @@ public class BodyExtractor extends AbstractExtractor {
    * @param method
    * @return
    */
-  public final Map decodeSections(Resource res, HttpMethod method) {
-    Map secs = new HashMap();
+  public final Map decodeSections(final Resource res, final HttpMethod method) {
+    final Map secs = new HashMap();
     String result = null;
     try {
       result = method.getResponseBodyAsString();
     }
-    catch (IOException ex) {
+    catch (final IOException ex) {
     }
     int start;
     int end;

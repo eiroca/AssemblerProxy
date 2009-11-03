@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class Connections.
@@ -25,9 +26,13 @@ public class Connections implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  /**
    * Field _connectionList.
    */
-  private java.util.Vector _connectionList;
+  private final java.util.Vector _connectionList;
 
   //----------------/
   //- Constructors -/
@@ -35,7 +40,7 @@ public class Connections implements java.io.Serializable {
 
   public Connections() {
     super();
-    this._connectionList = new java.util.Vector();
+    _connectionList = new java.util.Vector();
   }
 
   //-----------/
@@ -51,7 +56,7 @@ public class Connections implements java.io.Serializable {
    */
   public void addConnection(
       final net.eiroca.portal.assembler.gen.Connection vConnection) throws java.lang.IndexOutOfBoundsException {
-    this._connectionList.addElement(vConnection);
+    _connectionList.addElement(vConnection);
   }
 
   /**
@@ -65,7 +70,7 @@ public class Connections implements java.io.Serializable {
   public void addConnection(
       final int index,
       final net.eiroca.portal.assembler.gen.Connection vConnection) throws java.lang.IndexOutOfBoundsException {
-    this._connectionList.add(index, vConnection);
+    _connectionList.add(index, vConnection);
   }
 
   /**
@@ -76,7 +81,7 @@ public class Connections implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateConnection(
       ) {
-    return this._connectionList.elements();
+    return _connectionList.elements();
   }
 
   /**
@@ -91,8 +96,8 @@ public class Connections implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.Connection getConnection(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._connectionList.size()) {
-      throw new IndexOutOfBoundsException("getConnection: Index value '" + index + "' not in range [0.." + (this._connectionList.size() - 1) + "]");
+    if ((index < 0) || (index >= _connectionList.size())) {
+      throw new IndexOutOfBoundsException("getConnection: Index value '" + index + "' not in range [0.." + (_connectionList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.Connection)_connectionList.get(index);
@@ -109,8 +114,8 @@ public class Connections implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Connection[] getConnection(
       ) {
-    net.eiroca.portal.assembler.gen.Connection[] array = new net.eiroca.portal.assembler.gen.Connection[0];
-    return (net.eiroca.portal.assembler.gen.Connection[])this._connectionList.toArray(array);
+    final net.eiroca.portal.assembler.gen.Connection[] array = new net.eiroca.portal.assembler.gen.Connection[0];
+    return (net.eiroca.portal.assembler.gen.Connection[])_connectionList.toArray(array);
   }
 
   /**
@@ -120,7 +125,7 @@ public class Connections implements java.io.Serializable {
    */
   public int getConnectionCount(
       ) {
-    return this._connectionList.size();
+    return _connectionList.size();
   }
 
   /**
@@ -133,7 +138,7 @@ public class Connections implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -173,7 +178,7 @@ public class Connections implements java.io.Serializable {
    */
   public void removeAllConnection(
       ) {
-    this._connectionList.clear();
+    _connectionList.clear();
   }
 
   /**
@@ -184,7 +189,7 @@ public class Connections implements java.io.Serializable {
    */
   public boolean removeConnection(
       final net.eiroca.portal.assembler.gen.Connection vConnection) {
-    boolean removed = _connectionList.remove(vConnection);
+    final boolean removed = _connectionList.remove(vConnection);
     return removed;
   }
 
@@ -196,7 +201,7 @@ public class Connections implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Connection removeConnectionAt(
       final int index) {
-    java.lang.Object obj = this._connectionList.remove(index);
+    final java.lang.Object obj = _connectionList.remove(index);
     return (net.eiroca.portal.assembler.gen.Connection)obj;
   }
 
@@ -212,11 +217,11 @@ public class Connections implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.Connection vConnection) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._connectionList.size()) {
-      throw new IndexOutOfBoundsException("setConnection: Index value '" + index + "' not in range [0.." + (this._connectionList.size() - 1) + "]");
+    if ((index < 0) || (index >= _connectionList.size())) {
+      throw new IndexOutOfBoundsException("setConnection: Index value '" + index + "' not in range [0.." + (_connectionList.size() - 1) + "]");
     }
 
-    this._connectionList.set(index, vConnection);
+    _connectionList.set(index, vConnection);
   }
 
   /**
@@ -229,8 +234,8 @@ public class Connections implements java.io.Serializable {
     //-- copy array
     _connectionList.clear();
 
-    for (int i = 0; i < vConnectionArray.length; i++) {
-      this._connectionList.add(vConnectionArray[i]);
+    for (final Connection element : vConnectionArray) {
+      _connectionList.add(element);
     }
   }
 
@@ -258,7 +263,7 @@ public class Connections implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

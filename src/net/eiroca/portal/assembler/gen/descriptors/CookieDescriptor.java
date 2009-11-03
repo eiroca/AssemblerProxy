@@ -11,7 +11,7 @@ package net.eiroca.portal.assembler.gen.descriptors;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import net.eiroca.portal.assembler.gen.*;
+import net.eiroca.portal.assembler.gen.Cookie;
 
 /**
  * Class CookieDescriptor.
@@ -27,7 +27,7 @@ public class CookieDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
   /**
    * Field _elementDefinition.
    */
-  private boolean _elementDefinition;
+  private final boolean _elementDefinition;
 
   /**
    * Field _nsPrefix.
@@ -42,7 +42,7 @@ public class CookieDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
   /**
    * Field _xmlName.
    */
-  private java.lang.String _xmlName;
+  private final java.lang.String _xmlName;
 
   /**
    * Field _identity.
@@ -65,22 +65,25 @@ public class CookieDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
     //-- _access
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.types.CookieAccessType.class, "_access", "access", org.exolab.castor.xml.NodeType.Attribute);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Cookie target = (Cookie)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Cookie target = (Cookie)object;
         return target.getAccess();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Cookie target = (Cookie)object;
+          final Cookie target = (Cookie)object;
           target.setAccess((net.eiroca.portal.assembler.gen.types.CookieAccessType)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return null;
       }
     };
@@ -102,22 +105,25 @@ public class CookieDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_srcName", "srcName", org.exolab.castor.xml.NodeType.Attribute);
     desc.setImmutable(true);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Cookie target = (Cookie)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Cookie target = (Cookie)object;
         return target.getSrcName();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Cookie target = (Cookie)object;
+          final Cookie target = (Cookie)object;
           target.setSrcName((java.lang.String)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return null;
       }
     };
@@ -141,22 +147,25 @@ public class CookieDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_endName", "endName", org.exolab.castor.xml.NodeType.Attribute);
     desc.setImmutable(true);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Cookie target = (Cookie)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Cookie target = (Cookie)object;
         return target.getEndName();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Cookie target = (Cookie)object;
+          final Cookie target = (Cookie)object;
           target.setEndName((java.lang.String)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return null;
       }
     };
@@ -187,6 +196,7 @@ public class CookieDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    *
    * @return the access mode specified for this class.
    */
+  @Override
   public org.exolab.castor.mapping.AccessMode getAccessMode(
       ) {
     return null;
@@ -198,6 +208,7 @@ public class CookieDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    * @return the identity field, null if this class has no
    * identity.
    */
+  @Override
   public org.exolab.castor.mapping.FieldDescriptor getIdentity(
       ) {
     return _identity;
@@ -208,6 +219,7 @@ public class CookieDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    *
    * @return the Java class represented by this descriptor.
    */
+  @Override
   public java.lang.Class getJavaClass(
       ) {
     return net.eiroca.portal.assembler.gen.Cookie.class;
@@ -218,6 +230,7 @@ public class CookieDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    *
    * @return the namespace prefix to use when marshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpacePrefix(
       ) {
     return _nsPrefix;
@@ -229,6 +242,7 @@ public class CookieDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    * @return the namespace URI used when marshaling and
    * unmarshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpaceURI(
       ) {
     return _nsURI;
@@ -240,6 +254,7 @@ public class CookieDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    * @return a specific validator for the class described by this
    * ClassDescriptor.
    */
+  @Override
   public org.exolab.castor.xml.TypeValidator getValidator(
       ) {
     return this;
@@ -250,6 +265,7 @@ public class CookieDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    *
    * @return the XML Name for the Class being described.
    */
+  @Override
   public java.lang.String getXMLName(
       ) {
     return _xmlName;
@@ -262,6 +278,7 @@ public class CookieDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    * of a global
    * element or element with anonymous type definition.
    */
+  @Override
   public boolean isElementDefinition(
       ) {
     return _elementDefinition;

@@ -22,7 +22,12 @@ package net.eiroca.portal.assembler.exception;
  */
 public final class FatalProcessingException extends AssemblerException {
 
-  public FatalProcessingException(String msg) {
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+
+  public FatalProcessingException(final String msg) {
     super(msg);
   }
 

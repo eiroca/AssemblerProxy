@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class Applications.
@@ -25,6 +26,11 @@ public class Applications implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
    * Field _sesNameHTTPClients.
    */
   private java.lang.String _sesNameHTTPClients;
@@ -32,7 +38,7 @@ public class Applications implements java.io.Serializable {
   /**
    * Field _applicationList.
    */
-  private java.util.Vector _applicationList;
+  private final java.util.Vector _applicationList;
 
   //----------------/
   //- Constructors -/
@@ -40,7 +46,7 @@ public class Applications implements java.io.Serializable {
 
   public Applications() {
     super();
-    this._applicationList = new java.util.Vector();
+    _applicationList = new java.util.Vector();
   }
 
   //-----------/
@@ -56,7 +62,7 @@ public class Applications implements java.io.Serializable {
    */
   public void addApplication(
       final net.eiroca.portal.assembler.gen.Application vApplication) throws java.lang.IndexOutOfBoundsException {
-    this._applicationList.addElement(vApplication);
+    _applicationList.addElement(vApplication);
   }
 
   /**
@@ -70,7 +76,7 @@ public class Applications implements java.io.Serializable {
   public void addApplication(
       final int index,
       final net.eiroca.portal.assembler.gen.Application vApplication) throws java.lang.IndexOutOfBoundsException {
-    this._applicationList.add(index, vApplication);
+    _applicationList.add(index, vApplication);
   }
 
   /**
@@ -81,7 +87,7 @@ public class Applications implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateApplication(
       ) {
-    return this._applicationList.elements();
+    return _applicationList.elements();
   }
 
   /**
@@ -96,8 +102,8 @@ public class Applications implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.Application getApplication(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._applicationList.size()) {
-      throw new IndexOutOfBoundsException("getApplication: Index value '" + index + "' not in range [0.." + (this._applicationList.size() - 1) + "]");
+    if ((index < 0) || (index >= _applicationList.size())) {
+      throw new IndexOutOfBoundsException("getApplication: Index value '" + index + "' not in range [0.." + (_applicationList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.Application)_applicationList.get(index);
@@ -114,8 +120,8 @@ public class Applications implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Application[] getApplication(
       ) {
-    net.eiroca.portal.assembler.gen.Application[] array = new net.eiroca.portal.assembler.gen.Application[0];
-    return (net.eiroca.portal.assembler.gen.Application[])this._applicationList.toArray(array);
+    final net.eiroca.portal.assembler.gen.Application[] array = new net.eiroca.portal.assembler.gen.Application[0];
+    return (net.eiroca.portal.assembler.gen.Application[])_applicationList.toArray(array);
   }
 
   /**
@@ -125,7 +131,7 @@ public class Applications implements java.io.Serializable {
    */
   public int getApplicationCount(
       ) {
-    return this._applicationList.size();
+    return _applicationList.size();
   }
 
   /**
@@ -135,7 +141,7 @@ public class Applications implements java.io.Serializable {
    */
   public java.lang.String getSesNameHTTPClients(
       ) {
-    return this._sesNameHTTPClients;
+    return _sesNameHTTPClients;
   }
 
   /**
@@ -148,7 +154,7 @@ public class Applications implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -188,7 +194,7 @@ public class Applications implements java.io.Serializable {
    */
   public void removeAllApplication(
       ) {
-    this._applicationList.clear();
+    _applicationList.clear();
   }
 
   /**
@@ -199,7 +205,7 @@ public class Applications implements java.io.Serializable {
    */
   public boolean removeApplication(
       final net.eiroca.portal.assembler.gen.Application vApplication) {
-    boolean removed = _applicationList.remove(vApplication);
+    final boolean removed = _applicationList.remove(vApplication);
     return removed;
   }
 
@@ -211,7 +217,7 @@ public class Applications implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Application removeApplicationAt(
       final int index) {
-    java.lang.Object obj = this._applicationList.remove(index);
+    final java.lang.Object obj = _applicationList.remove(index);
     return (net.eiroca.portal.assembler.gen.Application)obj;
   }
 
@@ -227,11 +233,11 @@ public class Applications implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.Application vApplication) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._applicationList.size()) {
-      throw new IndexOutOfBoundsException("setApplication: Index value '" + index + "' not in range [0.." + (this._applicationList.size() - 1) + "]");
+    if ((index < 0) || (index >= _applicationList.size())) {
+      throw new IndexOutOfBoundsException("setApplication: Index value '" + index + "' not in range [0.." + (_applicationList.size() - 1) + "]");
     }
 
-    this._applicationList.set(index, vApplication);
+    _applicationList.set(index, vApplication);
   }
 
   /**
@@ -244,8 +250,8 @@ public class Applications implements java.io.Serializable {
     //-- copy array
     _applicationList.clear();
 
-    for (int i = 0; i < vApplicationArray.length; i++) {
-      this._applicationList.add(vApplicationArray[i]);
+    for (final Application element : vApplicationArray) {
+      _applicationList.add(element);
     }
   }
 
@@ -257,7 +263,7 @@ public class Applications implements java.io.Serializable {
    */
   public void setSesNameHTTPClients(
       final java.lang.String sesNameHTTPClients) {
-    this._sesNameHTTPClients = sesNameHTTPClients;
+    _sesNameHTTPClients = sesNameHTTPClients;
   }
 
   /**
@@ -284,7 +290,7 @@ public class Applications implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

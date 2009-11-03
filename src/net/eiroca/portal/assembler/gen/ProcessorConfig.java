@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class ProcessorConfig.
@@ -25,9 +26,13 @@ public class ProcessorConfig implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  /**
    * Field _processorDefList.
    */
-  private java.util.Vector _processorDefList;
+  private final java.util.Vector _processorDefList;
 
   //----------------/
   //- Constructors -/
@@ -35,7 +40,7 @@ public class ProcessorConfig implements java.io.Serializable {
 
   public ProcessorConfig() {
     super();
-    this._processorDefList = new java.util.Vector();
+    _processorDefList = new java.util.Vector();
   }
 
   //-----------/
@@ -51,7 +56,7 @@ public class ProcessorConfig implements java.io.Serializable {
    */
   public void addProcessorDef(
       final net.eiroca.portal.assembler.gen.ProcessorDef vProcessorDef) throws java.lang.IndexOutOfBoundsException {
-    this._processorDefList.addElement(vProcessorDef);
+    _processorDefList.addElement(vProcessorDef);
   }
 
   /**
@@ -65,7 +70,7 @@ public class ProcessorConfig implements java.io.Serializable {
   public void addProcessorDef(
       final int index,
       final net.eiroca.portal.assembler.gen.ProcessorDef vProcessorDef) throws java.lang.IndexOutOfBoundsException {
-    this._processorDefList.add(index, vProcessorDef);
+    _processorDefList.add(index, vProcessorDef);
   }
 
   /**
@@ -76,7 +81,7 @@ public class ProcessorConfig implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateProcessorDef(
       ) {
-    return this._processorDefList.elements();
+    return _processorDefList.elements();
   }
 
   /**
@@ -92,8 +97,8 @@ public class ProcessorConfig implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.ProcessorDef getProcessorDef(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._processorDefList.size()) {
-      throw new IndexOutOfBoundsException("getProcessorDef: Index value '" + index + "' not in range [0.." + (this._processorDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _processorDefList.size())) {
+      throw new IndexOutOfBoundsException("getProcessorDef: Index value '" + index + "' not in range [0.." + (_processorDefList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.ProcessorDef)_processorDefList.get(index);
@@ -111,8 +116,8 @@ public class ProcessorConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ProcessorDef[] getProcessorDef(
       ) {
-    net.eiroca.portal.assembler.gen.ProcessorDef[] array = new net.eiroca.portal.assembler.gen.ProcessorDef[0];
-    return (net.eiroca.portal.assembler.gen.ProcessorDef[])this._processorDefList.toArray(array);
+    final net.eiroca.portal.assembler.gen.ProcessorDef[] array = new net.eiroca.portal.assembler.gen.ProcessorDef[0];
+    return (net.eiroca.portal.assembler.gen.ProcessorDef[])_processorDefList.toArray(array);
   }
 
   /**
@@ -122,7 +127,7 @@ public class ProcessorConfig implements java.io.Serializable {
    */
   public int getProcessorDefCount(
       ) {
-    return this._processorDefList.size();
+    return _processorDefList.size();
   }
 
   /**
@@ -135,7 +140,7 @@ public class ProcessorConfig implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -175,7 +180,7 @@ public class ProcessorConfig implements java.io.Serializable {
    */
   public void removeAllProcessorDef(
       ) {
-    this._processorDefList.clear();
+    _processorDefList.clear();
   }
 
   /**
@@ -186,7 +191,7 @@ public class ProcessorConfig implements java.io.Serializable {
    */
   public boolean removeProcessorDef(
       final net.eiroca.portal.assembler.gen.ProcessorDef vProcessorDef) {
-    boolean removed = _processorDefList.remove(vProcessorDef);
+    final boolean removed = _processorDefList.remove(vProcessorDef);
     return removed;
   }
 
@@ -198,7 +203,7 @@ public class ProcessorConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ProcessorDef removeProcessorDefAt(
       final int index) {
-    java.lang.Object obj = this._processorDefList.remove(index);
+    final java.lang.Object obj = _processorDefList.remove(index);
     return (net.eiroca.portal.assembler.gen.ProcessorDef)obj;
   }
 
@@ -214,11 +219,11 @@ public class ProcessorConfig implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.ProcessorDef vProcessorDef) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._processorDefList.size()) {
-      throw new IndexOutOfBoundsException("setProcessorDef: Index value '" + index + "' not in range [0.." + (this._processorDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _processorDefList.size())) {
+      throw new IndexOutOfBoundsException("setProcessorDef: Index value '" + index + "' not in range [0.." + (_processorDefList.size() - 1) + "]");
     }
 
-    this._processorDefList.set(index, vProcessorDef);
+    _processorDefList.set(index, vProcessorDef);
   }
 
   /**
@@ -231,8 +236,8 @@ public class ProcessorConfig implements java.io.Serializable {
     //-- copy array
     _processorDefList.clear();
 
-    for (int i = 0; i < vProcessorDefArray.length; i++) {
-      this._processorDefList.add(vProcessorDefArray[i]);
+    for (final ProcessorDef element : vProcessorDefArray) {
+      _processorDefList.add(element);
     }
   }
 
@@ -260,7 +265,7 @@ public class ProcessorConfig implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

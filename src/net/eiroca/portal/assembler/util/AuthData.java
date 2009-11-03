@@ -16,8 +16,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.util;
 
-import java.io.*;
-import java.util.*;
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * Classe che gestisce le informazioni di autenticazioni gestite dal Assembler.
@@ -25,7 +26,12 @@ import java.util.*;
 
 public final class AuthData implements Serializable {
 
-  private long authTime;
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+
+  private final long authTime;
 
   private HashMap auth = new HashMap();
 
@@ -41,7 +47,7 @@ public final class AuthData implements Serializable {
     return auth;
   }
 
-  public void setAuth(HashMap auth) {
+  public void setAuth(final HashMap auth) {
     this.auth = auth;
   }
 
@@ -49,10 +55,11 @@ public final class AuthData implements Serializable {
    * Converte le informazioni di autenticazione in una stringa stampabile
    * @return
    */
+  @Override
   public String toString() {
-    StringBuffer out = new StringBuffer();
+    final StringBuffer out = new StringBuffer();
     out.append("[");
-    Iterator i = auth.keySet().iterator();
+    final Iterator i = auth.keySet().iterator();
     boolean first = true;
     while (i.hasNext()) {
       if (first) {
@@ -61,8 +68,8 @@ public final class AuthData implements Serializable {
       else {
         out.append(',');
       }
-      Object name = (String)i.next();
-      Object val = auth.get(name);
+      final Object name = i.next();
+      final Object val = auth.get(name);
       out.append(name + "=" + val);
     }
     out.append("]");

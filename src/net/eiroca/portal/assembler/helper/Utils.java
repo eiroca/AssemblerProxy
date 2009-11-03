@@ -16,8 +16,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.helper;
 
-import net.eiroca.portal.assembler.exception.*;
-import net.eiroca.portal.assembler.util.*;
+import net.eiroca.portal.assembler.exception.AssemblerException;
+import net.eiroca.portal.assembler.exception.FatalProcessingException;
+import net.eiroca.portal.assembler.exception.IllegalRequestException;
+import net.eiroca.portal.assembler.util.RequestData;
 
 /**
  * Classe che contiene metodi "static" di utilita'
@@ -30,7 +32,7 @@ public final class Utils {
    * @param ck cookie da convertire (non deve essere nullo)
    * @return cookie convertito
    */
-  public static final org.apache.commons.httpclient.Cookie convertCookie(javax.servlet.http.Cookie ck) {
+  public static final org.apache.commons.httpclient.Cookie convertCookie(final javax.servlet.http.Cookie ck) {
     return new org.apache.commons.httpclient.Cookie(
         ck.getDomain() == null ? "" : ck.getDomain(),
         ck.getName(),
@@ -47,7 +49,7 @@ public final class Utils {
    * @param ck cookie da convertire (non deve essere nullo)
    * @return cookie convertito
    */
-  public static final javax.servlet.http.Cookie convertCookie(org.apache.commons.httpclient.Cookie ck) {
+  public static final javax.servlet.http.Cookie convertCookie(final org.apache.commons.httpclient.Cookie ck) {
     return new javax.servlet.http.Cookie(ck.getName(), ck.getValue());
   }
 
@@ -58,8 +60,8 @@ public final class Utils {
    * @param msg Messaggio da usare nell'eccezzione
    * @throws AssemblerException Exception generata
    */
-  public static final void raiseError(boolean fatal, RequestData data, String msg) throws AssemblerException {
-    StringBuffer err = new StringBuffer(msg);
+  public static final void raiseError(final boolean fatal, final RequestData data, final String msg) throws AssemblerException {
+    final StringBuffer err = new StringBuffer(msg);
     if (data != null) {
       if (data.ri != null) {
         err.append(" (").append(data.ri.getAppName()).append('/').append(data.ri.getAppSection()).append(')');
@@ -80,8 +82,8 @@ public final class Utils {
    * @param cookie Configurazione del cookie
    * @return EndName se != null o SrcName altrimenti
    */
-  public static final String getEndName(net.eiroca.portal.assembler.gen.Cookie cookie) {
-    String tmp = cookie.getEndName();
+  public static final String getEndName(final net.eiroca.portal.assembler.gen.Cookie cookie) {
+    final String tmp = cookie.getEndName();
     return (tmp == null ? cookie.getSrcName() : tmp);
   }
 

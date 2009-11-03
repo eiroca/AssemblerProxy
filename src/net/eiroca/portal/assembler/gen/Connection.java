@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class Connection.
@@ -23,6 +24,11 @@ public class Connection implements java.io.Serializable {
   //--------------------------/
   //- Class/Member Variables -/
   //--------------------------/
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   /**
    * Field _ID.
@@ -52,7 +58,7 @@ public class Connection implements java.io.Serializable {
   /**
    * Field _cookieList.
    */
-  private java.util.Vector _cookieList;
+  private final java.util.Vector _cookieList;
 
   //----------------/
   //- Constructors -/
@@ -60,7 +66,7 @@ public class Connection implements java.io.Serializable {
 
   public Connection() {
     super();
-    this._cookieList = new java.util.Vector();
+    _cookieList = new java.util.Vector();
   }
 
   //-----------/
@@ -76,7 +82,7 @@ public class Connection implements java.io.Serializable {
    */
   public void addCookie(
       final net.eiroca.portal.assembler.gen.Cookie vCookie) throws java.lang.IndexOutOfBoundsException {
-    this._cookieList.addElement(vCookie);
+    _cookieList.addElement(vCookie);
   }
 
   /**
@@ -90,14 +96,14 @@ public class Connection implements java.io.Serializable {
   public void addCookie(
       final int index,
       final net.eiroca.portal.assembler.gen.Cookie vCookie) throws java.lang.IndexOutOfBoundsException {
-    this._cookieList.add(index, vCookie);
+    _cookieList.add(index, vCookie);
   }
 
   /**
    */
   public void deleteTimeOut(
       ) {
-    this._has_timeOut = false;
+    _has_timeOut = false;
   }
 
   /**
@@ -108,7 +114,7 @@ public class Connection implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateCookie(
       ) {
-    return this._cookieList.elements();
+    return _cookieList.elements();
   }
 
   /**
@@ -123,8 +129,8 @@ public class Connection implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.Cookie getCookie(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._cookieList.size()) {
-      throw new IndexOutOfBoundsException("getCookie: Index value '" + index + "' not in range [0.." + (this._cookieList.size() - 1) + "]");
+    if ((index < 0) || (index >= _cookieList.size())) {
+      throw new IndexOutOfBoundsException("getCookie: Index value '" + index + "' not in range [0.." + (_cookieList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.Cookie)_cookieList.get(index);
@@ -141,8 +147,8 @@ public class Connection implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Cookie[] getCookie(
       ) {
-    net.eiroca.portal.assembler.gen.Cookie[] array = new net.eiroca.portal.assembler.gen.Cookie[0];
-    return (net.eiroca.portal.assembler.gen.Cookie[])this._cookieList.toArray(array);
+    final net.eiroca.portal.assembler.gen.Cookie[] array = new net.eiroca.portal.assembler.gen.Cookie[0];
+    return (net.eiroca.portal.assembler.gen.Cookie[])_cookieList.toArray(array);
   }
 
   /**
@@ -152,7 +158,7 @@ public class Connection implements java.io.Serializable {
    */
   public int getCookieCount(
       ) {
-    return this._cookieList.size();
+    return _cookieList.size();
   }
 
   /**
@@ -162,7 +168,7 @@ public class Connection implements java.io.Serializable {
    */
   public java.lang.String getID(
       ) {
-    return this._ID;
+    return _ID;
   }
 
   /**
@@ -172,7 +178,7 @@ public class Connection implements java.io.Serializable {
    */
   public java.lang.String getPassword(
       ) {
-    return this._password;
+    return _password;
   }
 
   /**
@@ -182,7 +188,7 @@ public class Connection implements java.io.Serializable {
    */
   public int getTimeOut(
       ) {
-    return this._timeOut;
+    return _timeOut;
   }
 
   /**
@@ -192,7 +198,7 @@ public class Connection implements java.io.Serializable {
    */
   public java.lang.String getUsername(
       ) {
-    return this._username;
+    return _username;
   }
 
   /**
@@ -202,7 +208,7 @@ public class Connection implements java.io.Serializable {
    */
   public boolean hasTimeOut(
       ) {
-    return this._has_timeOut;
+    return _has_timeOut;
   }
 
   /**
@@ -215,7 +221,7 @@ public class Connection implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -255,7 +261,7 @@ public class Connection implements java.io.Serializable {
    */
   public void removeAllCookie(
       ) {
-    this._cookieList.clear();
+    _cookieList.clear();
   }
 
   /**
@@ -266,7 +272,7 @@ public class Connection implements java.io.Serializable {
    */
   public boolean removeCookie(
       final net.eiroca.portal.assembler.gen.Cookie vCookie) {
-    boolean removed = _cookieList.remove(vCookie);
+    final boolean removed = _cookieList.remove(vCookie);
     return removed;
   }
 
@@ -278,7 +284,7 @@ public class Connection implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Cookie removeCookieAt(
       final int index) {
-    java.lang.Object obj = this._cookieList.remove(index);
+    final java.lang.Object obj = _cookieList.remove(index);
     return (net.eiroca.portal.assembler.gen.Cookie)obj;
   }
 
@@ -294,11 +300,11 @@ public class Connection implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.Cookie vCookie) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._cookieList.size()) {
-      throw new IndexOutOfBoundsException("setCookie: Index value '" + index + "' not in range [0.." + (this._cookieList.size() - 1) + "]");
+    if ((index < 0) || (index >= _cookieList.size())) {
+      throw new IndexOutOfBoundsException("setCookie: Index value '" + index + "' not in range [0.." + (_cookieList.size() - 1) + "]");
     }
 
-    this._cookieList.set(index, vCookie);
+    _cookieList.set(index, vCookie);
   }
 
   /**
@@ -311,8 +317,8 @@ public class Connection implements java.io.Serializable {
     //-- copy array
     _cookieList.clear();
 
-    for (int i = 0; i < vCookieArray.length; i++) {
-      this._cookieList.add(vCookieArray[i]);
+    for (final Cookie element : vCookieArray) {
+      _cookieList.add(element);
     }
   }
 
@@ -323,7 +329,7 @@ public class Connection implements java.io.Serializable {
    */
   public void setID(
       final java.lang.String ID) {
-    this._ID = ID;
+    _ID = ID;
   }
 
   /**
@@ -333,7 +339,7 @@ public class Connection implements java.io.Serializable {
    */
   public void setPassword(
       final java.lang.String password) {
-    this._password = password;
+    _password = password;
   }
 
   /**
@@ -343,8 +349,8 @@ public class Connection implements java.io.Serializable {
    */
   public void setTimeOut(
       final int timeOut) {
-    this._timeOut = timeOut;
-    this._has_timeOut = true;
+    _timeOut = timeOut;
+    _has_timeOut = true;
   }
 
   /**
@@ -354,7 +360,7 @@ public class Connection implements java.io.Serializable {
    */
   public void setUsername(
       final java.lang.String username) {
-    this._username = username;
+    _username = username;
   }
 
   /**
@@ -381,7 +387,7 @@ public class Connection implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

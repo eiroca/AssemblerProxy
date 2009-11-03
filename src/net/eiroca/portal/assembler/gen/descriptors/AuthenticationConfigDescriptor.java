@@ -11,7 +11,7 @@ package net.eiroca.portal.assembler.gen.descriptors;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import net.eiroca.portal.assembler.gen.*;
+import net.eiroca.portal.assembler.gen.AuthenticationConfig;
 
 /**
  * Class AuthenticationConfigDescriptor.
@@ -27,7 +27,7 @@ public class AuthenticationConfigDescriptor extends org.exolab.castor.xml.util.X
   /**
    * Field _elementDefinition.
    */
-  private boolean _elementDefinition;
+  private final boolean _elementDefinition;
 
   /**
    * Field _nsPrefix.
@@ -42,7 +42,7 @@ public class AuthenticationConfigDescriptor extends org.exolab.castor.xml.util.X
   /**
    * Field _xmlName.
    */
-  private java.lang.String _xmlName;
+  private final java.lang.String _xmlName;
 
   /**
    * Field _identity.
@@ -70,32 +70,36 @@ public class AuthenticationConfigDescriptor extends org.exolab.castor.xml.util.X
     //-- _authenticationDefList
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.AuthenticationDef.class, "_authenticationDefList", "AuthenticationDef", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        AuthenticationConfig target = (AuthenticationConfig)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final AuthenticationConfig target = (AuthenticationConfig)object;
         return target.getAuthenticationDef();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          AuthenticationConfig target = (AuthenticationConfig)object;
+          final AuthenticationConfig target = (AuthenticationConfig)object;
           target.addAuthenticationDef((net.eiroca.portal.assembler.gen.AuthenticationDef)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public void resetValue(Object object) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void resetValue(final Object object) throws IllegalStateException, IllegalArgumentException {
         try {
-          AuthenticationConfig target = (AuthenticationConfig)object;
+          final AuthenticationConfig target = (AuthenticationConfig)object;
           target.removeAllAuthenticationDef();
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.AuthenticationDef();
       }
     };
@@ -124,6 +128,7 @@ public class AuthenticationConfigDescriptor extends org.exolab.castor.xml.util.X
    *
    * @return the access mode specified for this class.
    */
+  @Override
   public org.exolab.castor.mapping.AccessMode getAccessMode(
       ) {
     return null;
@@ -135,6 +140,7 @@ public class AuthenticationConfigDescriptor extends org.exolab.castor.xml.util.X
    * @return the identity field, null if this class has no
    * identity.
    */
+  @Override
   public org.exolab.castor.mapping.FieldDescriptor getIdentity(
       ) {
     return _identity;
@@ -145,6 +151,7 @@ public class AuthenticationConfigDescriptor extends org.exolab.castor.xml.util.X
    *
    * @return the Java class represented by this descriptor.
    */
+  @Override
   public java.lang.Class getJavaClass(
       ) {
     return net.eiroca.portal.assembler.gen.AuthenticationConfig.class;
@@ -155,6 +162,7 @@ public class AuthenticationConfigDescriptor extends org.exolab.castor.xml.util.X
    *
    * @return the namespace prefix to use when marshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpacePrefix(
       ) {
     return _nsPrefix;
@@ -166,6 +174,7 @@ public class AuthenticationConfigDescriptor extends org.exolab.castor.xml.util.X
    * @return the namespace URI used when marshaling and
    * unmarshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpaceURI(
       ) {
     return _nsURI;
@@ -177,6 +186,7 @@ public class AuthenticationConfigDescriptor extends org.exolab.castor.xml.util.X
    * @return a specific validator for the class described by this
    * ClassDescriptor.
    */
+  @Override
   public org.exolab.castor.xml.TypeValidator getValidator(
       ) {
     return this;
@@ -187,6 +197,7 @@ public class AuthenticationConfigDescriptor extends org.exolab.castor.xml.util.X
    *
    * @return the XML Name for the Class being described.
    */
+  @Override
   public java.lang.String getXMLName(
       ) {
     return _xmlName;
@@ -199,6 +210,7 @@ public class AuthenticationConfigDescriptor extends org.exolab.castor.xml.util.X
    * of a global
    * element or element with anonymous type definition.
    */
+  @Override
   public boolean isElementDefinition(
       ) {
     return _elementDefinition;

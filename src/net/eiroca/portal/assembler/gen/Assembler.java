@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class Assembler.
@@ -23,6 +24,11 @@ public class Assembler implements java.io.Serializable {
   //--------------------------/
   //- Class/Member Variables -/
   //--------------------------/
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   /**
    * Field _version.
@@ -63,7 +69,7 @@ public class Assembler implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Applications getApplications(
       ) {
-    return this._applications;
+    return _applications;
   }
 
   /**
@@ -73,7 +79,7 @@ public class Assembler implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Configuration getConfiguration(
       ) {
-    return this._configuration;
+    return _configuration;
   }
 
   /**
@@ -83,7 +89,7 @@ public class Assembler implements java.io.Serializable {
    */
   public java.lang.String getDescription(
       ) {
-    return this._description;
+    return _description;
   }
 
   /**
@@ -93,7 +99,7 @@ public class Assembler implements java.io.Serializable {
    */
   public java.lang.String getVersion(
       ) {
-    return this._version;
+    return _version;
   }
 
   /**
@@ -106,7 +112,7 @@ public class Assembler implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -149,7 +155,7 @@ public class Assembler implements java.io.Serializable {
    */
   public void setApplications(
       final net.eiroca.portal.assembler.gen.Applications applications) {
-    this._applications = applications;
+    _applications = applications;
   }
 
   /**
@@ -159,7 +165,7 @@ public class Assembler implements java.io.Serializable {
    */
   public void setConfiguration(
       final net.eiroca.portal.assembler.gen.Configuration configuration) {
-    this._configuration = configuration;
+    _configuration = configuration;
   }
 
   /**
@@ -169,7 +175,7 @@ public class Assembler implements java.io.Serializable {
    */
   public void setDescription(
       final java.lang.String description) {
-    this._description = description;
+    _description = description;
   }
 
   /**
@@ -179,7 +185,7 @@ public class Assembler implements java.io.Serializable {
    */
   public void setVersion(
       final java.lang.String version) {
-    this._version = version;
+    _version = version;
   }
 
   /**
@@ -206,7 +212,7 @@ public class Assembler implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

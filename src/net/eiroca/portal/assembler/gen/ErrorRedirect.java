@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class ErrorRedirect.
@@ -24,6 +25,10 @@ public class ErrorRedirect implements java.io.Serializable {
   //- Class/Member Variables -/
   //--------------------------/
 
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
   /**
    * Field _errorURL.
    */
@@ -48,7 +53,7 @@ public class ErrorRedirect implements java.io.Serializable {
    */
   public java.lang.String getErrorURL(
       ) {
-    return this._errorURL;
+    return _errorURL;
   }
 
   /**
@@ -61,7 +66,7 @@ public class ErrorRedirect implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -104,7 +109,7 @@ public class ErrorRedirect implements java.io.Serializable {
    */
   public void setErrorURL(
       final java.lang.String errorURL) {
-    this._errorURL = errorURL;
+    _errorURL = errorURL;
   }
 
   /**
@@ -131,7 +136,7 @@ public class ErrorRedirect implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

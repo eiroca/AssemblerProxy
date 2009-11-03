@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class CacheConfig.
@@ -25,9 +26,13 @@ public class CacheConfig implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  /**
    * Field _cacheDefList.
    */
-  private java.util.Vector _cacheDefList;
+  private final java.util.Vector _cacheDefList;
 
   //----------------/
   //- Constructors -/
@@ -35,7 +40,7 @@ public class CacheConfig implements java.io.Serializable {
 
   public CacheConfig() {
     super();
-    this._cacheDefList = new java.util.Vector();
+    _cacheDefList = new java.util.Vector();
   }
 
   //-----------/
@@ -51,7 +56,7 @@ public class CacheConfig implements java.io.Serializable {
    */
   public void addCacheDef(
       final net.eiroca.portal.assembler.gen.CacheDef vCacheDef) throws java.lang.IndexOutOfBoundsException {
-    this._cacheDefList.addElement(vCacheDef);
+    _cacheDefList.addElement(vCacheDef);
   }
 
   /**
@@ -65,7 +70,7 @@ public class CacheConfig implements java.io.Serializable {
   public void addCacheDef(
       final int index,
       final net.eiroca.portal.assembler.gen.CacheDef vCacheDef) throws java.lang.IndexOutOfBoundsException {
-    this._cacheDefList.add(index, vCacheDef);
+    _cacheDefList.add(index, vCacheDef);
   }
 
   /**
@@ -76,7 +81,7 @@ public class CacheConfig implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateCacheDef(
       ) {
-    return this._cacheDefList.elements();
+    return _cacheDefList.elements();
   }
 
   /**
@@ -91,8 +96,8 @@ public class CacheConfig implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.CacheDef getCacheDef(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._cacheDefList.size()) {
-      throw new IndexOutOfBoundsException("getCacheDef: Index value '" + index + "' not in range [0.." + (this._cacheDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _cacheDefList.size())) {
+      throw new IndexOutOfBoundsException("getCacheDef: Index value '" + index + "' not in range [0.." + (_cacheDefList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.CacheDef)_cacheDefList.get(index);
@@ -109,8 +114,8 @@ public class CacheConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.CacheDef[] getCacheDef(
       ) {
-    net.eiroca.portal.assembler.gen.CacheDef[] array = new net.eiroca.portal.assembler.gen.CacheDef[0];
-    return (net.eiroca.portal.assembler.gen.CacheDef[])this._cacheDefList.toArray(array);
+    final net.eiroca.portal.assembler.gen.CacheDef[] array = new net.eiroca.portal.assembler.gen.CacheDef[0];
+    return (net.eiroca.portal.assembler.gen.CacheDef[])_cacheDefList.toArray(array);
   }
 
   /**
@@ -120,7 +125,7 @@ public class CacheConfig implements java.io.Serializable {
    */
   public int getCacheDefCount(
       ) {
-    return this._cacheDefList.size();
+    return _cacheDefList.size();
   }
 
   /**
@@ -133,7 +138,7 @@ public class CacheConfig implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -173,7 +178,7 @@ public class CacheConfig implements java.io.Serializable {
    */
   public void removeAllCacheDef(
       ) {
-    this._cacheDefList.clear();
+    _cacheDefList.clear();
   }
 
   /**
@@ -184,7 +189,7 @@ public class CacheConfig implements java.io.Serializable {
    */
   public boolean removeCacheDef(
       final net.eiroca.portal.assembler.gen.CacheDef vCacheDef) {
-    boolean removed = _cacheDefList.remove(vCacheDef);
+    final boolean removed = _cacheDefList.remove(vCacheDef);
     return removed;
   }
 
@@ -196,7 +201,7 @@ public class CacheConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.CacheDef removeCacheDefAt(
       final int index) {
-    java.lang.Object obj = this._cacheDefList.remove(index);
+    final java.lang.Object obj = _cacheDefList.remove(index);
     return (net.eiroca.portal.assembler.gen.CacheDef)obj;
   }
 
@@ -212,11 +217,11 @@ public class CacheConfig implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.CacheDef vCacheDef) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._cacheDefList.size()) {
-      throw new IndexOutOfBoundsException("setCacheDef: Index value '" + index + "' not in range [0.." + (this._cacheDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _cacheDefList.size())) {
+      throw new IndexOutOfBoundsException("setCacheDef: Index value '" + index + "' not in range [0.." + (_cacheDefList.size() - 1) + "]");
     }
 
-    this._cacheDefList.set(index, vCacheDef);
+    _cacheDefList.set(index, vCacheDef);
   }
 
   /**
@@ -229,8 +234,8 @@ public class CacheConfig implements java.io.Serializable {
     //-- copy array
     _cacheDefList.clear();
 
-    for (int i = 0; i < vCacheDefArray.length; i++) {
-      this._cacheDefList.add(vCacheDefArray[i]);
+    for (final CacheDef element : vCacheDefArray) {
+      _cacheDefList.add(element);
     }
   }
 
@@ -258,7 +263,7 @@ public class CacheConfig implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

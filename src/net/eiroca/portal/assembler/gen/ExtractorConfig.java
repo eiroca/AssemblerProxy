@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class ExtractorConfig.
@@ -25,9 +26,13 @@ public class ExtractorConfig implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  /**
    * Field _extractorDefList.
    */
-  private java.util.Vector _extractorDefList;
+  private final java.util.Vector _extractorDefList;
 
   //----------------/
   //- Constructors -/
@@ -35,7 +40,7 @@ public class ExtractorConfig implements java.io.Serializable {
 
   public ExtractorConfig() {
     super();
-    this._extractorDefList = new java.util.Vector();
+    _extractorDefList = new java.util.Vector();
   }
 
   //-----------/
@@ -51,7 +56,7 @@ public class ExtractorConfig implements java.io.Serializable {
    */
   public void addExtractorDef(
       final net.eiroca.portal.assembler.gen.ExtractorDef vExtractorDef) throws java.lang.IndexOutOfBoundsException {
-    this._extractorDefList.addElement(vExtractorDef);
+    _extractorDefList.addElement(vExtractorDef);
   }
 
   /**
@@ -65,7 +70,7 @@ public class ExtractorConfig implements java.io.Serializable {
   public void addExtractorDef(
       final int index,
       final net.eiroca.portal.assembler.gen.ExtractorDef vExtractorDef) throws java.lang.IndexOutOfBoundsException {
-    this._extractorDefList.add(index, vExtractorDef);
+    _extractorDefList.add(index, vExtractorDef);
   }
 
   /**
@@ -76,7 +81,7 @@ public class ExtractorConfig implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateExtractorDef(
       ) {
-    return this._extractorDefList.elements();
+    return _extractorDefList.elements();
   }
 
   /**
@@ -92,8 +97,8 @@ public class ExtractorConfig implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.ExtractorDef getExtractorDef(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._extractorDefList.size()) {
-      throw new IndexOutOfBoundsException("getExtractorDef: Index value '" + index + "' not in range [0.." + (this._extractorDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _extractorDefList.size())) {
+      throw new IndexOutOfBoundsException("getExtractorDef: Index value '" + index + "' not in range [0.." + (_extractorDefList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.ExtractorDef)_extractorDefList.get(index);
@@ -111,8 +116,8 @@ public class ExtractorConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ExtractorDef[] getExtractorDef(
       ) {
-    net.eiroca.portal.assembler.gen.ExtractorDef[] array = new net.eiroca.portal.assembler.gen.ExtractorDef[0];
-    return (net.eiroca.portal.assembler.gen.ExtractorDef[])this._extractorDefList.toArray(array);
+    final net.eiroca.portal.assembler.gen.ExtractorDef[] array = new net.eiroca.portal.assembler.gen.ExtractorDef[0];
+    return (net.eiroca.portal.assembler.gen.ExtractorDef[])_extractorDefList.toArray(array);
   }
 
   /**
@@ -122,7 +127,7 @@ public class ExtractorConfig implements java.io.Serializable {
    */
   public int getExtractorDefCount(
       ) {
-    return this._extractorDefList.size();
+    return _extractorDefList.size();
   }
 
   /**
@@ -135,7 +140,7 @@ public class ExtractorConfig implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -175,7 +180,7 @@ public class ExtractorConfig implements java.io.Serializable {
    */
   public void removeAllExtractorDef(
       ) {
-    this._extractorDefList.clear();
+    _extractorDefList.clear();
   }
 
   /**
@@ -186,7 +191,7 @@ public class ExtractorConfig implements java.io.Serializable {
    */
   public boolean removeExtractorDef(
       final net.eiroca.portal.assembler.gen.ExtractorDef vExtractorDef) {
-    boolean removed = _extractorDefList.remove(vExtractorDef);
+    final boolean removed = _extractorDefList.remove(vExtractorDef);
     return removed;
   }
 
@@ -198,7 +203,7 @@ public class ExtractorConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ExtractorDef removeExtractorDefAt(
       final int index) {
-    java.lang.Object obj = this._extractorDefList.remove(index);
+    final java.lang.Object obj = _extractorDefList.remove(index);
     return (net.eiroca.portal.assembler.gen.ExtractorDef)obj;
   }
 
@@ -214,11 +219,11 @@ public class ExtractorConfig implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.ExtractorDef vExtractorDef) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._extractorDefList.size()) {
-      throw new IndexOutOfBoundsException("setExtractorDef: Index value '" + index + "' not in range [0.." + (this._extractorDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _extractorDefList.size())) {
+      throw new IndexOutOfBoundsException("setExtractorDef: Index value '" + index + "' not in range [0.." + (_extractorDefList.size() - 1) + "]");
     }
 
-    this._extractorDefList.set(index, vExtractorDef);
+    _extractorDefList.set(index, vExtractorDef);
   }
 
   /**
@@ -231,8 +236,8 @@ public class ExtractorConfig implements java.io.Serializable {
     //-- copy array
     _extractorDefList.clear();
 
-    for (int i = 0; i < vExtractorDefArray.length; i++) {
-      this._extractorDefList.add(vExtractorDefArray[i]);
+    for (final ExtractorDef element : vExtractorDefArray) {
+      _extractorDefList.add(element);
     }
   }
 
@@ -260,7 +265,7 @@ public class ExtractorConfig implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

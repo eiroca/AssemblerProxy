@@ -11,7 +11,7 @@ package net.eiroca.portal.assembler.gen.descriptors;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import net.eiroca.portal.assembler.gen.*;
+import net.eiroca.portal.assembler.gen.Script;
 
 /**
  * Class ScriptDescriptor.
@@ -27,7 +27,7 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
   /**
    * Field _elementDefinition.
    */
-  private boolean _elementDefinition;
+  private final boolean _elementDefinition;
 
   /**
    * Field _nsPrefix.
@@ -42,7 +42,7 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
   /**
    * Field _xmlName.
    */
-  private java.lang.String _xmlName;
+  private final java.lang.String _xmlName;
 
   /**
    * Field _identity.
@@ -70,22 +70,25 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
     //-- _scriptConfig
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.ScriptConfig.class, "_scriptConfig", "ScriptConfig", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Script target = (Script)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Script target = (Script)object;
         return target.getScriptConfig();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Script target = (Script)object;
+          final Script target = (Script)object;
           target.setScriptConfig((net.eiroca.portal.assembler.gen.ScriptConfig)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.ScriptConfig();
       }
     };
@@ -103,22 +106,25 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
     //-- _scriptCache
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.ScriptCache.class, "_scriptCache", "ScriptCache", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Script target = (Script)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Script target = (Script)object;
         return target.getScriptCache();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Script target = (Script)object;
+          final Script target = (Script)object;
           target.setScriptCache((net.eiroca.portal.assembler.gen.ScriptCache)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.ScriptCache();
       }
     };
@@ -136,22 +142,25 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
     //-- _preProcessConfig
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.PreProcessConfig.class, "_preProcessConfig", "PreProcessConfig", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Script target = (Script)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Script target = (Script)object;
         return target.getPreProcessConfig();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Script target = (Script)object;
+          final Script target = (Script)object;
           target.setPreProcessConfig((net.eiroca.portal.assembler.gen.PreProcessConfig)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.PreProcessConfig();
       }
     };
@@ -169,32 +178,36 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
     //-- _resourceList
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.Resource.class, "_resourceList", "Resource", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Script target = (Script)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Script target = (Script)object;
         return target.getResource();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Script target = (Script)object;
+          final Script target = (Script)object;
           target.addResource((net.eiroca.portal.assembler.gen.Resource)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public void resetValue(Object object) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void resetValue(final Object object) throws IllegalStateException, IllegalArgumentException {
         try {
-          Script target = (Script)object;
+          final Script target = (Script)object;
           target.removeAllResource();
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.Resource();
       }
     };
@@ -215,22 +228,25 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
     //-- _postProcessConfig
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.PostProcessConfig.class, "_postProcessConfig", "PostProcessConfig", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Script target = (Script)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Script target = (Script)object;
         return target.getPostProcessConfig();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Script target = (Script)object;
+          final Script target = (Script)object;
           target.setPostProcessConfig((net.eiroca.portal.assembler.gen.PostProcessConfig)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.PostProcessConfig();
       }
     };
@@ -248,22 +264,25 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
     //-- _scriptSerializer
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.ScriptSerializer.class, "_scriptSerializer", "ScriptSerializer", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Script target = (Script)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Script target = (Script)object;
         return target.getScriptSerializer();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Script target = (Script)object;
+          final Script target = (Script)object;
           target.setScriptSerializer((net.eiroca.portal.assembler.gen.ScriptSerializer)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.ScriptSerializer();
       }
     };
@@ -289,6 +308,7 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    *
    * @return the access mode specified for this class.
    */
+  @Override
   public org.exolab.castor.mapping.AccessMode getAccessMode(
       ) {
     return null;
@@ -300,6 +320,7 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    * @return the identity field, null if this class has no
    * identity.
    */
+  @Override
   public org.exolab.castor.mapping.FieldDescriptor getIdentity(
       ) {
     return _identity;
@@ -310,6 +331,7 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    *
    * @return the Java class represented by this descriptor.
    */
+  @Override
   public java.lang.Class getJavaClass(
       ) {
     return net.eiroca.portal.assembler.gen.Script.class;
@@ -320,6 +342,7 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    *
    * @return the namespace prefix to use when marshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpacePrefix(
       ) {
     return _nsPrefix;
@@ -331,6 +354,7 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    * @return the namespace URI used when marshaling and
    * unmarshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpaceURI(
       ) {
     return _nsURI;
@@ -342,6 +366,7 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    * @return a specific validator for the class described by this
    * ClassDescriptor.
    */
+  @Override
   public org.exolab.castor.xml.TypeValidator getValidator(
       ) {
     return this;
@@ -352,6 +377,7 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    *
    * @return the XML Name for the Class being described.
    */
+  @Override
   public java.lang.String getXMLName(
       ) {
     return _xmlName;
@@ -364,6 +390,7 @@ public class ScriptDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
    * of a global
    * element or element with anonymous type definition.
    */
+  @Override
   public boolean isElementDefinition(
       ) {
     return _elementDefinition;

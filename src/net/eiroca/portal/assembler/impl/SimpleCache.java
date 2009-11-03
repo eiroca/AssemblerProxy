@@ -16,32 +16,32 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.impl;
 
-import java.util.*;
-import javax.servlet.*;
-
-import net.eiroca.portal.assembler.api.*;
-import net.eiroca.portal.assembler.exception.*;
-import net.eiroca.portal.assembler.util.*;
+import java.util.HashMap;
+import javax.servlet.ServletContext;
+import net.eiroca.portal.assembler.api.ICache;
+import net.eiroca.portal.assembler.exception.AssemblerException;
+import net.eiroca.portal.assembler.util.APIClass;
+import net.eiroca.portal.assembler.util.RequestData;
 
 public class SimpleCache extends APIClass implements ICache {
 
-  public SimpleCache(ServletContext sc, HashMap p) {
+  public SimpleCache(final ServletContext sc, final HashMap p) {
   }
 
-  public String getCacheKey(RequestData data, String localKey) throws AssemblerException {
+  public String getCacheKey(final RequestData data, final String localKey) throws AssemblerException {
     // Verifica se e' in cache e se e' usabile
     if ((data.sameSection)) {
-      String sesnam = "CACHE/" + data.ri.getAppName() + "/" + data.ri.getAppSection() + localKey;
+      final String sesnam = "CACHE/" + data.ri.getAppName() + "/" + data.ri.getAppSection() + localKey;
       return sesnam;
     }
     return null;
   }
 
-  public Object get(RequestData data, String key) {
+  public Object get(final RequestData data, final String key) {
     return data.session.getAttribute(key);
   }
 
-  public void put(RequestData data, String key, Object o) {
+  public void put(final RequestData data, final String key, final Object o) {
     if (o == null) {
       data.session.removeAttribute(key);
     }

@@ -21,7 +21,12 @@ package net.eiroca.portal.assembler.exception;
  */
 public class AssemblerException extends Exception {
 
-  public AssemblerException(String msg) {
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+
+  public AssemblerException(final String msg) {
     super(msg);
   }
 

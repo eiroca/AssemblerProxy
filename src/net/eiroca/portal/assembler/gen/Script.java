@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class Script.
@@ -23,6 +24,11 @@ public class Script implements java.io.Serializable {
   //--------------------------/
   //- Class/Member Variables -/
   //--------------------------/
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   /**
    * Field _scriptConfig.
@@ -42,7 +48,7 @@ public class Script implements java.io.Serializable {
   /**
    * Field _resourceList.
    */
-  private java.util.Vector _resourceList;
+  private final java.util.Vector _resourceList;
 
   /**
    * Field _postProcessConfig.
@@ -60,7 +66,7 @@ public class Script implements java.io.Serializable {
 
   public Script() {
     super();
-    this._resourceList = new java.util.Vector();
+    _resourceList = new java.util.Vector();
   }
 
   //-----------/
@@ -76,7 +82,7 @@ public class Script implements java.io.Serializable {
    */
   public void addResource(
       final net.eiroca.portal.assembler.gen.Resource vResource) throws java.lang.IndexOutOfBoundsException {
-    this._resourceList.addElement(vResource);
+    _resourceList.addElement(vResource);
   }
 
   /**
@@ -90,7 +96,7 @@ public class Script implements java.io.Serializable {
   public void addResource(
       final int index,
       final net.eiroca.portal.assembler.gen.Resource vResource) throws java.lang.IndexOutOfBoundsException {
-    this._resourceList.add(index, vResource);
+    _resourceList.add(index, vResource);
   }
 
   /**
@@ -101,7 +107,7 @@ public class Script implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateResource(
       ) {
-    return this._resourceList.elements();
+    return _resourceList.elements();
   }
 
   /**
@@ -111,7 +117,7 @@ public class Script implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.PostProcessConfig getPostProcessConfig(
       ) {
-    return this._postProcessConfig;
+    return _postProcessConfig;
   }
 
   /**
@@ -121,7 +127,7 @@ public class Script implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.PreProcessConfig getPreProcessConfig(
       ) {
-    return this._preProcessConfig;
+    return _preProcessConfig;
   }
 
   /**
@@ -136,8 +142,8 @@ public class Script implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.Resource getResource(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._resourceList.size()) {
-      throw new IndexOutOfBoundsException("getResource: Index value '" + index + "' not in range [0.." + (this._resourceList.size() - 1) + "]");
+    if ((index < 0) || (index >= _resourceList.size())) {
+      throw new IndexOutOfBoundsException("getResource: Index value '" + index + "' not in range [0.." + (_resourceList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.Resource)_resourceList.get(index);
@@ -154,8 +160,8 @@ public class Script implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Resource[] getResource(
       ) {
-    net.eiroca.portal.assembler.gen.Resource[] array = new net.eiroca.portal.assembler.gen.Resource[0];
-    return (net.eiroca.portal.assembler.gen.Resource[])this._resourceList.toArray(array);
+    final net.eiroca.portal.assembler.gen.Resource[] array = new net.eiroca.portal.assembler.gen.Resource[0];
+    return (net.eiroca.portal.assembler.gen.Resource[])_resourceList.toArray(array);
   }
 
   /**
@@ -165,7 +171,7 @@ public class Script implements java.io.Serializable {
    */
   public int getResourceCount(
       ) {
-    return this._resourceList.size();
+    return _resourceList.size();
   }
 
   /**
@@ -175,7 +181,7 @@ public class Script implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ScriptCache getScriptCache(
       ) {
-    return this._scriptCache;
+    return _scriptCache;
   }
 
   /**
@@ -185,7 +191,7 @@ public class Script implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ScriptConfig getScriptConfig(
       ) {
-    return this._scriptConfig;
+    return _scriptConfig;
   }
 
   /**
@@ -195,7 +201,7 @@ public class Script implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ScriptSerializer getScriptSerializer(
       ) {
-    return this._scriptSerializer;
+    return _scriptSerializer;
   }
 
   /**
@@ -208,7 +214,7 @@ public class Script implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -248,7 +254,7 @@ public class Script implements java.io.Serializable {
    */
   public void removeAllResource(
       ) {
-    this._resourceList.clear();
+    _resourceList.clear();
   }
 
   /**
@@ -259,7 +265,7 @@ public class Script implements java.io.Serializable {
    */
   public boolean removeResource(
       final net.eiroca.portal.assembler.gen.Resource vResource) {
-    boolean removed = _resourceList.remove(vResource);
+    final boolean removed = _resourceList.remove(vResource);
     return removed;
   }
 
@@ -271,7 +277,7 @@ public class Script implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Resource removeResourceAt(
       final int index) {
-    java.lang.Object obj = this._resourceList.remove(index);
+    final java.lang.Object obj = _resourceList.remove(index);
     return (net.eiroca.portal.assembler.gen.Resource)obj;
   }
 
@@ -283,7 +289,7 @@ public class Script implements java.io.Serializable {
    */
   public void setPostProcessConfig(
       final net.eiroca.portal.assembler.gen.PostProcessConfig postProcessConfig) {
-    this._postProcessConfig = postProcessConfig;
+    _postProcessConfig = postProcessConfig;
   }
 
   /**
@@ -293,7 +299,7 @@ public class Script implements java.io.Serializable {
    */
   public void setPreProcessConfig(
       final net.eiroca.portal.assembler.gen.PreProcessConfig preProcessConfig) {
-    this._preProcessConfig = preProcessConfig;
+    _preProcessConfig = preProcessConfig;
   }
 
   /**
@@ -308,11 +314,11 @@ public class Script implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.Resource vResource) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._resourceList.size()) {
-      throw new IndexOutOfBoundsException("setResource: Index value '" + index + "' not in range [0.." + (this._resourceList.size() - 1) + "]");
+    if ((index < 0) || (index >= _resourceList.size())) {
+      throw new IndexOutOfBoundsException("setResource: Index value '" + index + "' not in range [0.." + (_resourceList.size() - 1) + "]");
     }
 
-    this._resourceList.set(index, vResource);
+    _resourceList.set(index, vResource);
   }
 
   /**
@@ -325,8 +331,8 @@ public class Script implements java.io.Serializable {
     //-- copy array
     _resourceList.clear();
 
-    for (int i = 0; i < vResourceArray.length; i++) {
-      this._resourceList.add(vResourceArray[i]);
+    for (final Resource element : vResourceArray) {
+      _resourceList.add(element);
     }
   }
 
@@ -337,7 +343,7 @@ public class Script implements java.io.Serializable {
    */
   public void setScriptCache(
       final net.eiroca.portal.assembler.gen.ScriptCache scriptCache) {
-    this._scriptCache = scriptCache;
+    _scriptCache = scriptCache;
   }
 
   /**
@@ -347,7 +353,7 @@ public class Script implements java.io.Serializable {
    */
   public void setScriptConfig(
       final net.eiroca.portal.assembler.gen.ScriptConfig scriptConfig) {
-    this._scriptConfig = scriptConfig;
+    _scriptConfig = scriptConfig;
   }
 
   /**
@@ -357,7 +363,7 @@ public class Script implements java.io.Serializable {
    */
   public void setScriptSerializer(
       final net.eiroca.portal.assembler.gen.ScriptSerializer scriptSerializer) {
-    this._scriptSerializer = scriptSerializer;
+    _scriptSerializer = scriptSerializer;
   }
 
   /**
@@ -383,7 +389,7 @@ public class Script implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

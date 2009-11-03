@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class Sections.
@@ -25,9 +26,13 @@ public class Sections implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  /**
    * Field _sectionList.
    */
-  private java.util.Vector _sectionList;
+  private final java.util.Vector _sectionList;
 
   //----------------/
   //- Constructors -/
@@ -35,7 +40,7 @@ public class Sections implements java.io.Serializable {
 
   public Sections() {
     super();
-    this._sectionList = new java.util.Vector();
+    _sectionList = new java.util.Vector();
   }
 
   //-----------/
@@ -51,7 +56,7 @@ public class Sections implements java.io.Serializable {
    */
   public void addSection(
       final net.eiroca.portal.assembler.gen.Section vSection) throws java.lang.IndexOutOfBoundsException {
-    this._sectionList.addElement(vSection);
+    _sectionList.addElement(vSection);
   }
 
   /**
@@ -65,7 +70,7 @@ public class Sections implements java.io.Serializable {
   public void addSection(
       final int index,
       final net.eiroca.portal.assembler.gen.Section vSection) throws java.lang.IndexOutOfBoundsException {
-    this._sectionList.add(index, vSection);
+    _sectionList.add(index, vSection);
   }
 
   /**
@@ -76,7 +81,7 @@ public class Sections implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateSection(
       ) {
-    return this._sectionList.elements();
+    return _sectionList.elements();
   }
 
   /**
@@ -91,8 +96,8 @@ public class Sections implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.Section getSection(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._sectionList.size()) {
-      throw new IndexOutOfBoundsException("getSection: Index value '" + index + "' not in range [0.." + (this._sectionList.size() - 1) + "]");
+    if ((index < 0) || (index >= _sectionList.size())) {
+      throw new IndexOutOfBoundsException("getSection: Index value '" + index + "' not in range [0.." + (_sectionList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.Section)_sectionList.get(index);
@@ -109,8 +114,8 @@ public class Sections implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Section[] getSection(
       ) {
-    net.eiroca.portal.assembler.gen.Section[] array = new net.eiroca.portal.assembler.gen.Section[0];
-    return (net.eiroca.portal.assembler.gen.Section[])this._sectionList.toArray(array);
+    final net.eiroca.portal.assembler.gen.Section[] array = new net.eiroca.portal.assembler.gen.Section[0];
+    return (net.eiroca.portal.assembler.gen.Section[])_sectionList.toArray(array);
   }
 
   /**
@@ -120,7 +125,7 @@ public class Sections implements java.io.Serializable {
    */
   public int getSectionCount(
       ) {
-    return this._sectionList.size();
+    return _sectionList.size();
   }
 
   /**
@@ -133,7 +138,7 @@ public class Sections implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -173,7 +178,7 @@ public class Sections implements java.io.Serializable {
    */
   public void removeAllSection(
       ) {
-    this._sectionList.clear();
+    _sectionList.clear();
   }
 
   /**
@@ -184,7 +189,7 @@ public class Sections implements java.io.Serializable {
    */
   public boolean removeSection(
       final net.eiroca.portal.assembler.gen.Section vSection) {
-    boolean removed = _sectionList.remove(vSection);
+    final boolean removed = _sectionList.remove(vSection);
     return removed;
   }
 
@@ -196,7 +201,7 @@ public class Sections implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.Section removeSectionAt(
       final int index) {
-    java.lang.Object obj = this._sectionList.remove(index);
+    final java.lang.Object obj = _sectionList.remove(index);
     return (net.eiroca.portal.assembler.gen.Section)obj;
   }
 
@@ -212,11 +217,11 @@ public class Sections implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.Section vSection) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._sectionList.size()) {
-      throw new IndexOutOfBoundsException("setSection: Index value '" + index + "' not in range [0.." + (this._sectionList.size() - 1) + "]");
+    if ((index < 0) || (index >= _sectionList.size())) {
+      throw new IndexOutOfBoundsException("setSection: Index value '" + index + "' not in range [0.." + (_sectionList.size() - 1) + "]");
     }
 
-    this._sectionList.set(index, vSection);
+    _sectionList.set(index, vSection);
   }
 
   /**
@@ -229,8 +234,8 @@ public class Sections implements java.io.Serializable {
     //-- copy array
     _sectionList.clear();
 
-    for (int i = 0; i < vSectionArray.length; i++) {
-      this._sectionList.add(vSectionArray[i]);
+    for (final Section element : vSectionArray) {
+      _sectionList.add(element);
     }
   }
 
@@ -258,7 +263,7 @@ public class Sections implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

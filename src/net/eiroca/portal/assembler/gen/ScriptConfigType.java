@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class ScriptConfigType.
@@ -23,6 +24,11 @@ public class ScriptConfigType implements java.io.Serializable {
   //--------------------------/
   //- Class/Member Variables -/
   //--------------------------/
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   /**
    * Field _scriptEngineID.
@@ -53,7 +59,7 @@ public class ScriptConfigType implements java.io.Serializable {
    */
   public java.lang.String getScriptEngineID(
       ) {
-    return this._scriptEngineID;
+    return _scriptEngineID;
   }
 
   /**
@@ -63,7 +69,7 @@ public class ScriptConfigType implements java.io.Serializable {
    */
   public java.lang.String getScriptPath(
       ) {
-    return this._scriptPath;
+    return _scriptPath;
   }
 
   /**
@@ -76,7 +82,7 @@ public class ScriptConfigType implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -119,7 +125,7 @@ public class ScriptConfigType implements java.io.Serializable {
    */
   public void setScriptEngineID(
       final java.lang.String scriptEngineID) {
-    this._scriptEngineID = scriptEngineID;
+    _scriptEngineID = scriptEngineID;
   }
 
   /**
@@ -129,7 +135,7 @@ public class ScriptConfigType implements java.io.Serializable {
    */
   public void setScriptPath(
       final java.lang.String scriptPath) {
-    this._scriptPath = scriptPath;
+    _scriptPath = scriptPath;
   }
 
   /**
@@ -156,7 +162,7 @@ public class ScriptConfigType implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

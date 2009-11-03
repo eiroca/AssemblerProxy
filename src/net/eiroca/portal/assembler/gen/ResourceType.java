@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class ResourceType.
@@ -23,6 +24,11 @@ public class ResourceType implements java.io.Serializable {
   //--------------------------/
   //- Class/Member Variables -/
   //--------------------------/
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   /**
    * Field _URLMode.
@@ -85,14 +91,14 @@ public class ResourceType implements java.io.Serializable {
    */
   public void deleteFollowRedirect(
       ) {
-    this._has_followRedirect = false;
+    _has_followRedirect = false;
   }
 
   /**
    */
   public void deleteIgnoreError(
       ) {
-    this._has_ignoreError = false;
+    _has_ignoreError = false;
   }
 
   /**
@@ -102,7 +108,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public java.lang.String getConnectionID(
       ) {
-    return this._connectionID;
+    return _connectionID;
   }
 
   /**
@@ -112,7 +118,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public boolean getFollowRedirect(
       ) {
-    return this._followRedirect;
+    return _followRedirect;
   }
 
   /**
@@ -122,7 +128,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public boolean getIgnoreError(
       ) {
-    return this._ignoreError;
+    return _ignoreError;
   }
 
   /**
@@ -132,7 +138,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ResourceCache getResourceCache(
       ) {
-    return this._resourceCache;
+    return _resourceCache;
   }
 
   /**
@@ -142,7 +148,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ResourceExtractor getResourceExtractor(
       ) {
-    return this._resourceExtractor;
+    return _resourceExtractor;
   }
 
   /**
@@ -152,7 +158,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public java.lang.String getURL(
       ) {
-    return this._URL;
+    return _URL;
   }
 
   /**
@@ -162,7 +168,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.types.ResourceTypeURLModeType getURLMode(
       ) {
-    return this._URLMode;
+    return _URLMode;
   }
 
   /**
@@ -172,7 +178,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public boolean hasFollowRedirect(
       ) {
-    return this._has_followRedirect;
+    return _has_followRedirect;
   }
 
   /**
@@ -182,7 +188,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public boolean hasIgnoreError(
       ) {
-    return this._has_ignoreError;
+    return _has_ignoreError;
   }
 
   /**
@@ -192,7 +198,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public boolean isFollowRedirect(
       ) {
-    return this._followRedirect;
+    return _followRedirect;
   }
 
   /**
@@ -202,7 +208,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public boolean isIgnoreError(
       ) {
-    return this._ignoreError;
+    return _ignoreError;
   }
 
   /**
@@ -215,7 +221,7 @@ public class ResourceType implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -258,7 +264,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public void setConnectionID(
       final java.lang.String connectionID) {
-    this._connectionID = connectionID;
+    _connectionID = connectionID;
   }
 
   /**
@@ -268,8 +274,8 @@ public class ResourceType implements java.io.Serializable {
    */
   public void setFollowRedirect(
       final boolean followRedirect) {
-    this._followRedirect = followRedirect;
-    this._has_followRedirect = true;
+    _followRedirect = followRedirect;
+    _has_followRedirect = true;
   }
 
   /**
@@ -279,8 +285,8 @@ public class ResourceType implements java.io.Serializable {
    */
   public void setIgnoreError(
       final boolean ignoreError) {
-    this._ignoreError = ignoreError;
-    this._has_ignoreError = true;
+    _ignoreError = ignoreError;
+    _has_ignoreError = true;
   }
 
   /**
@@ -290,7 +296,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public void setResourceCache(
       final net.eiroca.portal.assembler.gen.ResourceCache resourceCache) {
-    this._resourceCache = resourceCache;
+    _resourceCache = resourceCache;
   }
 
   /**
@@ -301,7 +307,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public void setResourceExtractor(
       final net.eiroca.portal.assembler.gen.ResourceExtractor resourceExtractor) {
-    this._resourceExtractor = resourceExtractor;
+    _resourceExtractor = resourceExtractor;
   }
 
   /**
@@ -311,7 +317,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public void setURL(
       final java.lang.String URL) {
-    this._URL = URL;
+    _URL = URL;
   }
 
   /**
@@ -321,7 +327,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public void setURLMode(
       final net.eiroca.portal.assembler.gen.types.ResourceTypeURLModeType URLMode) {
-    this._URLMode = URLMode;
+    _URLMode = URLMode;
   }
 
   /**
@@ -348,7 +354,7 @@ public class ResourceType implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

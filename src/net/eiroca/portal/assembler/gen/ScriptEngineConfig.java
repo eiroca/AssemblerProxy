@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class ScriptEngineConfig.
@@ -25,9 +26,13 @@ public class ScriptEngineConfig implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  /**
    * Field _scriptEngineDefList.
    */
-  private java.util.Vector _scriptEngineDefList;
+  private final java.util.Vector _scriptEngineDefList;
 
   //----------------/
   //- Constructors -/
@@ -35,7 +40,7 @@ public class ScriptEngineConfig implements java.io.Serializable {
 
   public ScriptEngineConfig() {
     super();
-    this._scriptEngineDefList = new java.util.Vector();
+    _scriptEngineDefList = new java.util.Vector();
   }
 
   //-----------/
@@ -51,7 +56,7 @@ public class ScriptEngineConfig implements java.io.Serializable {
    */
   public void addScriptEngineDef(
       final net.eiroca.portal.assembler.gen.ScriptEngineDef vScriptEngineDef) throws java.lang.IndexOutOfBoundsException {
-    this._scriptEngineDefList.addElement(vScriptEngineDef);
+    _scriptEngineDefList.addElement(vScriptEngineDef);
   }
 
   /**
@@ -65,7 +70,7 @@ public class ScriptEngineConfig implements java.io.Serializable {
   public void addScriptEngineDef(
       final int index,
       final net.eiroca.portal.assembler.gen.ScriptEngineDef vScriptEngineDef) throws java.lang.IndexOutOfBoundsException {
-    this._scriptEngineDefList.add(index, vScriptEngineDef);
+    _scriptEngineDefList.add(index, vScriptEngineDef);
   }
 
   /**
@@ -76,7 +81,7 @@ public class ScriptEngineConfig implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateScriptEngineDef(
       ) {
-    return this._scriptEngineDefList.elements();
+    return _scriptEngineDefList.elements();
   }
 
   /**
@@ -92,8 +97,8 @@ public class ScriptEngineConfig implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.ScriptEngineDef getScriptEngineDef(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._scriptEngineDefList.size()) {
-      throw new IndexOutOfBoundsException("getScriptEngineDef: Index value '" + index + "' not in range [0.." + (this._scriptEngineDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _scriptEngineDefList.size())) {
+      throw new IndexOutOfBoundsException("getScriptEngineDef: Index value '" + index + "' not in range [0.." + (_scriptEngineDefList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.ScriptEngineDef)_scriptEngineDefList.get(index);
@@ -111,8 +116,8 @@ public class ScriptEngineConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ScriptEngineDef[] getScriptEngineDef(
       ) {
-    net.eiroca.portal.assembler.gen.ScriptEngineDef[] array = new net.eiroca.portal.assembler.gen.ScriptEngineDef[0];
-    return (net.eiroca.portal.assembler.gen.ScriptEngineDef[])this._scriptEngineDefList.toArray(array);
+    final net.eiroca.portal.assembler.gen.ScriptEngineDef[] array = new net.eiroca.portal.assembler.gen.ScriptEngineDef[0];
+    return (net.eiroca.portal.assembler.gen.ScriptEngineDef[])_scriptEngineDefList.toArray(array);
   }
 
   /**
@@ -122,7 +127,7 @@ public class ScriptEngineConfig implements java.io.Serializable {
    */
   public int getScriptEngineDefCount(
       ) {
-    return this._scriptEngineDefList.size();
+    return _scriptEngineDefList.size();
   }
 
   /**
@@ -135,7 +140,7 @@ public class ScriptEngineConfig implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -175,7 +180,7 @@ public class ScriptEngineConfig implements java.io.Serializable {
    */
   public void removeAllScriptEngineDef(
       ) {
-    this._scriptEngineDefList.clear();
+    _scriptEngineDefList.clear();
   }
 
   /**
@@ -186,7 +191,7 @@ public class ScriptEngineConfig implements java.io.Serializable {
    */
   public boolean removeScriptEngineDef(
       final net.eiroca.portal.assembler.gen.ScriptEngineDef vScriptEngineDef) {
-    boolean removed = _scriptEngineDefList.remove(vScriptEngineDef);
+    final boolean removed = _scriptEngineDefList.remove(vScriptEngineDef);
     return removed;
   }
 
@@ -198,7 +203,7 @@ public class ScriptEngineConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ScriptEngineDef removeScriptEngineDefAt(
       final int index) {
-    java.lang.Object obj = this._scriptEngineDefList.remove(index);
+    final java.lang.Object obj = _scriptEngineDefList.remove(index);
     return (net.eiroca.portal.assembler.gen.ScriptEngineDef)obj;
   }
 
@@ -214,11 +219,11 @@ public class ScriptEngineConfig implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.ScriptEngineDef vScriptEngineDef) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._scriptEngineDefList.size()) {
-      throw new IndexOutOfBoundsException("setScriptEngineDef: Index value '" + index + "' not in range [0.." + (this._scriptEngineDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _scriptEngineDefList.size())) {
+      throw new IndexOutOfBoundsException("setScriptEngineDef: Index value '" + index + "' not in range [0.." + (_scriptEngineDefList.size() - 1) + "]");
     }
 
-    this._scriptEngineDefList.set(index, vScriptEngineDef);
+    _scriptEngineDefList.set(index, vScriptEngineDef);
   }
 
   /**
@@ -231,8 +236,8 @@ public class ScriptEngineConfig implements java.io.Serializable {
     //-- copy array
     _scriptEngineDefList.clear();
 
-    for (int i = 0; i < vScriptEngineDefArray.length; i++) {
-      this._scriptEngineDefList.add(vScriptEngineDefArray[i]);
+    for (final ScriptEngineDef element : vScriptEngineDefArray) {
+      _scriptEngineDefList.add(element);
     }
   }
 
@@ -260,7 +265,7 @@ public class ScriptEngineConfig implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

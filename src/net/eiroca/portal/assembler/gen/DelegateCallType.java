@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class DelegateCallType.
@@ -25,6 +26,11 @@ public class DelegateCallType implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
    * Field _ID.
    */
   private java.lang.String _ID;
@@ -32,7 +38,7 @@ public class DelegateCallType implements java.io.Serializable {
   /**
    * Field _callParamList.
    */
-  private java.util.Vector _callParamList;
+  private final java.util.Vector _callParamList;
 
   //----------------/
   //- Constructors -/
@@ -40,7 +46,7 @@ public class DelegateCallType implements java.io.Serializable {
 
   public DelegateCallType() {
     super();
-    this._callParamList = new java.util.Vector();
+    _callParamList = new java.util.Vector();
   }
 
   //-----------/
@@ -56,7 +62,7 @@ public class DelegateCallType implements java.io.Serializable {
    */
   public void addCallParam(
       final net.eiroca.portal.assembler.gen.CallParam vCallParam) throws java.lang.IndexOutOfBoundsException {
-    this._callParamList.addElement(vCallParam);
+    _callParamList.addElement(vCallParam);
   }
 
   /**
@@ -70,7 +76,7 @@ public class DelegateCallType implements java.io.Serializable {
   public void addCallParam(
       final int index,
       final net.eiroca.portal.assembler.gen.CallParam vCallParam) throws java.lang.IndexOutOfBoundsException {
-    this._callParamList.add(index, vCallParam);
+    _callParamList.add(index, vCallParam);
   }
 
   /**
@@ -81,7 +87,7 @@ public class DelegateCallType implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateCallParam(
       ) {
-    return this._callParamList.elements();
+    return _callParamList.elements();
   }
 
   /**
@@ -96,8 +102,8 @@ public class DelegateCallType implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.CallParam getCallParam(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._callParamList.size()) {
-      throw new IndexOutOfBoundsException("getCallParam: Index value '" + index + "' not in range [0.." + (this._callParamList.size() - 1) + "]");
+    if ((index < 0) || (index >= _callParamList.size())) {
+      throw new IndexOutOfBoundsException("getCallParam: Index value '" + index + "' not in range [0.." + (_callParamList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.CallParam)_callParamList.get(index);
@@ -114,8 +120,8 @@ public class DelegateCallType implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.CallParam[] getCallParam(
       ) {
-    net.eiroca.portal.assembler.gen.CallParam[] array = new net.eiroca.portal.assembler.gen.CallParam[0];
-    return (net.eiroca.portal.assembler.gen.CallParam[])this._callParamList.toArray(array);
+    final net.eiroca.portal.assembler.gen.CallParam[] array = new net.eiroca.portal.assembler.gen.CallParam[0];
+    return (net.eiroca.portal.assembler.gen.CallParam[])_callParamList.toArray(array);
   }
 
   /**
@@ -125,7 +131,7 @@ public class DelegateCallType implements java.io.Serializable {
    */
   public int getCallParamCount(
       ) {
-    return this._callParamList.size();
+    return _callParamList.size();
   }
 
   /**
@@ -135,7 +141,7 @@ public class DelegateCallType implements java.io.Serializable {
    */
   public java.lang.String getID(
       ) {
-    return this._ID;
+    return _ID;
   }
 
   /**
@@ -148,7 +154,7 @@ public class DelegateCallType implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -188,7 +194,7 @@ public class DelegateCallType implements java.io.Serializable {
    */
   public void removeAllCallParam(
       ) {
-    this._callParamList.clear();
+    _callParamList.clear();
   }
 
   /**
@@ -199,7 +205,7 @@ public class DelegateCallType implements java.io.Serializable {
    */
   public boolean removeCallParam(
       final net.eiroca.portal.assembler.gen.CallParam vCallParam) {
-    boolean removed = _callParamList.remove(vCallParam);
+    final boolean removed = _callParamList.remove(vCallParam);
     return removed;
   }
 
@@ -211,7 +217,7 @@ public class DelegateCallType implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.CallParam removeCallParamAt(
       final int index) {
-    java.lang.Object obj = this._callParamList.remove(index);
+    final java.lang.Object obj = _callParamList.remove(index);
     return (net.eiroca.portal.assembler.gen.CallParam)obj;
   }
 
@@ -227,11 +233,11 @@ public class DelegateCallType implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.CallParam vCallParam) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._callParamList.size()) {
-      throw new IndexOutOfBoundsException("setCallParam: Index value '" + index + "' not in range [0.." + (this._callParamList.size() - 1) + "]");
+    if ((index < 0) || (index >= _callParamList.size())) {
+      throw new IndexOutOfBoundsException("setCallParam: Index value '" + index + "' not in range [0.." + (_callParamList.size() - 1) + "]");
     }
 
-    this._callParamList.set(index, vCallParam);
+    _callParamList.set(index, vCallParam);
   }
 
   /**
@@ -244,8 +250,8 @@ public class DelegateCallType implements java.io.Serializable {
     //-- copy array
     _callParamList.clear();
 
-    for (int i = 0; i < vCallParamArray.length; i++) {
-      this._callParamList.add(vCallParamArray[i]);
+    for (final CallParam element : vCallParamArray) {
+      _callParamList.add(element);
     }
   }
 
@@ -256,7 +262,7 @@ public class DelegateCallType implements java.io.Serializable {
    */
   public void setID(
       final java.lang.String ID) {
-    this._ID = ID;
+    _ID = ID;
   }
 
   /**
@@ -283,7 +289,7 @@ public class DelegateCallType implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

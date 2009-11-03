@@ -11,7 +11,7 @@ package net.eiroca.portal.assembler.gen.descriptors;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import net.eiroca.portal.assembler.gen.*;
+import net.eiroca.portal.assembler.gen.Configuration;
 
 /**
  * Class ConfigurationDescriptor.
@@ -27,7 +27,7 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
   /**
    * Field _elementDefinition.
    */
-  private boolean _elementDefinition;
+  private final boolean _elementDefinition;
 
   /**
    * Field _nsPrefix.
@@ -42,7 +42,7 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
   /**
    * Field _xmlName.
    */
-  private java.lang.String _xmlName;
+  private final java.lang.String _xmlName;
 
   /**
    * Field _identity.
@@ -70,22 +70,25 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
     //-- _adminConfig
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.AdminConfig.class, "_adminConfig", "AdminConfig", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Configuration target = (Configuration)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Configuration target = (Configuration)object;
         return target.getAdminConfig();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Configuration target = (Configuration)object;
+          final Configuration target = (Configuration)object;
           target.setAdminConfig((net.eiroca.portal.assembler.gen.AdminConfig)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.AdminConfig();
       }
     };
@@ -105,22 +108,25 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
     //-- _accessConfig
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.AccessConfig.class, "_accessConfig", "AccessConfig", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Configuration target = (Configuration)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Configuration target = (Configuration)object;
         return target.getAccessConfig();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Configuration target = (Configuration)object;
+          final Configuration target = (Configuration)object;
           target.setAccessConfig((net.eiroca.portal.assembler.gen.AccessConfig)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.AccessConfig();
       }
     };
@@ -140,22 +146,25 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
     //-- _cacheConfig
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.CacheConfig.class, "_cacheConfig", "CacheConfig", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Configuration target = (Configuration)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Configuration target = (Configuration)object;
         return target.getCacheConfig();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Configuration target = (Configuration)object;
+          final Configuration target = (Configuration)object;
           target.setCacheConfig((net.eiroca.portal.assembler.gen.CacheConfig)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.CacheConfig();
       }
     };
@@ -173,22 +182,25 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
     //-- _authenticationConfig
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.AuthenticationConfig.class, "_authenticationConfig", "AuthenticationConfig", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Configuration target = (Configuration)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Configuration target = (Configuration)object;
         return target.getAuthenticationConfig();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Configuration target = (Configuration)object;
+          final Configuration target = (Configuration)object;
           target.setAuthenticationConfig((net.eiroca.portal.assembler.gen.AuthenticationConfig)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.AuthenticationConfig();
       }
     };
@@ -206,22 +218,25 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
     //-- _processorConfig
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.ProcessorConfig.class, "_processorConfig", "ProcessorConfig", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Configuration target = (Configuration)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Configuration target = (Configuration)object;
         return target.getProcessorConfig();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Configuration target = (Configuration)object;
+          final Configuration target = (Configuration)object;
           target.setProcessorConfig((net.eiroca.portal.assembler.gen.ProcessorConfig)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.ProcessorConfig();
       }
     };
@@ -239,22 +254,25 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
     //-- _extractorConfig
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.ExtractorConfig.class, "_extractorConfig", "ExtractorConfig", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Configuration target = (Configuration)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Configuration target = (Configuration)object;
         return target.getExtractorConfig();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Configuration target = (Configuration)object;
+          final Configuration target = (Configuration)object;
           target.setExtractorConfig((net.eiroca.portal.assembler.gen.ExtractorConfig)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.ExtractorConfig();
       }
     };
@@ -272,22 +290,25 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
     //-- _serializerConfig
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.SerializerConfig.class, "_serializerConfig", "SerializerConfig", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Configuration target = (Configuration)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Configuration target = (Configuration)object;
         return target.getSerializerConfig();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Configuration target = (Configuration)object;
+          final Configuration target = (Configuration)object;
           target.setSerializerConfig((net.eiroca.portal.assembler.gen.SerializerConfig)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.SerializerConfig();
       }
     };
@@ -305,22 +326,25 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
     //-- _scriptEngineConfig
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.ScriptEngineConfig.class, "_scriptEngineConfig", "ScriptEngineConfig", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Configuration target = (Configuration)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Configuration target = (Configuration)object;
         return target.getScriptEngineConfig();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Configuration target = (Configuration)object;
+          final Configuration target = (Configuration)object;
           target.setScriptEngineConfig((net.eiroca.portal.assembler.gen.ScriptEngineConfig)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.ScriptEngineConfig();
       }
     };
@@ -346,6 +370,7 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
    *
    * @return the access mode specified for this class.
    */
+  @Override
   public org.exolab.castor.mapping.AccessMode getAccessMode(
       ) {
     return null;
@@ -357,6 +382,7 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
    * @return the identity field, null if this class has no
    * identity.
    */
+  @Override
   public org.exolab.castor.mapping.FieldDescriptor getIdentity(
       ) {
     return _identity;
@@ -367,6 +393,7 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
    *
    * @return the Java class represented by this descriptor.
    */
+  @Override
   public java.lang.Class getJavaClass(
       ) {
     return net.eiroca.portal.assembler.gen.Configuration.class;
@@ -377,6 +404,7 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
    *
    * @return the namespace prefix to use when marshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpacePrefix(
       ) {
     return _nsPrefix;
@@ -388,6 +416,7 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
    * @return the namespace URI used when marshaling and
    * unmarshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpaceURI(
       ) {
     return _nsURI;
@@ -399,6 +428,7 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
    * @return a specific validator for the class described by this
    * ClassDescriptor.
    */
+  @Override
   public org.exolab.castor.xml.TypeValidator getValidator(
       ) {
     return this;
@@ -409,6 +439,7 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
    *
    * @return the XML Name for the Class being described.
    */
+  @Override
   public java.lang.String getXMLName(
       ) {
     return _xmlName;
@@ -421,6 +452,7 @@ public class ConfigurationDescriptor extends org.exolab.castor.xml.util.XMLClass
    * of a global
    * element or element with anonymous type definition.
    */
+  @Override
   public boolean isElementDefinition(
       ) {
     return _elementDefinition;

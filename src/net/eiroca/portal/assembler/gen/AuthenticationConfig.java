@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class AuthenticationConfig.
@@ -25,9 +26,13 @@ public class AuthenticationConfig implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  /**
    * Field _authenticationDefList.
    */
-  private java.util.Vector _authenticationDefList;
+  private final java.util.Vector _authenticationDefList;
 
   //----------------/
   //- Constructors -/
@@ -35,7 +40,7 @@ public class AuthenticationConfig implements java.io.Serializable {
 
   public AuthenticationConfig() {
     super();
-    this._authenticationDefList = new java.util.Vector();
+    _authenticationDefList = new java.util.Vector();
   }
 
   //-----------/
@@ -51,7 +56,7 @@ public class AuthenticationConfig implements java.io.Serializable {
    */
   public void addAuthenticationDef(
       final net.eiroca.portal.assembler.gen.AuthenticationDef vAuthenticationDef) throws java.lang.IndexOutOfBoundsException {
-    this._authenticationDefList.addElement(vAuthenticationDef);
+    _authenticationDefList.addElement(vAuthenticationDef);
   }
 
   /**
@@ -65,7 +70,7 @@ public class AuthenticationConfig implements java.io.Serializable {
   public void addAuthenticationDef(
       final int index,
       final net.eiroca.portal.assembler.gen.AuthenticationDef vAuthenticationDef) throws java.lang.IndexOutOfBoundsException {
-    this._authenticationDefList.add(index, vAuthenticationDef);
+    _authenticationDefList.add(index, vAuthenticationDef);
   }
 
   /**
@@ -76,7 +81,7 @@ public class AuthenticationConfig implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateAuthenticationDef(
       ) {
-    return this._authenticationDefList.elements();
+    return _authenticationDefList.elements();
   }
 
   /**
@@ -92,8 +97,8 @@ public class AuthenticationConfig implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.AuthenticationDef getAuthenticationDef(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._authenticationDefList.size()) {
-      throw new IndexOutOfBoundsException("getAuthenticationDef: Index value '" + index + "' not in range [0.." + (this._authenticationDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _authenticationDefList.size())) {
+      throw new IndexOutOfBoundsException("getAuthenticationDef: Index value '" + index + "' not in range [0.." + (_authenticationDefList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.AuthenticationDef)_authenticationDefList.get(index);
@@ -111,8 +116,8 @@ public class AuthenticationConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.AuthenticationDef[] getAuthenticationDef(
       ) {
-    net.eiroca.portal.assembler.gen.AuthenticationDef[] array = new net.eiroca.portal.assembler.gen.AuthenticationDef[0];
-    return (net.eiroca.portal.assembler.gen.AuthenticationDef[])this._authenticationDefList.toArray(array);
+    final net.eiroca.portal.assembler.gen.AuthenticationDef[] array = new net.eiroca.portal.assembler.gen.AuthenticationDef[0];
+    return (net.eiroca.portal.assembler.gen.AuthenticationDef[])_authenticationDefList.toArray(array);
   }
 
   /**
@@ -122,7 +127,7 @@ public class AuthenticationConfig implements java.io.Serializable {
    */
   public int getAuthenticationDefCount(
       ) {
-    return this._authenticationDefList.size();
+    return _authenticationDefList.size();
   }
 
   /**
@@ -135,7 +140,7 @@ public class AuthenticationConfig implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -175,7 +180,7 @@ public class AuthenticationConfig implements java.io.Serializable {
    */
   public void removeAllAuthenticationDef(
       ) {
-    this._authenticationDefList.clear();
+    _authenticationDefList.clear();
   }
 
   /**
@@ -186,7 +191,7 @@ public class AuthenticationConfig implements java.io.Serializable {
    */
   public boolean removeAuthenticationDef(
       final net.eiroca.portal.assembler.gen.AuthenticationDef vAuthenticationDef) {
-    boolean removed = _authenticationDefList.remove(vAuthenticationDef);
+    final boolean removed = _authenticationDefList.remove(vAuthenticationDef);
     return removed;
   }
 
@@ -198,7 +203,7 @@ public class AuthenticationConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.AuthenticationDef removeAuthenticationDefAt(
       final int index) {
-    java.lang.Object obj = this._authenticationDefList.remove(index);
+    final java.lang.Object obj = _authenticationDefList.remove(index);
     return (net.eiroca.portal.assembler.gen.AuthenticationDef)obj;
   }
 
@@ -214,11 +219,11 @@ public class AuthenticationConfig implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.AuthenticationDef vAuthenticationDef) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._authenticationDefList.size()) {
-      throw new IndexOutOfBoundsException("setAuthenticationDef: Index value '" + index + "' not in range [0.." + (this._authenticationDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _authenticationDefList.size())) {
+      throw new IndexOutOfBoundsException("setAuthenticationDef: Index value '" + index + "' not in range [0.." + (_authenticationDefList.size() - 1) + "]");
     }
 
-    this._authenticationDefList.set(index, vAuthenticationDef);
+    _authenticationDefList.set(index, vAuthenticationDef);
   }
 
   /**
@@ -231,8 +236,8 @@ public class AuthenticationConfig implements java.io.Serializable {
     //-- copy array
     _authenticationDefList.clear();
 
-    for (int i = 0; i < vAuthenticationDefArray.length; i++) {
-      this._authenticationDefList.add(vAuthenticationDefArray[i]);
+    for (final AuthenticationDef element : vAuthenticationDefArray) {
+      _authenticationDefList.add(element);
     }
   }
 
@@ -260,7 +265,7 @@ public class AuthenticationConfig implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

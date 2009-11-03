@@ -16,10 +16,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.api;
 
-import java.util.*;
-import javax.servlet.*;
-
-import net.eiroca.portal.assembler.util.*;
+import java.util.Map;
+import javax.servlet.ServletException;
+import net.eiroca.portal.assembler.util.RequestData;
 
 public interface IScriptEngine {
 

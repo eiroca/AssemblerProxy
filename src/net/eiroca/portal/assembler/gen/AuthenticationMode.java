@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class AuthenticationMode.
@@ -23,6 +24,11 @@ public class AuthenticationMode implements java.io.Serializable {
   //--------------------------/
   //- Class/Member Variables -/
   //--------------------------/
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   /**
    * Field _connectionID.
@@ -53,7 +59,7 @@ public class AuthenticationMode implements java.io.Serializable {
    */
   public java.lang.String getAuthenticationID(
       ) {
-    return this._authenticationID;
+    return _authenticationID;
   }
 
   /**
@@ -63,7 +69,7 @@ public class AuthenticationMode implements java.io.Serializable {
    */
   public java.lang.String getConnectionID(
       ) {
-    return this._connectionID;
+    return _connectionID;
   }
 
   /**
@@ -76,7 +82,7 @@ public class AuthenticationMode implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -119,7 +125,7 @@ public class AuthenticationMode implements java.io.Serializable {
    */
   public void setAuthenticationID(
       final java.lang.String authenticationID) {
-    this._authenticationID = authenticationID;
+    _authenticationID = authenticationID;
   }
 
   /**
@@ -129,7 +135,7 @@ public class AuthenticationMode implements java.io.Serializable {
    */
   public void setConnectionID(
       final java.lang.String connectionID) {
-    this._connectionID = connectionID;
+    _connectionID = connectionID;
   }
 
   /**
@@ -156,7 +162,7 @@ public class AuthenticationMode implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

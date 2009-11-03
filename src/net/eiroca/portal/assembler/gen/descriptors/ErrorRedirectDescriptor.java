@@ -11,7 +11,7 @@ package net.eiroca.portal.assembler.gen.descriptors;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import net.eiroca.portal.assembler.gen.*;
+import net.eiroca.portal.assembler.gen.ErrorRedirect;
 
 /**
  * Class ErrorRedirectDescriptor.
@@ -27,7 +27,7 @@ public class ErrorRedirectDescriptor extends org.exolab.castor.xml.util.XMLClass
   /**
    * Field _elementDefinition.
    */
-  private boolean _elementDefinition;
+  private final boolean _elementDefinition;
 
   /**
    * Field _nsPrefix.
@@ -42,7 +42,7 @@ public class ErrorRedirectDescriptor extends org.exolab.castor.xml.util.XMLClass
   /**
    * Field _xmlName.
    */
-  private java.lang.String _xmlName;
+  private final java.lang.String _xmlName;
 
   /**
    * Field _identity.
@@ -65,22 +65,25 @@ public class ErrorRedirectDescriptor extends org.exolab.castor.xml.util.XMLClass
     //-- _errorURL
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_errorURL", "ErrorURL", org.exolab.castor.xml.NodeType.Attribute);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        ErrorRedirect target = (ErrorRedirect)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final ErrorRedirect target = (ErrorRedirect)object;
         return target.getErrorURL();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          ErrorRedirect target = (ErrorRedirect)object;
+          final ErrorRedirect target = (ErrorRedirect)object;
           target.setErrorURL((java.lang.String)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new java.lang.String();
       }
     };
@@ -107,6 +110,7 @@ public class ErrorRedirectDescriptor extends org.exolab.castor.xml.util.XMLClass
    *
    * @return the access mode specified for this class.
    */
+  @Override
   public org.exolab.castor.mapping.AccessMode getAccessMode(
       ) {
     return null;
@@ -118,6 +122,7 @@ public class ErrorRedirectDescriptor extends org.exolab.castor.xml.util.XMLClass
    * @return the identity field, null if this class has no
    * identity.
    */
+  @Override
   public org.exolab.castor.mapping.FieldDescriptor getIdentity(
       ) {
     return _identity;
@@ -128,6 +133,7 @@ public class ErrorRedirectDescriptor extends org.exolab.castor.xml.util.XMLClass
    *
    * @return the Java class represented by this descriptor.
    */
+  @Override
   public java.lang.Class getJavaClass(
       ) {
     return net.eiroca.portal.assembler.gen.ErrorRedirect.class;
@@ -138,6 +144,7 @@ public class ErrorRedirectDescriptor extends org.exolab.castor.xml.util.XMLClass
    *
    * @return the namespace prefix to use when marshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpacePrefix(
       ) {
     return _nsPrefix;
@@ -149,6 +156,7 @@ public class ErrorRedirectDescriptor extends org.exolab.castor.xml.util.XMLClass
    * @return the namespace URI used when marshaling and
    * unmarshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpaceURI(
       ) {
     return _nsURI;
@@ -160,6 +168,7 @@ public class ErrorRedirectDescriptor extends org.exolab.castor.xml.util.XMLClass
    * @return a specific validator for the class described by this
    * ClassDescriptor.
    */
+  @Override
   public org.exolab.castor.xml.TypeValidator getValidator(
       ) {
     return this;
@@ -170,6 +179,7 @@ public class ErrorRedirectDescriptor extends org.exolab.castor.xml.util.XMLClass
    *
    * @return the XML Name for the Class being described.
    */
+  @Override
   public java.lang.String getXMLName(
       ) {
     return _xmlName;
@@ -182,6 +192,7 @@ public class ErrorRedirectDescriptor extends org.exolab.castor.xml.util.XMLClass
    * of a global
    * element or element with anonymous type definition.
    */
+  @Override
   public boolean isElementDefinition(
       ) {
     return _elementDefinition;

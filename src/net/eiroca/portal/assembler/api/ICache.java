@@ -16,8 +16,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.api;
 
-import net.eiroca.portal.assembler.exception.*;
-import net.eiroca.portal.assembler.util.*;
+import net.eiroca.portal.assembler.exception.AssemblerException;
+import net.eiroca.portal.assembler.util.RequestData;
 
 public interface ICache {
 

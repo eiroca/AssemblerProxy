@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class DelegateDefType.
@@ -23,6 +24,11 @@ public class DelegateDefType implements java.io.Serializable {
   //--------------------------/
   //- Class/Member Variables -/
   //--------------------------/
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   /**
    * Field _ID.
@@ -37,7 +43,7 @@ public class DelegateDefType implements java.io.Serializable {
   /**
    * Field _defParamList.
    */
-  private java.util.Vector _defParamList;
+  private final java.util.Vector _defParamList;
 
   //----------------/
   //- Constructors -/
@@ -45,7 +51,7 @@ public class DelegateDefType implements java.io.Serializable {
 
   public DelegateDefType() {
     super();
-    this._defParamList = new java.util.Vector();
+    _defParamList = new java.util.Vector();
   }
 
   //-----------/
@@ -61,7 +67,7 @@ public class DelegateDefType implements java.io.Serializable {
    */
   public void addDefParam(
       final net.eiroca.portal.assembler.gen.DefParam vDefParam) throws java.lang.IndexOutOfBoundsException {
-    this._defParamList.addElement(vDefParam);
+    _defParamList.addElement(vDefParam);
   }
 
   /**
@@ -75,7 +81,7 @@ public class DelegateDefType implements java.io.Serializable {
   public void addDefParam(
       final int index,
       final net.eiroca.portal.assembler.gen.DefParam vDefParam) throws java.lang.IndexOutOfBoundsException {
-    this._defParamList.add(index, vDefParam);
+    _defParamList.add(index, vDefParam);
   }
 
   /**
@@ -86,7 +92,7 @@ public class DelegateDefType implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateDefParam(
       ) {
-    return this._defParamList.elements();
+    return _defParamList.elements();
   }
 
   /**
@@ -96,7 +102,7 @@ public class DelegateDefType implements java.io.Serializable {
    */
   public java.lang.String getClassName(
       ) {
-    return this._className;
+    return _className;
   }
 
   /**
@@ -111,8 +117,8 @@ public class DelegateDefType implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.DefParam getDefParam(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._defParamList.size()) {
-      throw new IndexOutOfBoundsException("getDefParam: Index value '" + index + "' not in range [0.." + (this._defParamList.size() - 1) + "]");
+    if ((index < 0) || (index >= _defParamList.size())) {
+      throw new IndexOutOfBoundsException("getDefParam: Index value '" + index + "' not in range [0.." + (_defParamList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.DefParam)_defParamList.get(index);
@@ -129,8 +135,8 @@ public class DelegateDefType implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.DefParam[] getDefParam(
       ) {
-    net.eiroca.portal.assembler.gen.DefParam[] array = new net.eiroca.portal.assembler.gen.DefParam[0];
-    return (net.eiroca.portal.assembler.gen.DefParam[])this._defParamList.toArray(array);
+    final net.eiroca.portal.assembler.gen.DefParam[] array = new net.eiroca.portal.assembler.gen.DefParam[0];
+    return (net.eiroca.portal.assembler.gen.DefParam[])_defParamList.toArray(array);
   }
 
   /**
@@ -140,7 +146,7 @@ public class DelegateDefType implements java.io.Serializable {
    */
   public int getDefParamCount(
       ) {
-    return this._defParamList.size();
+    return _defParamList.size();
   }
 
   /**
@@ -150,7 +156,7 @@ public class DelegateDefType implements java.io.Serializable {
    */
   public java.lang.String getID(
       ) {
-    return this._ID;
+    return _ID;
   }
 
   /**
@@ -163,7 +169,7 @@ public class DelegateDefType implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -203,7 +209,7 @@ public class DelegateDefType implements java.io.Serializable {
    */
   public void removeAllDefParam(
       ) {
-    this._defParamList.clear();
+    _defParamList.clear();
   }
 
   /**
@@ -214,7 +220,7 @@ public class DelegateDefType implements java.io.Serializable {
    */
   public boolean removeDefParam(
       final net.eiroca.portal.assembler.gen.DefParam vDefParam) {
-    boolean removed = _defParamList.remove(vDefParam);
+    final boolean removed = _defParamList.remove(vDefParam);
     return removed;
   }
 
@@ -226,7 +232,7 @@ public class DelegateDefType implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.DefParam removeDefParamAt(
       final int index) {
-    java.lang.Object obj = this._defParamList.remove(index);
+    final java.lang.Object obj = _defParamList.remove(index);
     return (net.eiroca.portal.assembler.gen.DefParam)obj;
   }
 
@@ -237,7 +243,7 @@ public class DelegateDefType implements java.io.Serializable {
    */
   public void setClassName(
       final java.lang.String className) {
-    this._className = className;
+    _className = className;
   }
 
   /**
@@ -252,11 +258,11 @@ public class DelegateDefType implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.DefParam vDefParam) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._defParamList.size()) {
-      throw new IndexOutOfBoundsException("setDefParam: Index value '" + index + "' not in range [0.." + (this._defParamList.size() - 1) + "]");
+    if ((index < 0) || (index >= _defParamList.size())) {
+      throw new IndexOutOfBoundsException("setDefParam: Index value '" + index + "' not in range [0.." + (_defParamList.size() - 1) + "]");
     }
 
-    this._defParamList.set(index, vDefParam);
+    _defParamList.set(index, vDefParam);
   }
 
   /**
@@ -269,8 +275,8 @@ public class DelegateDefType implements java.io.Serializable {
     //-- copy array
     _defParamList.clear();
 
-    for (int i = 0; i < vDefParamArray.length; i++) {
-      this._defParamList.add(vDefParamArray[i]);
+    for (final DefParam element : vDefParamArray) {
+      _defParamList.add(element);
     }
   }
 
@@ -281,7 +287,7 @@ public class DelegateDefType implements java.io.Serializable {
    */
   public void setID(
       final java.lang.String ID) {
-    this._ID = ID;
+    _ID = ID;
   }
 
   /**
@@ -308,7 +314,7 @@ public class DelegateDefType implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

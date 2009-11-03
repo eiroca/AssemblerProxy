@@ -11,7 +11,7 @@ package net.eiroca.portal.assembler.gen.descriptors;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import net.eiroca.portal.assembler.gen.*;
+import net.eiroca.portal.assembler.gen.Section;
 
 /**
  * Class SectionDescriptor.
@@ -27,7 +27,7 @@ public class SectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescri
   /**
    * Field _elementDefinition.
    */
-  private boolean _elementDefinition;
+  private final boolean _elementDefinition;
 
   /**
    * Field _nsPrefix.
@@ -42,7 +42,7 @@ public class SectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescri
   /**
    * Field _xmlName.
    */
-  private java.lang.String _xmlName;
+  private final java.lang.String _xmlName;
 
   /**
    * Field _identity.
@@ -69,22 +69,25 @@ public class SectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescri
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_ID", "ID", org.exolab.castor.xml.NodeType.Attribute);
     desc.setImmutable(true);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Section target = (Section)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Section target = (Section)object;
         return target.getID();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Section target = (Section)object;
+          final Section target = (Section)object;
           target.setID((java.lang.String)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return null;
       }
     };
@@ -109,22 +112,25 @@ public class SectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescri
     //-- _sectionChoice
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.SectionChoice.class, "_sectionChoice", "-error-if-this-is-used-", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Section target = (Section)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Section target = (Section)object;
         return target.getSectionChoice();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Section target = (Section)object;
+          final Section target = (Section)object;
           target.setSectionChoice((net.eiroca.portal.assembler.gen.SectionChoice)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.SectionChoice();
       }
     };
@@ -144,22 +150,25 @@ public class SectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescri
     //-- _sectionChoice2
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.SectionChoice2.class, "_sectionChoice2", "-error-if-this-is-used-", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Section target = (Section)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Section target = (Section)object;
         return target.getSectionChoice2();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Section target = (Section)object;
+          final Section target = (Section)object;
           target.setSectionChoice2((net.eiroca.portal.assembler.gen.SectionChoice2)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.SectionChoice2();
       }
     };
@@ -187,6 +196,7 @@ public class SectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescri
    *
    * @return the access mode specified for this class.
    */
+  @Override
   public org.exolab.castor.mapping.AccessMode getAccessMode(
       ) {
     return null;
@@ -198,6 +208,7 @@ public class SectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescri
    * @return the identity field, null if this class has no
    * identity.
    */
+  @Override
   public org.exolab.castor.mapping.FieldDescriptor getIdentity(
       ) {
     return _identity;
@@ -208,6 +219,7 @@ public class SectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescri
    *
    * @return the Java class represented by this descriptor.
    */
+  @Override
   public java.lang.Class getJavaClass(
       ) {
     return net.eiroca.portal.assembler.gen.Section.class;
@@ -218,6 +230,7 @@ public class SectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescri
    *
    * @return the namespace prefix to use when marshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpacePrefix(
       ) {
     return _nsPrefix;
@@ -229,6 +242,7 @@ public class SectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescri
    * @return the namespace URI used when marshaling and
    * unmarshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpaceURI(
       ) {
     return _nsURI;
@@ -240,6 +254,7 @@ public class SectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescri
    * @return a specific validator for the class described by this
    * ClassDescriptor.
    */
+  @Override
   public org.exolab.castor.xml.TypeValidator getValidator(
       ) {
     return this;
@@ -250,6 +265,7 @@ public class SectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescri
    *
    * @return the XML Name for the Class being described.
    */
+  @Override
   public java.lang.String getXMLName(
       ) {
     return _xmlName;
@@ -262,6 +278,7 @@ public class SectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescri
    * of a global
    * element or element with anonymous type definition.
    */
+  @Override
   public boolean isElementDefinition(
       ) {
     return _elementDefinition;

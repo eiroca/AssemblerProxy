@@ -16,12 +16,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.util;
 
-import java.io.*;
-import java.text.*;
-import java.util.*;
-import javax.servlet.http.*;
-
-import net.eiroca.portal.assembler.exception.*;
+import java.io.Serializable;
+import java.text.MessageFormat;
+import java.util.StringTokenizer;
+import javax.servlet.http.HttpServletRequest;
+import net.eiroca.portal.assembler.exception.IllegalRequestException;
 
 /**
  * Clase che contiene le informazioni presenti sugli URL di invocazione del
@@ -32,6 +31,10 @@ import net.eiroca.portal.assembler.exception.*;
 
 public final class RequestInfo implements Serializable {
 
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
   private String appName;
   private String appRights;
   private String appSection;
@@ -45,7 +48,7 @@ public final class RequestInfo implements Serializable {
    * @throws IllegalRequestException Viene sollevato in caso che l'URL non sia
    * conforme allo schema definito a livello di specifiche
    */
-  public RequestInfo(HttpServletRequest request, boolean isPost) throws IllegalRequestException {
+  public RequestInfo(final HttpServletRequest request, final boolean isPost) throws IllegalRequestException {
     decodeRequest(request);
   }
 
@@ -56,26 +59,26 @@ public final class RequestInfo implements Serializable {
    * @throws IllegalRequestException Viene sollevato in caso che l'URL non sia
    * conforme allo schema definito a livello di specifiche
    */
-  protected void decodeRequest(HttpServletRequest request) throws IllegalRequestException {
-    String path = request.getPathInfo();
+  protected void decodeRequest(final HttpServletRequest request) throws IllegalRequestException {
+    final String path = request.getPathInfo();
     if (path == null) {
-      runError("Missing Path");
+      RequestInfo.runError("Missing Path");
     }
-    StringTokenizer st = new StringTokenizer(path, "/");
+    final StringTokenizer st = new StringTokenizer(path, "/");
     if (!st.hasMoreElements()) {
-      runError("Missing Application Name");
+      RequestInfo.runError("Missing Application Name");
     }
     appName = st.nextToken();
     if (!st.hasMoreElements()) {
-      runError("Missing Application Rights");
+      RequestInfo.runError("Missing Application Rights");
     }
     appRights = st.nextToken();
     if (!st.hasMoreElements()) {
-      runError("Missing Application Section");
+      RequestInfo.runError("Missing Application Section");
     }
     appSection = st.nextToken();
     if (st.hasMoreElements()) {
-      StringBuffer tmpPath = new StringBuffer();
+      final StringBuffer tmpPath = new StringBuffer();
       boolean first = true;
       while (st.hasMoreElements()) {
         if (!first) {
@@ -99,7 +102,7 @@ public final class RequestInfo implements Serializable {
    * @param Msg
    * @throws IllegalRequestException
    */
-  private static final void runError(String Msg) throws IllegalRequestException {
+  private static final void runError(final String Msg) throws IllegalRequestException {
     throw new IllegalRequestException(Msg);
   }
 
@@ -123,9 +126,9 @@ public final class RequestInfo implements Serializable {
     return appSection;
   }
 
-  public void appendParam(String param) {
+  public void appendParam(final String param) {
     if (appQueryString == null) {
-      appQueryString = appQueryString;
+      appQueryString = param;
     }
     else {
       appQueryString = appQueryString + "&" + param;
@@ -136,6 +139,7 @@ public final class RequestInfo implements Serializable {
    * Converte l'oggetto in una stringa stampabile
    * @return
    */
+  @Override
   public String toString() {
     return MessageFormat.format("/{0}/{1} [Rights={2};AppPath={3};QueryString={4}]", new Object[] {appName, appSection, appRights, appPath, appQueryString});
   }

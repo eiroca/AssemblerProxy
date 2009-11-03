@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class PreProcessConfig.
@@ -25,9 +26,13 @@ public class PreProcessConfig implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  /**
    * Field _scriptPreProcessorList.
    */
-  private java.util.Vector _scriptPreProcessorList;
+  private final java.util.Vector _scriptPreProcessorList;
 
   //----------------/
   //- Constructors -/
@@ -35,7 +40,7 @@ public class PreProcessConfig implements java.io.Serializable {
 
   public PreProcessConfig() {
     super();
-    this._scriptPreProcessorList = new java.util.Vector();
+    _scriptPreProcessorList = new java.util.Vector();
   }
 
   //-----------/
@@ -51,7 +56,7 @@ public class PreProcessConfig implements java.io.Serializable {
    */
   public void addScriptPreProcessor(
       final net.eiroca.portal.assembler.gen.ScriptPreProcessor vScriptPreProcessor) throws java.lang.IndexOutOfBoundsException {
-    this._scriptPreProcessorList.addElement(vScriptPreProcessor);
+    _scriptPreProcessorList.addElement(vScriptPreProcessor);
   }
 
   /**
@@ -65,7 +70,7 @@ public class PreProcessConfig implements java.io.Serializable {
   public void addScriptPreProcessor(
       final int index,
       final net.eiroca.portal.assembler.gen.ScriptPreProcessor vScriptPreProcessor) throws java.lang.IndexOutOfBoundsException {
-    this._scriptPreProcessorList.add(index, vScriptPreProcessor);
+    _scriptPreProcessorList.add(index, vScriptPreProcessor);
   }
 
   /**
@@ -76,7 +81,7 @@ public class PreProcessConfig implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateScriptPreProcessor(
       ) {
-    return this._scriptPreProcessorList.elements();
+    return _scriptPreProcessorList.elements();
   }
 
   /**
@@ -92,8 +97,8 @@ public class PreProcessConfig implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.ScriptPreProcessor getScriptPreProcessor(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._scriptPreProcessorList.size()) {
-      throw new IndexOutOfBoundsException("getScriptPreProcessor: Index value '" + index + "' not in range [0.." + (this._scriptPreProcessorList.size() - 1) + "]");
+    if ((index < 0) || (index >= _scriptPreProcessorList.size())) {
+      throw new IndexOutOfBoundsException("getScriptPreProcessor: Index value '" + index + "' not in range [0.." + (_scriptPreProcessorList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.ScriptPreProcessor)_scriptPreProcessorList.get(index);
@@ -111,8 +116,8 @@ public class PreProcessConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ScriptPreProcessor[] getScriptPreProcessor(
       ) {
-    net.eiroca.portal.assembler.gen.ScriptPreProcessor[] array = new net.eiroca.portal.assembler.gen.ScriptPreProcessor[0];
-    return (net.eiroca.portal.assembler.gen.ScriptPreProcessor[])this._scriptPreProcessorList.toArray(array);
+    final net.eiroca.portal.assembler.gen.ScriptPreProcessor[] array = new net.eiroca.portal.assembler.gen.ScriptPreProcessor[0];
+    return (net.eiroca.portal.assembler.gen.ScriptPreProcessor[])_scriptPreProcessorList.toArray(array);
   }
 
   /**
@@ -122,7 +127,7 @@ public class PreProcessConfig implements java.io.Serializable {
    */
   public int getScriptPreProcessorCount(
       ) {
-    return this._scriptPreProcessorList.size();
+    return _scriptPreProcessorList.size();
   }
 
   /**
@@ -135,7 +140,7 @@ public class PreProcessConfig implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -175,7 +180,7 @@ public class PreProcessConfig implements java.io.Serializable {
    */
   public void removeAllScriptPreProcessor(
       ) {
-    this._scriptPreProcessorList.clear();
+    _scriptPreProcessorList.clear();
   }
 
   /**
@@ -186,7 +191,7 @@ public class PreProcessConfig implements java.io.Serializable {
    */
   public boolean removeScriptPreProcessor(
       final net.eiroca.portal.assembler.gen.ScriptPreProcessor vScriptPreProcessor) {
-    boolean removed = _scriptPreProcessorList.remove(vScriptPreProcessor);
+    final boolean removed = _scriptPreProcessorList.remove(vScriptPreProcessor);
     return removed;
   }
 
@@ -198,7 +203,7 @@ public class PreProcessConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ScriptPreProcessor removeScriptPreProcessorAt(
       final int index) {
-    java.lang.Object obj = this._scriptPreProcessorList.remove(index);
+    final java.lang.Object obj = _scriptPreProcessorList.remove(index);
     return (net.eiroca.portal.assembler.gen.ScriptPreProcessor)obj;
   }
 
@@ -214,11 +219,11 @@ public class PreProcessConfig implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.ScriptPreProcessor vScriptPreProcessor) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._scriptPreProcessorList.size()) {
-      throw new IndexOutOfBoundsException("setScriptPreProcessor: Index value '" + index + "' not in range [0.." + (this._scriptPreProcessorList.size() - 1) + "]");
+    if ((index < 0) || (index >= _scriptPreProcessorList.size())) {
+      throw new IndexOutOfBoundsException("setScriptPreProcessor: Index value '" + index + "' not in range [0.." + (_scriptPreProcessorList.size() - 1) + "]");
     }
 
-    this._scriptPreProcessorList.set(index, vScriptPreProcessor);
+    _scriptPreProcessorList.set(index, vScriptPreProcessor);
   }
 
   /**
@@ -231,8 +236,8 @@ public class PreProcessConfig implements java.io.Serializable {
     //-- copy array
     _scriptPreProcessorList.clear();
 
-    for (int i = 0; i < vScriptPreProcessorArray.length; i++) {
-      this._scriptPreProcessorList.add(vScriptPreProcessorArray[i]);
+    for (final ScriptPreProcessor element : vScriptPreProcessorArray) {
+      _scriptPreProcessorList.add(element);
     }
   }
 
@@ -260,7 +265,7 @@ public class PreProcessConfig implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

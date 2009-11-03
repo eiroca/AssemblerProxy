@@ -16,19 +16,35 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.manager;
 
-import java.io.*;
-import java.text.*;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import org.apache.commons.httpclient.*;
-import net.eiroca.portal.assembler.api.*;
-import net.eiroca.portal.assembler.exception.*;
-import net.eiroca.portal.assembler.gen.*;
-import net.eiroca.portal.assembler.gen.types.*;
-import net.eiroca.portal.assembler.helper.*;
-import net.eiroca.portal.assembler.util.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.text.MessageFormat;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import net.eiroca.portal.assembler.api.ICache;
+import net.eiroca.portal.assembler.api.IExtractor;
+import net.eiroca.portal.assembler.api.IScriptEngine;
+import net.eiroca.portal.assembler.exception.AssemblerException;
+import net.eiroca.portal.assembler.exception.FatalProcessingException;
+import net.eiroca.portal.assembler.gen.Application;
+import net.eiroca.portal.assembler.gen.Assembler;
+import net.eiroca.portal.assembler.gen.Copy;
+import net.eiroca.portal.assembler.gen.Resource;
+import net.eiroca.portal.assembler.gen.Script;
+import net.eiroca.portal.assembler.gen.ScriptConfig;
+import net.eiroca.portal.assembler.gen.SectionChoice2;
+import net.eiroca.portal.assembler.gen.types.ResourceTypeURLModeType;
+import net.eiroca.portal.assembler.helper.AssemblerContext;
+import net.eiroca.portal.assembler.helper.Utils;
+import net.eiroca.portal.assembler.util.RequestData;
+import org.apache.commons.httpclient.HttpMethod;
 
 /**
  * Gestione delle problematiche del assembler.
@@ -36,8 +52,8 @@ import net.eiroca.portal.assembler.util.*;
 
 public class AssemblerManager {
 
-  private AuthorizationManager auth;
-  private ConnectionMananger cm;
+  private final AuthorizationManager auth;
+  private final ConnectionMananger cm;
 
   protected AssemblerContext context = AssemblerContext.getInstance();
 
@@ -47,7 +63,7 @@ public class AssemblerManager {
    * il manager delle connessioni
    * @param cont
    */
-  public AssemblerManager(ServletContext cont) {
+  public AssemblerManager(final ServletContext cont) {
     auth = new AuthorizationManager();
     cm = new ConnectionMananger();
   }
@@ -60,13 +76,13 @@ public class AssemblerManager {
    * @throws IOException
    * @throws ServletException
    */
-  public void executeRequest(ServletContext sc, RequestData data) throws AssemblerException, IOException, ServletException {
+  public void executeRequest(final ServletContext sc, final RequestData data) throws AssemblerException, IOException, ServletException {
     // Controlli autenticazione
     auth.checkAuth(sc, data);
     // recupera il template
     boolean error = true;
     try {
-      Copy copypart = data.section.getSectionChoice().getCopy();
+      final Copy copypart = data.section.getSectionChoice().getCopy();
       if (copypart != null) {
         exceuteTaskCopy(data);
       }
@@ -75,7 +91,7 @@ public class AssemblerManager {
       }
       error = false;
     }
-    catch (FatalProcessingException fe) {
+    catch (final FatalProcessingException fe) {
       executeTaskError(data);
     }
     context.touch(data.ri.getAppName(), error);
@@ -89,14 +105,14 @@ public class AssemblerManager {
    * @throws AssemblerException
    * @throws ServletException
    */
-  private final void exceuteTaskScript(ServletContext sc, RequestData data) throws IOException, AssemblerException, ServletException {
+  private final void exceuteTaskScript(final ServletContext sc, final RequestData data) throws IOException, AssemblerException, ServletException {
     //Mappa contenente tutte le sezioni avute in risposta dai moduli esterni
-    Map secs = new HashMap();
-    Script script = data.section.getSectionChoice().getScript();
-    Resource[] moduli = script.getResource();
-    ICache reqCache = data.context.getCacheClass(sc, script.getScriptCache().getID());
+    final Map secs = new HashMap();
+    final Script script = data.section.getSectionChoice().getScript();
+    final Resource[] moduli = script.getResource();
+    final ICache reqCache = data.context.getCacheClass(sc, script.getScriptCache().getID());
     if (reqCache != null) {
-      String key = reqCache.getCacheKey(data, "");
+      reqCache.getCacheKey(data, "");
     }
 
     int i;
@@ -107,7 +123,7 @@ public class AssemblerManager {
     for (i = 0; i < moduli.length; i++) {
       Map ss = null;
       res = moduli[i];
-      ICache resCache = data.context.getCacheClass(sc, res.getResourceCache().getID());
+      final ICache resCache = data.context.getCacheClass(sc, res.getResourceCache().getID());
       String resKey = null;
       if (resCache != null) {
         resKey = resCache.getCacheKey(data, String.valueOf(i));
@@ -118,12 +134,12 @@ public class AssemblerManager {
       if (ss == null) {
         // Effettua la richiesta
         URL = decodeURL(res.getURL(), res.getURLMode(), data);
-        HttpMethod method = cm.openRequest(data, res.getFollowRedirect(), res.getConnectionID(), URL);
+        final HttpMethod method = cm.openRequest(data, res.getFollowRedirect(), res.getConnectionID(), URL);
         if (method != null) {
           // Richiesta effettuata
           if (method.getStatusCode() < 300) {
             // Richiesta eseguita con successo, decodifica le sezioni
-            IExtractor extr = data.context.getExtractorClass(sc, res.getResourceExtractor().getID());
+            final IExtractor extr = data.context.getExtractorClass(sc, res.getResourceExtractor().getID());
             ss = extr.decodeSections(res, method);
             if (resKey != null) {
               resCache.put(data, resKey, ss);
@@ -150,7 +166,7 @@ public class AssemblerManager {
       }
       // Copia le sezioni dell'ultima richiesta nella hashmap globale
       if (ss != null) {
-        Iterator it = ss.keySet().iterator();
+        final Iterator it = ss.keySet().iterator();
         String nam;
         String val;
         while (it.hasNext()) {
@@ -162,9 +178,9 @@ public class AssemblerManager {
     }
     if (!browserRedirect) {
       // Recupera lo script da eseguire
-      ScriptConfig scrpt = script.getScriptConfig();
-      String who = scrpt.getScriptPath();
-      IScriptEngine se = context.getScriptEngineClass(sc, scrpt.getScriptEngineID());
+      final ScriptConfig scrpt = script.getScriptConfig();
+      final String who = scrpt.getScriptPath();
+      final IScriptEngine se = context.getScriptEngineClass(sc, scrpt.getScriptEngineID());
       if (who != null) {
         // Esegue lo script FreeMarker
         se.execute(who, data, secs);
@@ -182,20 +198,20 @@ public class AssemblerManager {
    * @throws IOException
    * @throws ServletException
    */
-  private final void exceuteTaskCopy(RequestData data) throws AssemblerException, IOException, ServletException {
-    Copy modulo = data.section.getSectionChoice().getCopy();
-    String URL = decodeURL(modulo.getURL(), modulo.getURLMode(), data);
-    HttpMethod method = cm.openRequest(data, modulo.getFollowRedirect(), modulo.getConnectionID(), URL);
+  private final void exceuteTaskCopy(final RequestData data) throws AssemblerException, IOException, ServletException {
+    final Copy modulo = data.section.getSectionChoice().getCopy();
+    final String URL = decodeURL(modulo.getURL(), modulo.getURLMode(), data);
+    final HttpMethod method = cm.openRequest(data, modulo.getFollowRedirect(), modulo.getConnectionID(), URL);
     if (method != null) {
       try {
         if (method.getStatusCode() < 300) {
           // Richiesta eseguita con successo
-          String tmp = method.getResponseHeader("Content-Type").getValue();
+          final String tmp = method.getResponseHeader("Content-Type").getValue();
           if (tmp != null) {
             data.response.setContentType(tmp);
           }
-          OutputStream os = data.response.getOutputStream();
-          InputStream is = method.getResponseBodyAsStream();
+          final OutputStream os = data.response.getOutputStream();
+          final InputStream is = method.getResponseBodyAsStream();
           try {
             int d;
             do {
@@ -232,13 +248,13 @@ public class AssemblerManager {
    * @throws IOException
    * @throws ServletException
    */
-  private final void executeTaskError(RequestData data) throws AssemblerException, IOException, ServletException {
-    SectionChoice2 mode = data.section.getSectionChoice2();
+  private final void executeTaskError(final RequestData data) throws AssemblerException, IOException, ServletException {
+    final SectionChoice2 mode = data.section.getSectionChoice2();
     boolean ok = false;
     if (mode != null) {
       if (mode.getErrorRedirect() != null) {
         ok = true;
-        String URL = mode.getErrorRedirect().getErrorURL();
+        final String URL = mode.getErrorRedirect().getErrorURL();
         if (URL == null) {
           Utils.raiseError(false, data, "Invalid ErrorURL");
         }
@@ -260,9 +276,9 @@ public class AssemblerManager {
    * @param data
    * @return
    */
-  private final String decodeURL(String URL, ResourceTypeURLModeType URLMode, RequestData data) {
+  private final String decodeURL(String URL, final ResourceTypeURLModeType URLMode, final RequestData data) {
     if (URLMode == ResourceTypeURLModeType.PROCESS) {
-      String tmp = data.ri.getAppQueryString();
+      final String tmp = data.ri.getAppQueryString();
       URL = MessageFormat.format(URL, new Object[] {data.ri.getAppPath(), new Integer(tmp.length()), tmp});
     }
     return URL;
@@ -276,7 +292,7 @@ public class AssemblerManager {
    * @param URL
    * @throws AssemblerException
    */
-  private final void runError(boolean ingoreError, RequestData data, String URL) throws AssemblerException {
+  private final void runError(final boolean ingoreError, final RequestData data, final String URL) throws AssemblerException {
     if (!ingoreError) {
       Utils.raiseError(true, data, "Error processing URL [" + URL + "]");
     }
@@ -288,18 +304,18 @@ public class AssemblerManager {
    * @param response
    * @param err
    */
-  public final void executeError(HttpServletResponse response, Exception err) {
+  public final void executeError(final HttpServletResponse response, final Exception err) {
     context.fatal("Assembler", null, err);
     response.setContentType("text/html");
     try {
-      PrintWriter out = response.getWriter();
+      final PrintWriter out = response.getWriter();
       out.println("<html>");
       out.println("<head><title>Assembler ERROR</title></head>");
       out.println("<body bgcolor=\"#ffffff\">");
       out.println("<p>" + err + "</p>");
-      StackTraceElement[] stack = err.getStackTrace();
+      final StackTraceElement[] stack = err.getStackTrace();
       out.println("<p>Stack:<br/>");
-      int max = (stack.length > 3 ? 3 : stack.length);
+      final int max = (stack.length > 3 ? 3 : stack.length);
       for (int i = 0; i < max; i++) {
         out.println(" " + stack[i] + "<br/>");
       }
@@ -307,7 +323,7 @@ public class AssemblerManager {
       out.println("</body></html>");
       out.close();
     }
-    catch (IOException e) {
+    catch (final IOException e) {
     }
   }
 
@@ -320,10 +336,10 @@ public class AssemblerManager {
    * @param request
    * @param response
    */
-  public final void executeStatus(HttpServletRequest request, HttpServletResponse response) {
+  public final void executeStatus(final HttpServletRequest request, final HttpServletResponse response) {
     response.setContentType("text/html");
     try {
-      PrintWriter out = response.getWriter();
+      final PrintWriter out = response.getWriter();
       out.println("<html>");
       out.println("<head><title>Assembler STATUS</title></head>");
       out.println("<body bgcolor=\"#ffffff\">");
@@ -333,12 +349,12 @@ public class AssemblerManager {
       map = context.getProperties();
       iter = map.keySet().iterator();
       while (iter.hasNext()) {
-        String nam = (String)iter.next();
+        final String nam = (String)iter.next();
         out.println(" " + nam + " = " + map.get(nam) + "<br/>");
       }
       out.println("</p>");
       out.println("<p><b>Assembler properties</b><br/>");
-      Assembler conf = context.getAssemblerConf();
+      final Assembler conf = context.getAssemblerConf();
       if (conf == null) {
         out.println("<b>MISSING</b><br/>");
       }
@@ -346,11 +362,11 @@ public class AssemblerManager {
         out.println("Version: " + conf.getVersion() + "<br/>");
         out.println("Description: " + conf.getDescription() + "<br/>");
         out.println("Applications<br/>");
-        Application[] apps = conf.getApplications().getApplication();
-        for (int i = 0; i < apps.length; i++) {
-          out.println("/" + apps[i].getID() + " = " + apps[i].getDisplayName() + "<br/>");
-          for (int a = 0; a < apps[i].getSections().getSectionCount(); a++) {
-            out.println("Section: " + apps[i].getSections().getSection(a).getID() + " = " + apps[i].getSections().getSection(a).isValid() + "<br/>");
+        final Application[] apps = conf.getApplications().getApplication();
+        for (final Application app : apps) {
+          out.println("/" + app.getID() + " = " + app.getDisplayName() + "<br/>");
+          for (int a = 0; a < app.getSections().getSectionCount(); a++) {
+            out.println("Section: " + app.getSections().getSection(a).getID() + " = " + app.getSections().getSection(a).isValid() + "<br/>");
           }
         }
       }
@@ -359,14 +375,14 @@ public class AssemblerManager {
       map = context.getCounters();
       iter = map.keySet().iterator();
       while (iter.hasNext()) {
-        String nam = (String)iter.next();
+        final String nam = (String)iter.next();
         out.println(" " + nam + " = " + map.get(nam) + "<br/>");
       }
       out.println("</p>");
       out.println("</body></html>");
       out.close();
     }
-    catch (IOException e) {
+    catch (final IOException e) {
     }
   }
 

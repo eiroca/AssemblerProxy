@@ -11,7 +11,7 @@ package net.eiroca.portal.assembler.gen.descriptors;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import net.eiroca.portal.assembler.gen.*;
+import net.eiroca.portal.assembler.gen.Assembler;
 
 /**
  * Class AssemblerDescriptor.
@@ -27,7 +27,7 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
   /**
    * Field _elementDefinition.
    */
-  private boolean _elementDefinition;
+  private final boolean _elementDefinition;
 
   /**
    * Field _nsPrefix.
@@ -42,7 +42,7 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
   /**
    * Field _xmlName.
    */
-  private java.lang.String _xmlName;
+  private final java.lang.String _xmlName;
 
   /**
    * Field _identity.
@@ -69,22 +69,25 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_version", "Version", org.exolab.castor.xml.NodeType.Attribute);
     desc.setImmutable(true);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Assembler target = (Assembler)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Assembler target = (Assembler)object;
         return target.getVersion();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Assembler target = (Assembler)object;
+          final Assembler target = (Assembler)object;
           target.setVersion((java.lang.String)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return null;
       }
     };
@@ -108,22 +111,25 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_description", "Description", org.exolab.castor.xml.NodeType.Attribute);
     desc.setImmutable(true);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Assembler target = (Assembler)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Assembler target = (Assembler)object;
         return target.getDescription();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Assembler target = (Assembler)object;
+          final Assembler target = (Assembler)object;
           target.setDescription((java.lang.String)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return null;
       }
     };
@@ -146,22 +152,25 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
     //-- _configuration
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.Configuration.class, "_configuration", "Configuration", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Assembler target = (Assembler)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Assembler target = (Assembler)object;
         return target.getConfiguration();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Assembler target = (Assembler)object;
+          final Assembler target = (Assembler)object;
           target.setConfiguration((net.eiroca.portal.assembler.gen.Configuration)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.Configuration();
       }
     };
@@ -181,22 +190,25 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
     //-- _applications
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.Applications.class, "_applications", "Applications", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Assembler target = (Assembler)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Assembler target = (Assembler)object;
         return target.getApplications();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Assembler target = (Assembler)object;
+          final Assembler target = (Assembler)object;
           target.setApplications((net.eiroca.portal.assembler.gen.Applications)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.Applications();
       }
     };
@@ -224,6 +236,7 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
    *
    * @return the access mode specified for this class.
    */
+  @Override
   public org.exolab.castor.mapping.AccessMode getAccessMode(
       ) {
     return null;
@@ -235,6 +248,7 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
    * @return the identity field, null if this class has no
    * identity.
    */
+  @Override
   public org.exolab.castor.mapping.FieldDescriptor getIdentity(
       ) {
     return _identity;
@@ -245,6 +259,7 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
    *
    * @return the Java class represented by this descriptor.
    */
+  @Override
   public java.lang.Class getJavaClass(
       ) {
     return net.eiroca.portal.assembler.gen.Assembler.class;
@@ -255,6 +270,7 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
    *
    * @return the namespace prefix to use when marshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpacePrefix(
       ) {
     return _nsPrefix;
@@ -266,6 +282,7 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
    * @return the namespace URI used when marshaling and
    * unmarshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpaceURI(
       ) {
     return _nsURI;
@@ -277,6 +294,7 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
    * @return a specific validator for the class described by this
    * ClassDescriptor.
    */
+  @Override
   public org.exolab.castor.xml.TypeValidator getValidator(
       ) {
     return this;
@@ -287,6 +305,7 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
    *
    * @return the XML Name for the Class being described.
    */
+  @Override
   public java.lang.String getXMLName(
       ) {
     return _xmlName;
@@ -299,6 +318,7 @@ public class AssemblerDescriptor extends org.exolab.castor.xml.util.XMLClassDesc
    * of a global
    * element or element with anonymous type definition.
    */
+  @Override
   public boolean isElementDefinition(
       ) {
     return _elementDefinition;

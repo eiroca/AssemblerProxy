@@ -16,10 +16,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.api;
 
-import java.util.*;
-
-import org.apache.commons.httpclient.*;
-import net.eiroca.portal.assembler.gen.*;
+import java.util.Map;
+import net.eiroca.portal.assembler.gen.Resource;
+import org.apache.commons.httpclient.HttpMethod;
 
 public interface IExtractor {
 

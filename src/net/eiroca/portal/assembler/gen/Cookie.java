@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class Cookie.
@@ -23,6 +24,11 @@ public class Cookie implements java.io.Serializable {
   //--------------------------/
   //- Class/Member Variables -/
   //--------------------------/
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   /**
    * Field _access.
@@ -58,7 +64,7 @@ public class Cookie implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.types.CookieAccessType getAccess(
       ) {
-    return this._access;
+    return _access;
   }
 
   /**
@@ -68,7 +74,7 @@ public class Cookie implements java.io.Serializable {
    */
   public java.lang.String getEndName(
       ) {
-    return this._endName;
+    return _endName;
   }
 
   /**
@@ -78,7 +84,7 @@ public class Cookie implements java.io.Serializable {
    */
   public java.lang.String getSrcName(
       ) {
-    return this._srcName;
+    return _srcName;
   }
 
   /**
@@ -91,7 +97,7 @@ public class Cookie implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -134,7 +140,7 @@ public class Cookie implements java.io.Serializable {
    */
   public void setAccess(
       final net.eiroca.portal.assembler.gen.types.CookieAccessType access) {
-    this._access = access;
+    _access = access;
   }
 
   /**
@@ -144,7 +150,7 @@ public class Cookie implements java.io.Serializable {
    */
   public void setEndName(
       final java.lang.String endName) {
-    this._endName = endName;
+    _endName = endName;
   }
 
   /**
@@ -154,7 +160,7 @@ public class Cookie implements java.io.Serializable {
    */
   public void setSrcName(
       final java.lang.String srcName) {
-    this._srcName = srcName;
+    _srcName = srcName;
   }
 
   /**
@@ -180,7 +186,7 @@ public class Cookie implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

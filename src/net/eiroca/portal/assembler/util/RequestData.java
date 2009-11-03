@@ -16,13 +16,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.util;
 
-import java.io.*;
-import java.util.*;
-import javax.servlet.http.*;
-
-import net.eiroca.portal.assembler.exception.*;
-import net.eiroca.portal.assembler.gen.*;
-import net.eiroca.portal.assembler.helper.*;
+import java.io.Serializable;
+import java.util.HashMap;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import net.eiroca.portal.assembler.exception.AssemblerException;
+import net.eiroca.portal.assembler.gen.AccessDef;
+import net.eiroca.portal.assembler.gen.Application;
+import net.eiroca.portal.assembler.gen.Assembler;
+import net.eiroca.portal.assembler.gen.Section;
+import net.eiroca.portal.assembler.helper.AssemblerContext;
+import net.eiroca.portal.assembler.helper.Utils;
 
 /**
  * Classe che contiene le informazioni della richiesta sia in termini di
@@ -35,6 +41,11 @@ import net.eiroca.portal.assembler.helper.*;
  */
 
 public final class RequestData implements Serializable {
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   public static final String SES_NAME = "last.section";
 
@@ -57,7 +68,7 @@ public final class RequestData implements Serializable {
 
   public boolean sameSection;
 
-  public RequestData(HttpServletRequest _request, HttpServletResponse _response, boolean _isPost) throws AssemblerException {
+  public RequestData(final HttpServletRequest _request, final HttpServletResponse _response, final boolean _isPost) throws AssemblerException {
     decodeRequest(_request, _response, _isPost);
   }
 
@@ -70,27 +81,26 @@ public final class RequestData implements Serializable {
    * @return
    * @throws AssemblerException
    */
-  public void decodeRequest(HttpServletRequest _request, HttpServletResponse _response, boolean _isPost) throws AssemblerException {
+  public void decodeRequest(final HttpServletRequest _request, final HttpServletResponse _response, final boolean _isPost) throws AssemblerException {
     request = _request;
     response = _response;
     sys = context.getAssemblerConf();
     //Decodifica la richiesta
     isPost = _isPost;
     session = request.getSession();
-    javax.servlet.http.Cookie[] cks = request.getCookies();
+    final javax.servlet.http.Cookie[] cks = request.getCookies();
     if (cks != null) {
       javax.servlet.http.Cookie c;
-      for (int i = 0; i < cks.length; i++) {
-        c = cks[i];
+      for (final Cookie ck : cks) {
+        c = ck;
         cookies.put(c.getName(), c);
       }
     }
     //Decodifica l'URL nelle sue componenti
     ri = new RequestInfo(request, isPost);
     //Recupera le impostazioni per le impostazioni di accesso richieste
-    AccessDef[] accessDefs = sys.getConfiguration().getAccessConfig().getAccessDef();
-    for (int i = 0; i < accessDefs.length; i++) {
-      AccessDef tmp = accessDefs[i];
+    final AccessDef[] accessDefs = sys.getConfiguration().getAccessConfig().getAccessDef();
+    for (final AccessDef tmp : accessDefs) {
       if (tmp.getID().equals("")) {
         access = tmp;
       }
@@ -100,10 +110,9 @@ public final class RequestData implements Serializable {
       }
     }
     //Recupera le impostazioni per l'applicazione invocata
-    String app = ri.getAppName();
-    Application[] apps = sys.getApplications().getApplication();
-    for (int i = 0; i < apps.length; i++) {
-      Application tmp = apps[i];
+    final String app = ri.getAppName();
+    final Application[] apps = sys.getApplications().getApplication();
+    for (final Application tmp : apps) {
       if (tmp.getID().equals(app)) {
         appl = tmp;
         break;
@@ -113,10 +122,9 @@ public final class RequestData implements Serializable {
       Utils.raiseError(false, null, "Unknown Application (" + app + ")");
     }
     //Recupera le impostazioni per della sezione invocata
-    String sec = ri.getAppSection();
-    Section[] secs = appl.getSections().getSection();
-    for (int i = 0; i < secs.length; i++) {
-      Section tmp = secs[i];
+    final String sec = ri.getAppSection();
+    final Section[] secs = appl.getSections().getSection();
+    for (final Section tmp : secs) {
       if (tmp.getID().equals(sec)) {
         section = tmp;
         break;
@@ -131,14 +139,14 @@ public final class RequestData implements Serializable {
   private boolean calcSameSection() {
     // Verifica se la richiesta e' simile alla precedente
     boolean sameSection = false;
-    RequestInfo lastRI = (RequestInfo)session.getAttribute(SES_NAME);
+    final RequestInfo lastRI = (RequestInfo)session.getAttribute(RequestData.SES_NAME);
     if (lastRI != null) {
       if ((lastRI.getAppName().equals(ri.getAppName())) & (lastRI.getAppSection().equals(ri.getAppSection()))) {
         sameSection = true;
       }
     }
     // Salva in session l'applicazione/sezione corrente
-    session.setAttribute(SES_NAME, ri);
+    session.setAttribute(RequestData.SES_NAME, ri);
     return sameSection;
   }
 

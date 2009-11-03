@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class SectionChoice2.
@@ -23,6 +24,11 @@ public class SectionChoice2 implements java.io.Serializable {
   //--------------------------/
   //- Class/Member Variables -/
   //--------------------------/
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   /**
    * Field _errorRedirect.
@@ -53,7 +59,7 @@ public class SectionChoice2 implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ErrorRedirect getErrorRedirect(
       ) {
-    return this._errorRedirect;
+    return _errorRedirect;
   }
 
   /**
@@ -63,7 +69,7 @@ public class SectionChoice2 implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ErrorScript getErrorScript(
       ) {
-    return this._errorScript;
+    return _errorScript;
   }
 
   /**
@@ -76,7 +82,7 @@ public class SectionChoice2 implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -119,7 +125,7 @@ public class SectionChoice2 implements java.io.Serializable {
    */
   public void setErrorRedirect(
       final net.eiroca.portal.assembler.gen.ErrorRedirect errorRedirect) {
-    this._errorRedirect = errorRedirect;
+    _errorRedirect = errorRedirect;
   }
 
   /**
@@ -129,7 +135,7 @@ public class SectionChoice2 implements java.io.Serializable {
    */
   public void setErrorScript(
       final net.eiroca.portal.assembler.gen.ErrorScript errorScript) {
-    this._errorScript = errorScript;
+    _errorScript = errorScript;
   }
 
   /**
@@ -156,7 +162,7 @@ public class SectionChoice2 implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

@@ -11,7 +11,7 @@ package net.eiroca.portal.assembler.gen.descriptors;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import net.eiroca.portal.assembler.gen.*;
+import net.eiroca.portal.assembler.gen.Applications;
 
 /**
  * Class ApplicationsDescriptor.
@@ -27,7 +27,7 @@ public class ApplicationsDescriptor extends org.exolab.castor.xml.util.XMLClassD
   /**
    * Field _elementDefinition.
    */
-  private boolean _elementDefinition;
+  private final boolean _elementDefinition;
 
   /**
    * Field _nsPrefix.
@@ -42,7 +42,7 @@ public class ApplicationsDescriptor extends org.exolab.castor.xml.util.XMLClassD
   /**
    * Field _xmlName.
    */
-  private java.lang.String _xmlName;
+  private final java.lang.String _xmlName;
 
   /**
    * Field _identity.
@@ -69,22 +69,25 @@ public class ApplicationsDescriptor extends org.exolab.castor.xml.util.XMLClassD
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_sesNameHTTPClients", "SesNameHTTPClients", org.exolab.castor.xml.NodeType.Attribute);
     desc.setImmutable(true);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Applications target = (Applications)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Applications target = (Applications)object;
         return target.getSesNameHTTPClients();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Applications target = (Applications)object;
+          final Applications target = (Applications)object;
           target.setSesNameHTTPClients((java.lang.String)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return null;
       }
     };
@@ -109,32 +112,36 @@ public class ApplicationsDescriptor extends org.exolab.castor.xml.util.XMLClassD
     //-- _applicationList
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.Application.class, "_applicationList", "Application", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Applications target = (Applications)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Applications target = (Applications)object;
         return target.getApplication();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Applications target = (Applications)object;
+          final Applications target = (Applications)object;
           target.addApplication((net.eiroca.portal.assembler.gen.Application)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public void resetValue(Object object) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void resetValue(final Object object) throws IllegalStateException, IllegalArgumentException {
         try {
-          Applications target = (Applications)object;
+          final Applications target = (Applications)object;
           target.removeAllApplication();
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.Application();
       }
     };
@@ -163,6 +170,7 @@ public class ApplicationsDescriptor extends org.exolab.castor.xml.util.XMLClassD
    *
    * @return the access mode specified for this class.
    */
+  @Override
   public org.exolab.castor.mapping.AccessMode getAccessMode(
       ) {
     return null;
@@ -174,6 +182,7 @@ public class ApplicationsDescriptor extends org.exolab.castor.xml.util.XMLClassD
    * @return the identity field, null if this class has no
    * identity.
    */
+  @Override
   public org.exolab.castor.mapping.FieldDescriptor getIdentity(
       ) {
     return _identity;
@@ -184,6 +193,7 @@ public class ApplicationsDescriptor extends org.exolab.castor.xml.util.XMLClassD
    *
    * @return the Java class represented by this descriptor.
    */
+  @Override
   public java.lang.Class getJavaClass(
       ) {
     return net.eiroca.portal.assembler.gen.Applications.class;
@@ -194,6 +204,7 @@ public class ApplicationsDescriptor extends org.exolab.castor.xml.util.XMLClassD
    *
    * @return the namespace prefix to use when marshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpacePrefix(
       ) {
     return _nsPrefix;
@@ -205,6 +216,7 @@ public class ApplicationsDescriptor extends org.exolab.castor.xml.util.XMLClassD
    * @return the namespace URI used when marshaling and
    * unmarshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpaceURI(
       ) {
     return _nsURI;
@@ -216,6 +228,7 @@ public class ApplicationsDescriptor extends org.exolab.castor.xml.util.XMLClassD
    * @return a specific validator for the class described by this
    * ClassDescriptor.
    */
+  @Override
   public org.exolab.castor.xml.TypeValidator getValidator(
       ) {
     return this;
@@ -226,6 +239,7 @@ public class ApplicationsDescriptor extends org.exolab.castor.xml.util.XMLClassD
    *
    * @return the XML Name for the Class being described.
    */
+  @Override
   public java.lang.String getXMLName(
       ) {
     return _xmlName;
@@ -238,6 +252,7 @@ public class ApplicationsDescriptor extends org.exolab.castor.xml.util.XMLClassD
    * of a global
    * element or element with anonymous type definition.
    */
+  @Override
   public boolean isElementDefinition(
       ) {
     return _elementDefinition;

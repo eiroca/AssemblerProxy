@@ -16,12 +16,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.manager;
 
-import javax.servlet.*;
-
-import net.eiroca.portal.assembler.api.*;
-import net.eiroca.portal.assembler.exception.*;
-import net.eiroca.portal.assembler.gen.*;
-import net.eiroca.portal.assembler.util.*;
+import javax.servlet.ServletContext;
+import net.eiroca.portal.assembler.api.IAuthentication;
+import net.eiroca.portal.assembler.exception.AssemblerException;
+import net.eiroca.portal.assembler.exception.FatalProcessingException;
+import net.eiroca.portal.assembler.gen.AccessDef;
+import net.eiroca.portal.assembler.gen.AuthenticationMode;
+import net.eiroca.portal.assembler.util.RequestData;
 
 /**
  * Gestione delle problematiche legate all'autenticazione
@@ -40,12 +41,12 @@ public final class AuthorizationManager {
    * @throws FatalProcessingException Viene sollevata l'eccezzione se i
    * controlli richiesti falliscono
    */
-  public void checkAuth(ServletContext sc, RequestData data) throws AssemblerException {
-    AuthenticationMode authMode = data.appl.getAuthenticationMode();
+  public void checkAuth(final ServletContext sc, final RequestData data) throws AssemblerException {
+    final AuthenticationMode authMode = data.appl.getAuthenticationMode();
     if (authMode != null) {
-      AccessDef access = data.access;
-      IAuthentication authMethod = data.context.getAuthenticationClass(sc, authMode.getAuthenticationID());
-      String connID = authMode.getConnectionID();
+      final AccessDef access = data.access;
+      final IAuthentication authMethod = data.context.getAuthenticationClass(sc, authMode.getAuthenticationID());
+      final String connID = authMode.getConnectionID();
       authMethod.execute(data, authMode.getAuthenticationID(), connID, access.getForceSSO(), access.getDecode(), access.getForceValid());
     }
   }

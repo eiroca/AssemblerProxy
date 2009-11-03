@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class Section.
@@ -23,6 +24,11 @@ public class Section implements java.io.Serializable {
   //--------------------------/
   //- Class/Member Variables -/
   //--------------------------/
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   /**
    * Field _ID.
@@ -58,7 +64,7 @@ public class Section implements java.io.Serializable {
    */
   public java.lang.String getID(
       ) {
-    return this._ID;
+    return _ID;
   }
 
   /**
@@ -68,7 +74,7 @@ public class Section implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.SectionChoice getSectionChoice(
       ) {
-    return this._sectionChoice;
+    return _sectionChoice;
   }
 
   /**
@@ -78,7 +84,7 @@ public class Section implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.SectionChoice2 getSectionChoice2(
       ) {
-    return this._sectionChoice2;
+    return _sectionChoice2;
   }
 
   /**
@@ -91,7 +97,7 @@ public class Section implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -134,7 +140,7 @@ public class Section implements java.io.Serializable {
    */
   public void setID(
       final java.lang.String ID) {
-    this._ID = ID;
+    _ID = ID;
   }
 
   /**
@@ -144,7 +150,7 @@ public class Section implements java.io.Serializable {
    */
   public void setSectionChoice(
       final net.eiroca.portal.assembler.gen.SectionChoice sectionChoice) {
-    this._sectionChoice = sectionChoice;
+    _sectionChoice = sectionChoice;
   }
 
   /**
@@ -154,7 +160,7 @@ public class Section implements java.io.Serializable {
    */
   public void setSectionChoice2(
       final net.eiroca.portal.assembler.gen.SectionChoice2 sectionChoice2) {
-    this._sectionChoice2 = sectionChoice2;
+    _sectionChoice2 = sectionChoice2;
   }
 
   /**
@@ -181,7 +187,7 @@ public class Section implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

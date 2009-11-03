@@ -22,7 +22,12 @@ package net.eiroca.portal.assembler.exception;
  */
 public final class IllegalRequestException extends AssemblerException {
 
-  public IllegalRequestException(String msg) {
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+
+  public IllegalRequestException(final String msg) {
     super(msg);
   }
 

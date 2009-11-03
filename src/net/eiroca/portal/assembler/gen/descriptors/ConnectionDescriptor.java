@@ -11,7 +11,7 @@ package net.eiroca.portal.assembler.gen.descriptors;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import net.eiroca.portal.assembler.gen.*;
+import net.eiroca.portal.assembler.gen.Connection;
 
 /**
  * Class ConnectionDescriptor.
@@ -27,7 +27,7 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
   /**
    * Field _elementDefinition.
    */
-  private boolean _elementDefinition;
+  private final boolean _elementDefinition;
 
   /**
    * Field _nsPrefix.
@@ -42,7 +42,7 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
   /**
    * Field _xmlName.
    */
-  private java.lang.String _xmlName;
+  private final java.lang.String _xmlName;
 
   /**
    * Field _identity.
@@ -69,22 +69,25 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_ID", "ID", org.exolab.castor.xml.NodeType.Attribute);
     desc.setImmutable(true);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Connection target = (Connection)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Connection target = (Connection)object;
         return target.getID();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Connection target = (Connection)object;
+          final Connection target = (Connection)object;
           target.setID((java.lang.String)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return null;
       }
     };
@@ -107,17 +110,19 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
     //-- _timeOut
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.Integer.TYPE, "_timeOut", "TimeOut", org.exolab.castor.xml.NodeType.Attribute);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Connection target = (Connection)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Connection target = (Connection)object;
         if (!target.hasTimeOut()) {
           return null;
         }
         return new java.lang.Integer(target.getTimeOut());
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Connection target = (Connection)object;
+          final Connection target = (Connection)object;
           // ignore null values for non optional primitives
           if (value == null) {
             return;
@@ -125,12 +130,13 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
 
           target.setTimeOut(((java.lang.Integer)value).intValue());
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return null;
       }
     };
@@ -155,22 +161,25 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_username", "Username", org.exolab.castor.xml.NodeType.Attribute);
     desc.setImmutable(true);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Connection target = (Connection)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Connection target = (Connection)object;
         return target.getUsername();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Connection target = (Connection)object;
+          final Connection target = (Connection)object;
           target.setUsername((java.lang.String)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return null;
       }
     };
@@ -192,22 +201,25 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_password", "Password", org.exolab.castor.xml.NodeType.Attribute);
     desc.setImmutable(true);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Connection target = (Connection)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Connection target = (Connection)object;
         return target.getPassword();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Connection target = (Connection)object;
+          final Connection target = (Connection)object;
           target.setPassword((java.lang.String)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return null;
       }
     };
@@ -230,32 +242,36 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
     //-- _cookieList
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.Cookie.class, "_cookieList", "Cookie", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        Connection target = (Connection)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final Connection target = (Connection)object;
         return target.getCookie();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          Connection target = (Connection)object;
+          final Connection target = (Connection)object;
           target.addCookie((net.eiroca.portal.assembler.gen.Cookie)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public void resetValue(Object object) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void resetValue(final Object object) throws IllegalStateException, IllegalArgumentException {
         try {
-          Connection target = (Connection)object;
+          final Connection target = (Connection)object;
           target.removeAllCookie();
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.Cookie();
       }
     };
@@ -283,6 +299,7 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
    *
    * @return the access mode specified for this class.
    */
+  @Override
   public org.exolab.castor.mapping.AccessMode getAccessMode(
       ) {
     return null;
@@ -294,6 +311,7 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
    * @return the identity field, null if this class has no
    * identity.
    */
+  @Override
   public org.exolab.castor.mapping.FieldDescriptor getIdentity(
       ) {
     return _identity;
@@ -304,6 +322,7 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
    *
    * @return the Java class represented by this descriptor.
    */
+  @Override
   public java.lang.Class getJavaClass(
       ) {
     return net.eiroca.portal.assembler.gen.Connection.class;
@@ -314,6 +333,7 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
    *
    * @return the namespace prefix to use when marshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpacePrefix(
       ) {
     return _nsPrefix;
@@ -325,6 +345,7 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
    * @return the namespace URI used when marshaling and
    * unmarshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpaceURI(
       ) {
     return _nsURI;
@@ -336,6 +357,7 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
    * @return a specific validator for the class described by this
    * ClassDescriptor.
    */
+  @Override
   public org.exolab.castor.xml.TypeValidator getValidator(
       ) {
     return this;
@@ -346,6 +368,7 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
    *
    * @return the XML Name for the Class being described.
    */
+  @Override
   public java.lang.String getXMLName(
       ) {
     return _xmlName;
@@ -358,6 +381,7 @@ public class ConnectionDescriptor extends org.exolab.castor.xml.util.XMLClassDes
    * of a global
    * element or element with anonymous type definition.
    */
+  @Override
   public boolean isElementDefinition(
       ) {
     return _elementDefinition;

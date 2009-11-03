@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class AccessDef.
@@ -23,6 +24,11 @@ public class AccessDef implements java.io.Serializable {
   //--------------------------/
   //- Class/Member Variables -/
   //--------------------------/
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
 
   /**
    * Field _ID.
@@ -75,21 +81,21 @@ public class AccessDef implements java.io.Serializable {
    */
   public void deleteDecode(
       ) {
-    this._has_decode = false;
+    _has_decode = false;
   }
 
   /**
    */
   public void deleteForceSSO(
       ) {
-    this._has_forceSSO = false;
+    _has_forceSSO = false;
   }
 
   /**
    */
   public void deleteForceValid(
       ) {
-    this._has_forceValid = false;
+    _has_forceValid = false;
   }
 
   /**
@@ -99,7 +105,7 @@ public class AccessDef implements java.io.Serializable {
    */
   public boolean getDecode(
       ) {
-    return this._decode;
+    return _decode;
   }
 
   /**
@@ -109,7 +115,7 @@ public class AccessDef implements java.io.Serializable {
    */
   public boolean getForceSSO(
       ) {
-    return this._forceSSO;
+    return _forceSSO;
   }
 
   /**
@@ -119,7 +125,7 @@ public class AccessDef implements java.io.Serializable {
    */
   public boolean getForceValid(
       ) {
-    return this._forceValid;
+    return _forceValid;
   }
 
   /**
@@ -129,7 +135,7 @@ public class AccessDef implements java.io.Serializable {
    */
   public java.lang.String getID(
       ) {
-    return this._ID;
+    return _ID;
   }
 
   /**
@@ -139,7 +145,7 @@ public class AccessDef implements java.io.Serializable {
    */
   public boolean hasDecode(
       ) {
-    return this._has_decode;
+    return _has_decode;
   }
 
   /**
@@ -149,7 +155,7 @@ public class AccessDef implements java.io.Serializable {
    */
   public boolean hasForceSSO(
       ) {
-    return this._has_forceSSO;
+    return _has_forceSSO;
   }
 
   /**
@@ -159,7 +165,7 @@ public class AccessDef implements java.io.Serializable {
    */
   public boolean hasForceValid(
       ) {
-    return this._has_forceValid;
+    return _has_forceValid;
   }
 
   /**
@@ -169,7 +175,7 @@ public class AccessDef implements java.io.Serializable {
    */
   public boolean isDecode(
       ) {
-    return this._decode;
+    return _decode;
   }
 
   /**
@@ -179,7 +185,7 @@ public class AccessDef implements java.io.Serializable {
    */
   public boolean isForceSSO(
       ) {
-    return this._forceSSO;
+    return _forceSSO;
   }
 
   /**
@@ -189,7 +195,7 @@ public class AccessDef implements java.io.Serializable {
    */
   public boolean isForceValid(
       ) {
-    return this._forceValid;
+    return _forceValid;
   }
 
   /**
@@ -202,7 +208,7 @@ public class AccessDef implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -245,8 +251,8 @@ public class AccessDef implements java.io.Serializable {
    */
   public void setDecode(
       final boolean decode) {
-    this._decode = decode;
-    this._has_decode = true;
+    _decode = decode;
+    _has_decode = true;
   }
 
   /**
@@ -256,8 +262,8 @@ public class AccessDef implements java.io.Serializable {
    */
   public void setForceSSO(
       final boolean forceSSO) {
-    this._forceSSO = forceSSO;
-    this._has_forceSSO = true;
+    _forceSSO = forceSSO;
+    _has_forceSSO = true;
   }
 
   /**
@@ -267,8 +273,8 @@ public class AccessDef implements java.io.Serializable {
    */
   public void setForceValid(
       final boolean forceValid) {
-    this._forceValid = forceValid;
-    this._has_forceValid = true;
+    _forceValid = forceValid;
+    _has_forceValid = true;
   }
 
   /**
@@ -278,7 +284,7 @@ public class AccessDef implements java.io.Serializable {
    */
   public void setID(
       final java.lang.String ID) {
-    this._ID = ID;
+    _ID = ID;
   }
 
   /**
@@ -305,7 +311,7 @@ public class AccessDef implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

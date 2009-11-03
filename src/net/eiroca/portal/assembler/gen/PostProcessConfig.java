@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class PostProcessConfig.
@@ -25,9 +26,13 @@ public class PostProcessConfig implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  /**
    * Field _scriptPostProcessorList.
    */
-  private java.util.Vector _scriptPostProcessorList;
+  private final java.util.Vector _scriptPostProcessorList;
 
   //----------------/
   //- Constructors -/
@@ -35,7 +40,7 @@ public class PostProcessConfig implements java.io.Serializable {
 
   public PostProcessConfig() {
     super();
-    this._scriptPostProcessorList = new java.util.Vector();
+    _scriptPostProcessorList = new java.util.Vector();
   }
 
   //-----------/
@@ -51,7 +56,7 @@ public class PostProcessConfig implements java.io.Serializable {
    */
   public void addScriptPostProcessor(
       final net.eiroca.portal.assembler.gen.ScriptPostProcessor vScriptPostProcessor) throws java.lang.IndexOutOfBoundsException {
-    this._scriptPostProcessorList.addElement(vScriptPostProcessor);
+    _scriptPostProcessorList.addElement(vScriptPostProcessor);
   }
 
   /**
@@ -65,7 +70,7 @@ public class PostProcessConfig implements java.io.Serializable {
   public void addScriptPostProcessor(
       final int index,
       final net.eiroca.portal.assembler.gen.ScriptPostProcessor vScriptPostProcessor) throws java.lang.IndexOutOfBoundsException {
-    this._scriptPostProcessorList.add(index, vScriptPostProcessor);
+    _scriptPostProcessorList.add(index, vScriptPostProcessor);
   }
 
   /**
@@ -76,7 +81,7 @@ public class PostProcessConfig implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateScriptPostProcessor(
       ) {
-    return this._scriptPostProcessorList.elements();
+    return _scriptPostProcessorList.elements();
   }
 
   /**
@@ -92,8 +97,8 @@ public class PostProcessConfig implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.ScriptPostProcessor getScriptPostProcessor(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._scriptPostProcessorList.size()) {
-      throw new IndexOutOfBoundsException("getScriptPostProcessor: Index value '" + index + "' not in range [0.." + (this._scriptPostProcessorList.size() - 1) + "]");
+    if ((index < 0) || (index >= _scriptPostProcessorList.size())) {
+      throw new IndexOutOfBoundsException("getScriptPostProcessor: Index value '" + index + "' not in range [0.." + (_scriptPostProcessorList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.ScriptPostProcessor)_scriptPostProcessorList.get(index);
@@ -111,8 +116,8 @@ public class PostProcessConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ScriptPostProcessor[] getScriptPostProcessor(
       ) {
-    net.eiroca.portal.assembler.gen.ScriptPostProcessor[] array = new net.eiroca.portal.assembler.gen.ScriptPostProcessor[0];
-    return (net.eiroca.portal.assembler.gen.ScriptPostProcessor[])this._scriptPostProcessorList.toArray(array);
+    final net.eiroca.portal.assembler.gen.ScriptPostProcessor[] array = new net.eiroca.portal.assembler.gen.ScriptPostProcessor[0];
+    return (net.eiroca.portal.assembler.gen.ScriptPostProcessor[])_scriptPostProcessorList.toArray(array);
   }
 
   /**
@@ -122,7 +127,7 @@ public class PostProcessConfig implements java.io.Serializable {
    */
   public int getScriptPostProcessorCount(
       ) {
-    return this._scriptPostProcessorList.size();
+    return _scriptPostProcessorList.size();
   }
 
   /**
@@ -135,7 +140,7 @@ public class PostProcessConfig implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -175,7 +180,7 @@ public class PostProcessConfig implements java.io.Serializable {
    */
   public void removeAllScriptPostProcessor(
       ) {
-    this._scriptPostProcessorList.clear();
+    _scriptPostProcessorList.clear();
   }
 
   /**
@@ -186,7 +191,7 @@ public class PostProcessConfig implements java.io.Serializable {
    */
   public boolean removeScriptPostProcessor(
       final net.eiroca.portal.assembler.gen.ScriptPostProcessor vScriptPostProcessor) {
-    boolean removed = _scriptPostProcessorList.remove(vScriptPostProcessor);
+    final boolean removed = _scriptPostProcessorList.remove(vScriptPostProcessor);
     return removed;
   }
 
@@ -198,7 +203,7 @@ public class PostProcessConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.ScriptPostProcessor removeScriptPostProcessorAt(
       final int index) {
-    java.lang.Object obj = this._scriptPostProcessorList.remove(index);
+    final java.lang.Object obj = _scriptPostProcessorList.remove(index);
     return (net.eiroca.portal.assembler.gen.ScriptPostProcessor)obj;
   }
 
@@ -214,11 +219,11 @@ public class PostProcessConfig implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.ScriptPostProcessor vScriptPostProcessor) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._scriptPostProcessorList.size()) {
-      throw new IndexOutOfBoundsException("setScriptPostProcessor: Index value '" + index + "' not in range [0.." + (this._scriptPostProcessorList.size() - 1) + "]");
+    if ((index < 0) || (index >= _scriptPostProcessorList.size())) {
+      throw new IndexOutOfBoundsException("setScriptPostProcessor: Index value '" + index + "' not in range [0.." + (_scriptPostProcessorList.size() - 1) + "]");
     }
 
-    this._scriptPostProcessorList.set(index, vScriptPostProcessor);
+    _scriptPostProcessorList.set(index, vScriptPostProcessor);
   }
 
   /**
@@ -231,8 +236,8 @@ public class PostProcessConfig implements java.io.Serializable {
     //-- copy array
     _scriptPostProcessorList.clear();
 
-    for (int i = 0; i < vScriptPostProcessorArray.length; i++) {
-      this._scriptPostProcessorList.add(vScriptPostProcessorArray[i]);
+    for (final ScriptPostProcessor element : vScriptPostProcessorArray) {
+      _scriptPostProcessorList.add(element);
     }
   }
 
@@ -260,7 +265,7 @@ public class PostProcessConfig implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

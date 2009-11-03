@@ -16,16 +16,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler.impl;
 
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import org.apache.commons.httpclient.*;
-import net.eiroca.portal.assembler.api.*;
-import net.eiroca.portal.assembler.exception.*;
-import net.eiroca.portal.assembler.helper.*;
-import net.eiroca.portal.assembler.manager.*;
-import net.eiroca.portal.assembler.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+import net.eiroca.portal.assembler.api.IAuthentication;
+import net.eiroca.portal.assembler.exception.AssemblerException;
+import net.eiroca.portal.assembler.exception.FatalProcessingException;
+import net.eiroca.portal.assembler.helper.AssemblerContext;
+import net.eiroca.portal.assembler.manager.ConnectionMananger;
+import net.eiroca.portal.assembler.util.APIClass;
+import net.eiroca.portal.assembler.util.AuthData;
+import net.eiroca.portal.assembler.util.RequestData;
+import org.apache.commons.httpclient.Header;
+import org.apache.commons.httpclient.HttpMethod;
 
 public class CommonAuthentication extends APIClass implements IAuthentication {
 
@@ -38,14 +42,14 @@ public class CommonAuthentication extends APIClass implements IAuthentication {
 
   public AssemblerContext context = AssemblerContext.getInstance();
 
-  private String authCookieName;
-  private String sesName;
-  private String referSubStr;
-  private int cacheTimeOut;
-  private String url;
-  private String prefix;
+  private final String authCookieName;
+  private final String sesName;
+  private final String referSubStr;
+  private final int cacheTimeOut;
+  private final String url;
+  private final String prefix;
 
-  public CommonAuthentication(ServletContext sc, HashMap p) {
+  public CommonAuthentication(final ServletContext sc, final HashMap p) {
     String tmp;
     authCookieName = getStr(p, PRM_AUTHCOOKIE);
     sesName = getStr(p, PRM_SESNAMEAUTH);
@@ -56,9 +60,9 @@ public class CommonAuthentication extends APIClass implements IAuthentication {
     prefix = getStr(p, PRM_PREFIX);
   }
 
-  public void execute(RequestData data, String authID, String connID, boolean forceSSO, boolean decode, boolean forceValid) throws FatalProcessingException {
-    javax.servlet.http.Cookie authCookie = (javax.servlet.http.Cookie)data.cookies.get(authCookieName);
-    String cookieVal = (authCookie != null ? authCookie.getValue() : null);
+  public void execute(final RequestData data, final String authID, final String connID, final boolean forceSSO, final boolean decode, final boolean forceValid) throws FatalProcessingException {
+    final javax.servlet.http.Cookie authCookie = (javax.servlet.http.Cookie)data.cookies.get(authCookieName);
+    final String cookieVal = (authCookie != null ? authCookie.getValue() : null);
     if ((forceSSO) & (cookieVal == null)) {
       throw new FatalProcessingException("Invalid Authentication (Cookie Missing)");
     }
@@ -67,7 +71,7 @@ public class CommonAuthentication extends APIClass implements IAuthentication {
       try {
         auth = decriptAuth(data, connID);
       }
-      catch (AssemblerException er) {
+      catch (final AssemblerException er) {
         System.err.println(er);
       }
       if (decode) {
@@ -88,8 +92,8 @@ public class CommonAuthentication extends APIClass implements IAuthentication {
    * @return
    * @throws AssemblerException
    */
-  private AuthData decriptAuth(RequestData data, String connID) throws AssemblerException {
-    HttpSession ses = data.session;
+  private AuthData decriptAuth(final RequestData data, final String connID) throws AssemblerException {
+    final HttpSession ses = data.session;
     AuthData auth = (AuthData)ses.getAttribute(sesName);
     if (auth != null) {
       if (isValid(data, auth)) {
@@ -113,8 +117,8 @@ public class CommonAuthentication extends APIClass implements IAuthentication {
    * @param auth
    * @return
    */
-  private boolean isValid(RequestData data, AuthData auth) {
-    String refer = data.request.getHeader("Referer");
+  private boolean isValid(final RequestData data, final AuthData auth) {
+    final String refer = data.request.getHeader("Referer");
     if (refer == null) {
       return false;
     }
@@ -134,12 +138,12 @@ public class CommonAuthentication extends APIClass implements IAuthentication {
    * @return
    * @throws AssemblerException
    */
-  private AuthData readAuth(RequestData data, String connID) throws AssemblerException {
-    ConnectionMananger cm = new ConnectionMananger();
+  private AuthData readAuth(final RequestData data, final String connID) throws AssemblerException {
+    final ConnectionMananger cm = new ConnectionMananger();
     if (url == null) {
       return null;
     }
-    HttpMethod method = cm.openRequest(data, false, connID, url);
+    final HttpMethod method = cm.openRequest(data, false, connID, url);
     // Gestisce gli errori
     if (method == null) {
       return null;
@@ -150,15 +154,15 @@ public class CommonAuthentication extends APIClass implements IAuthentication {
       return null;
     }
     // Esito OK estrai le informazioni di autenticazione
-    AuthData auth = new AuthData();
-    Map authInfo = auth.getAuth();
-    Header[] headers = method.getResponseHeaders();
+    final AuthData auth = new AuthData();
+    final Map authInfo = auth.getAuth();
+    final Header[] headers = method.getResponseHeaders();
     String name;
     boolean valid = false;
-    for (int i = 0; i < headers.length; i++) {
-      name = headers[i].getName();
+    for (final Header header : headers) {
+      name = header.getName();
       if (name.toUpperCase().startsWith(prefix)) {
-        authInfo.put(name, headers[i].getValue());
+        authInfo.put(name, header.getValue());
         valid = true;
       }
     }

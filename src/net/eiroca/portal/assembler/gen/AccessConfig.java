@@ -11,7 +11,8 @@ package net.eiroca.portal.assembler.gen;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import org.exolab.castor.xml.*;
+import org.exolab.castor.xml.Marshaller;
+import org.exolab.castor.xml.Unmarshaller;
 
 /**
  * Class AccessConfig.
@@ -25,9 +26,13 @@ public class AccessConfig implements java.io.Serializable {
   //--------------------------/
 
   /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  /**
    * Field _accessDefList.
    */
-  private java.util.Vector _accessDefList;
+  private final java.util.Vector _accessDefList;
 
   //----------------/
   //- Constructors -/
@@ -35,7 +40,7 @@ public class AccessConfig implements java.io.Serializable {
 
   public AccessConfig() {
     super();
-    this._accessDefList = new java.util.Vector();
+    _accessDefList = new java.util.Vector();
   }
 
   //-----------/
@@ -51,7 +56,7 @@ public class AccessConfig implements java.io.Serializable {
    */
   public void addAccessDef(
       final net.eiroca.portal.assembler.gen.AccessDef vAccessDef) throws java.lang.IndexOutOfBoundsException {
-    this._accessDefList.addElement(vAccessDef);
+    _accessDefList.addElement(vAccessDef);
   }
 
   /**
@@ -65,7 +70,7 @@ public class AccessConfig implements java.io.Serializable {
   public void addAccessDef(
       final int index,
       final net.eiroca.portal.assembler.gen.AccessDef vAccessDef) throws java.lang.IndexOutOfBoundsException {
-    this._accessDefList.add(index, vAccessDef);
+    _accessDefList.add(index, vAccessDef);
   }
 
   /**
@@ -76,7 +81,7 @@ public class AccessConfig implements java.io.Serializable {
    */
   public java.util.Enumeration enumerateAccessDef(
       ) {
-    return this._accessDefList.elements();
+    return _accessDefList.elements();
   }
 
   /**
@@ -91,8 +96,8 @@ public class AccessConfig implements java.io.Serializable {
   public net.eiroca.portal.assembler.gen.AccessDef getAccessDef(
       final int index) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._accessDefList.size()) {
-      throw new IndexOutOfBoundsException("getAccessDef: Index value '" + index + "' not in range [0.." + (this._accessDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _accessDefList.size())) {
+      throw new IndexOutOfBoundsException("getAccessDef: Index value '" + index + "' not in range [0.." + (_accessDefList.size() - 1) + "]");
     }
 
     return (net.eiroca.portal.assembler.gen.AccessDef)_accessDefList.get(index);
@@ -109,8 +114,8 @@ public class AccessConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.AccessDef[] getAccessDef(
       ) {
-    net.eiroca.portal.assembler.gen.AccessDef[] array = new net.eiroca.portal.assembler.gen.AccessDef[0];
-    return (net.eiroca.portal.assembler.gen.AccessDef[])this._accessDefList.toArray(array);
+    final net.eiroca.portal.assembler.gen.AccessDef[] array = new net.eiroca.portal.assembler.gen.AccessDef[0];
+    return (net.eiroca.portal.assembler.gen.AccessDef[])_accessDefList.toArray(array);
   }
 
   /**
@@ -120,7 +125,7 @@ public class AccessConfig implements java.io.Serializable {
    */
   public int getAccessDefCount(
       ) {
-    return this._accessDefList.size();
+    return _accessDefList.size();
   }
 
   /**
@@ -133,7 +138,7 @@ public class AccessConfig implements java.io.Serializable {
     try {
       validate();
     }
-    catch (org.exolab.castor.xml.ValidationException vex) {
+    catch (final org.exolab.castor.xml.ValidationException vex) {
       return false;
     }
     return true;
@@ -177,7 +182,7 @@ public class AccessConfig implements java.io.Serializable {
    */
   public boolean removeAccessDef(
       final net.eiroca.portal.assembler.gen.AccessDef vAccessDef) {
-    boolean removed = _accessDefList.remove(vAccessDef);
+    final boolean removed = _accessDefList.remove(vAccessDef);
     return removed;
   }
 
@@ -189,7 +194,7 @@ public class AccessConfig implements java.io.Serializable {
    */
   public net.eiroca.portal.assembler.gen.AccessDef removeAccessDefAt(
       final int index) {
-    java.lang.Object obj = this._accessDefList.remove(index);
+    final java.lang.Object obj = _accessDefList.remove(index);
     return (net.eiroca.portal.assembler.gen.AccessDef)obj;
   }
 
@@ -197,7 +202,7 @@ public class AccessConfig implements java.io.Serializable {
    */
   public void removeAllAccessDef(
       ) {
-    this._accessDefList.clear();
+    _accessDefList.clear();
   }
 
   /**
@@ -212,11 +217,11 @@ public class AccessConfig implements java.io.Serializable {
       final int index,
       final net.eiroca.portal.assembler.gen.AccessDef vAccessDef) throws java.lang.IndexOutOfBoundsException {
     // check bounds for index
-    if (index < 0 || index >= this._accessDefList.size()) {
-      throw new IndexOutOfBoundsException("setAccessDef: Index value '" + index + "' not in range [0.." + (this._accessDefList.size() - 1) + "]");
+    if ((index < 0) || (index >= _accessDefList.size())) {
+      throw new IndexOutOfBoundsException("setAccessDef: Index value '" + index + "' not in range [0.." + (_accessDefList.size() - 1) + "]");
     }
 
-    this._accessDefList.set(index, vAccessDef);
+    _accessDefList.set(index, vAccessDef);
   }
 
   /**
@@ -229,8 +234,8 @@ public class AccessConfig implements java.io.Serializable {
     //-- copy array
     _accessDefList.clear();
 
-    for (int i = 0; i < vAccessDefArray.length; i++) {
-      this._accessDefList.add(vAccessDefArray[i]);
+    for (final AccessDef element : vAccessDefArray) {
+      _accessDefList.add(element);
     }
   }
 
@@ -258,7 +263,7 @@ public class AccessConfig implements java.io.Serializable {
    */
   public void validate(
       ) throws org.exolab.castor.xml.ValidationException {
-    org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
+    final org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
     validator.validate(this);
   }
 

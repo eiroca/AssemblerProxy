@@ -11,7 +11,7 @@ package net.eiroca.portal.assembler.gen.descriptors;
 //- Imported classes and packages -/
 //---------------------------------/
 
-import net.eiroca.portal.assembler.gen.*;
+import net.eiroca.portal.assembler.gen.ExtractorConfig;
 
 /**
  * Class ExtractorConfigDescriptor.
@@ -27,7 +27,7 @@ public class ExtractorConfigDescriptor extends org.exolab.castor.xml.util.XMLCla
   /**
    * Field _elementDefinition.
    */
-  private boolean _elementDefinition;
+  private final boolean _elementDefinition;
 
   /**
    * Field _nsPrefix.
@@ -42,7 +42,7 @@ public class ExtractorConfigDescriptor extends org.exolab.castor.xml.util.XMLCla
   /**
    * Field _xmlName.
    */
-  private java.lang.String _xmlName;
+  private final java.lang.String _xmlName;
 
   /**
    * Field _identity.
@@ -70,32 +70,36 @@ public class ExtractorConfigDescriptor extends org.exolab.castor.xml.util.XMLCla
     //-- _extractorDefList
     desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(net.eiroca.portal.assembler.gen.ExtractorDef.class, "_extractorDefList", "ExtractorDef", org.exolab.castor.xml.NodeType.Element);
     handler = new org.exolab.castor.xml.XMLFieldHandler() {
-      public java.lang.Object getValue(java.lang.Object object) throws IllegalStateException {
-        ExtractorConfig target = (ExtractorConfig)object;
+      @Override
+      public java.lang.Object getValue(final java.lang.Object object) throws IllegalStateException {
+        final ExtractorConfig target = (ExtractorConfig)object;
         return target.getExtractorDef();
       }
 
-      public void setValue(java.lang.Object object, java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void setValue(final java.lang.Object object, final java.lang.Object value) throws IllegalStateException, IllegalArgumentException {
         try {
-          ExtractorConfig target = (ExtractorConfig)object;
+          final ExtractorConfig target = (ExtractorConfig)object;
           target.addExtractorDef((net.eiroca.portal.assembler.gen.ExtractorDef)value);
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public void resetValue(Object object) throws IllegalStateException, IllegalArgumentException {
+      @Override
+      public void resetValue(final Object object) throws IllegalStateException, IllegalArgumentException {
         try {
-          ExtractorConfig target = (ExtractorConfig)object;
+          final ExtractorConfig target = (ExtractorConfig)object;
           target.removeAllExtractorDef();
         }
-        catch (java.lang.Exception ex) {
+        catch (final java.lang.Exception ex) {
           throw new IllegalStateException(ex.toString());
         }
       }
 
-      public java.lang.Object newInstance(java.lang.Object parent) {
+      @Override
+      public java.lang.Object newInstance(final java.lang.Object parent) {
         return new net.eiroca.portal.assembler.gen.ExtractorDef();
       }
     };
@@ -124,6 +128,7 @@ public class ExtractorConfigDescriptor extends org.exolab.castor.xml.util.XMLCla
    *
    * @return the access mode specified for this class.
    */
+  @Override
   public org.exolab.castor.mapping.AccessMode getAccessMode(
       ) {
     return null;
@@ -135,6 +140,7 @@ public class ExtractorConfigDescriptor extends org.exolab.castor.xml.util.XMLCla
    * @return the identity field, null if this class has no
    * identity.
    */
+  @Override
   public org.exolab.castor.mapping.FieldDescriptor getIdentity(
       ) {
     return _identity;
@@ -145,6 +151,7 @@ public class ExtractorConfigDescriptor extends org.exolab.castor.xml.util.XMLCla
    *
    * @return the Java class represented by this descriptor.
    */
+  @Override
   public java.lang.Class getJavaClass(
       ) {
     return net.eiroca.portal.assembler.gen.ExtractorConfig.class;
@@ -155,6 +162,7 @@ public class ExtractorConfigDescriptor extends org.exolab.castor.xml.util.XMLCla
    *
    * @return the namespace prefix to use when marshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpacePrefix(
       ) {
     return _nsPrefix;
@@ -166,6 +174,7 @@ public class ExtractorConfigDescriptor extends org.exolab.castor.xml.util.XMLCla
    * @return the namespace URI used when marshaling and
    * unmarshaling as XML.
    */
+  @Override
   public java.lang.String getNameSpaceURI(
       ) {
     return _nsURI;
@@ -177,6 +186,7 @@ public class ExtractorConfigDescriptor extends org.exolab.castor.xml.util.XMLCla
    * @return a specific validator for the class described by this
    * ClassDescriptor.
    */
+  @Override
   public org.exolab.castor.xml.TypeValidator getValidator(
       ) {
     return this;
@@ -187,6 +197,7 @@ public class ExtractorConfigDescriptor extends org.exolab.castor.xml.util.XMLCla
    *
    * @return the XML Name for the Class being described.
    */
+  @Override
   public java.lang.String getXMLName(
       ) {
     return _xmlName;
@@ -199,6 +210,7 @@ public class ExtractorConfigDescriptor extends org.exolab.castor.xml.util.XMLCla
    * of a global
    * element or element with anonymous type definition.
    */
+  @Override
   public boolean isElementDefinition(
       ) {
     return _elementDefinition;

@@ -16,14 +16,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package net.eiroca.portal.assembler;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import org.apache.commons.logging.*;
-import net.eiroca.portal.assembler.exception.*;
-import net.eiroca.portal.assembler.helper.*;
-import net.eiroca.portal.assembler.manager.*;
-import net.eiroca.portal.assembler.util.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import net.eiroca.library.util.Context;
+import net.eiroca.portal.assembler.exception.AssemblerException;
+import net.eiroca.portal.assembler.exception.IllegalRequestException;
+import net.eiroca.portal.assembler.helper.AssemblerContext;
+import net.eiroca.portal.assembler.manager.AssemblerManager;
+import net.eiroca.portal.assembler.util.RequestData;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * <p>Title: Assembler</p>
@@ -37,11 +41,16 @@ import net.eiroca.portal.assembler.util.*;
  */
 public class AssemblerServlet extends HttpServlet {
 
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+
   private AssemblerContext myContext = AssemblerContext.getInstance();
 
   private AssemblerManager assembler;
 
-  private Log log = LogFactory.getLog(this.getClass());
+  private final Log log = LogFactory.getLog(this.getClass());
 
   /**
    * Inizializzazione della servlet, effettua:
@@ -49,9 +58,10 @@ public class AssemblerServlet extends HttpServlet {
    * - aggiornamento configurazione in base agli initParameter della servlet
    * - instanziane di un AssemblerManager
    */
+  @Override
   public void init() throws ServletException {
     log.debug("init()");
-    myContext.declare(AssemblerContext.PROPERTIESPATH, "/AssemblerConfig.xml");
+    Context.declare(Context.PROPERTIESPATH, "/AssemblerConfig.xml");
     myContext.updateConfig(getServletConfig());
     assembler = new AssemblerManager(getServletContext());
   }
@@ -62,7 +72,8 @@ public class AssemblerServlet extends HttpServlet {
    * @param response Wrapper della risposta HTTP
    * @throws ServletException
    */
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+  @Override
+  public void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException {
     execute(request, response, false);
   }
 
@@ -72,7 +83,8 @@ public class AssemblerServlet extends HttpServlet {
    * @param response Wrapper della risposta HTTP
    * @throws ServletException
    */
-  public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+  @Override
+  public void doPost(final HttpServletRequest request, final HttpServletResponse response) throws ServletException {
     execute(request, response, true);
   }
 
@@ -84,33 +96,33 @@ public class AssemblerServlet extends HttpServlet {
    * @throws ServletException Le eccezzioni sono catchate internamente e non
    * vengo propagate al container
    */
-  public void execute(HttpServletRequest request, HttpServletResponse response, boolean isPost) throws ServletException {
+  public void execute(final HttpServletRequest request, final HttpServletResponse response, final boolean isPost) throws ServletException {
     log.debug("execute()");
-    long start = System.currentTimeMillis();
+    final long start = System.currentTimeMillis();
     boolean error = true;
     try {
-      String pathInfo = request.getPathInfo();
-      String adminContext = getAdminContext();
+      final String pathInfo = request.getPathInfo();
+      final String adminContext = getAdminContext();
       if ((pathInfo != null) && (pathInfo.startsWith(adminContext))) {
         assembler.executeStatus(request, response);
       }
       else {
-        RequestData data = new RequestData(request, response, isPost);
+        final RequestData data = new RequestData(request, response, isPost);
         assembler.executeRequest(getServletContext(), data);
       }
       error = false;
     }
-    catch (IllegalRequestException re) {
+    catch (final IllegalRequestException re) {
       assembler.executeError(response, re);
     }
-    catch (AssemblerException pe) {
+    catch (final AssemblerException pe) {
       assembler.executeError(response, pe);
     }
-    catch (ServletException se) {
+    catch (final ServletException se) {
       log("Error processing " + request.getRequestURL());
       assembler.executeError(response, se);
     }
-    catch (Exception e) {
+    catch (final Exception e) {
       assembler.executeError(response, e);
     }
     if (log.isInfoEnabled()) {
@@ -126,6 +138,7 @@ public class AssemblerServlet extends HttpServlet {
   /**
    * Clean up resources
    */
+  @Override
   public void destroy() {
     log.debug("destroy()");
     assembler = null;
@@ -143,7 +156,7 @@ public class AssemblerServlet extends HttpServlet {
     try {
       result = myContext.getAssemblerConf().getConfiguration().getAdminConfig().getAdminContext();
     }
-    catch (Exception e) {
+    catch (final Exception e) {
       myContext.warning(null, "Missing AdminContext configuration", e);
     }
     if (result == null) {

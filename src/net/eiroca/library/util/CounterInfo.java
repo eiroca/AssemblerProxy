@@ -31,14 +31,14 @@ public class CounterInfo {
   private long sucCount = 0;
   private long sucSeq = 0;
 
-  private int maxSeqErr = -1;
-  private int maxSeqSuc = -1;
+  private final int maxSeqErr = -1;
+  private final int maxSeqSuc = -1;
 
   public final static int ST_UNKNOWN = 0;
   public final static int ST_OK = 1;
   public final static int ST_ERROR = 2;
 
-  private int status = ST_UNKNOWN;
+  private int status = CounterInfo.ST_UNKNOWN;
 
   public CounterInfo() {
   }
@@ -47,22 +47,22 @@ public class CounterInfo {
    * @param err If true the last events was an error
    * @return The new state of the counter
    */
-  private final int checkError(boolean err) {
+  private final int checkError(final boolean err) {
     if (err) {
       switch (status) {
         case ST_UNKNOWN: {
           errSeq++;
           sucSeq = 0;
           if (errSeq > maxSeqErr) {
-            status = ST_ERROR;
+            status = CounterInfo.ST_ERROR;
             errSeq = 0;
           }
         }
         case ST_OK: {
-          status = ST_UNKNOWN;
+          status = CounterInfo.ST_UNKNOWN;
           errSeq = 1;
           if (errSeq > maxSeqErr) {
-            status = ST_ERROR;
+            status = CounterInfo.ST_ERROR;
             errSeq = 0;
           }
         }
@@ -76,17 +76,17 @@ public class CounterInfo {
           sucSeq++;
           errSeq = 0;
           if (sucSeq > maxSeqSuc) {
-            status = ST_OK;
+            status = CounterInfo.ST_OK;
             sucSeq = 0;
           }
         }
         case ST_OK: {
         }
         case ST_ERROR: {
-          status = ST_UNKNOWN;
+          status = CounterInfo.ST_UNKNOWN;
           sucSeq = 1;
           if (sucSeq > maxSeqSuc) {
-            status = ST_OK;
+            status = CounterInfo.ST_OK;
             sucSeq = 0;
           }
         }
@@ -100,7 +100,7 @@ public class CounterInfo {
    * @param err If true the events is an error
    * @return The state of the counter
    */
-  public synchronized int touch(boolean err) {
+  public synchronized int touch(final boolean err) {
     if (err) {
       lastError = System.currentTimeMillis();
       errCount++;
@@ -112,6 +112,7 @@ public class CounterInfo {
     return checkError(err);
   }
 
+  @Override
   public String toString() {
     return "State (" + status + ") Error=" + errCount + " Success=" + sucCount;
   }
